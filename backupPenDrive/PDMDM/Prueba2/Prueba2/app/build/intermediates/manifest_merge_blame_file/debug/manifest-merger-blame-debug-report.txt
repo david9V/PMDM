@@ -1,0 +1,113 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.prueba2"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:5:5-49:19
+12        android:allowBackup="true"
+12-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.8.0] C:\Users\David\.gradle\caches\transforms-3\28a1708219c3158e49b329d141e5cfff\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+14        android:dataExtractionRules="@xml/data_extraction_rules"
+14-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:7:9-65
+15        android:debuggable="true"
+16        android:fullBackupContent="@xml/backup_rules"
+16-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:8:9-54
+17        android:icon="@mipmap/ic_launcher"
+17-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:9:9-43
+18        android:label="@string/app_name"
+18-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:10:9-41
+19        android:roundIcon="@mipmap/ic_launcher_round"
+19-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:11:9-54
+20        android:supportsRtl="true"
+20-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:12:9-35
+21        android:testOnly="true"
+22        android:theme="@style/Theme.Prueba2" >
+22-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:13:9-45
+23        <activity
+23-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:15:9-27:20
+24            android:name="com.example.prueba2.prueba1.MainActivity"
+24-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:16:13-49
+25            android:exported="true" >
+25-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:17:13-36
+26            <intent-filter>
+26-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:18:13-22:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:19:17-69
+27-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:19:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:21:17-77
+29-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:21:27-74
+30            </intent-filter>
+31
+32            <meta-data
+32-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:24:13-26:36
+33                android:name="android.app.lib_name"
+33-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:25:17-52
+34                android:value="" />
+34-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:26:17-33
+35        </activity>
+36        <activity
+36-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:29:9-32:20
+37            android:name="com.example.prueba2.pruebaIntent.MainActivity"
+37-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:30:13-54
+38            android:exported="true" >
+38-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:31:13-36
+39        </activity>
+40        <activity
+40-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:34:9-37:20
+41            android:name="com.example.prueba2.pruebaIntent.MainActivity2"
+41-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:35:13-55
+42            android:exported="true" >
+42-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:36:13-36
+43        </activity>
+44        <activity
+44-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:39:9-42:20
+45            android:name="com.example.prueba2.pruebaIntent.DatosActivity"
+45-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:40:13-55
+46            android:exported="true" >
+46-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:41:13-36
+47        </activity>
+48        <activity
+48-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:44:9-48:20
+49            android:name="com.example.prueba2.proyectoCalculadora.MainActivity"
+49-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:45:13-61
+50            android:exported="true"
+50-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:46:13-36
+51            android:label="Calculadora" >
+51-->F:\PDMDM\Prueba2\Prueba2\app\src\main\AndroidManifest.xml:47:13-40
+52        </activity>
+53
+54        <provider
+54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\David\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+55            android:name="androidx.startup.InitializationProvider"
+55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\David\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+56            android:authorities="com.example.prueba2.androidx-startup"
+56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\David\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+57            android:exported="false" >
+57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\David\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+58            <meta-data
+58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\David\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+59                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\David\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+60                android:value="androidx.startup" />
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\David\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+61            <meta-data
+61-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\David\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+62                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+62-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\David\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+63                android:value="androidx.startup" />
+63-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\David\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+64        </provider>
+65    </application>
+66
+67</manifest>
