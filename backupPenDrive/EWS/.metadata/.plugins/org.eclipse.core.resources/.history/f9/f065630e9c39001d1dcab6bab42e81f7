@@ -1,0 +1,20 @@
+package pruebaMVC1;
+
+import java.util.Observable;
+
+public class Modelo extends Observable{
+	int valor;
+	
+	Modelo(){
+		valor = 0;
+	}
+	
+	void sumar() {
+		valor++;
+		notifyObservers();
+	}
+	
+	int obtenerValor() {
+		return valor;
+	}
+}

@@ -1,0 +1,34 @@
+package pruebaMVC1;
+
+import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Vista extends JFrame implements Observer{
+	JTextField valor;
+	JButton sumar;
+	
+	public Vista(Modelo modelo) {
+		setLayout(null);
+		sumar = new JButton("Finalizar");
+		add(sumar);
+		valor = new JTextField("Texto por defecto");
+		ActionListener controlador = new Controlador(modelo);
+		sumar.addActionListener(controlador);
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		Modelo modelo = (Modelo) o;
+		Integer i = new Integer(modelo.obtenerValor());
+		valor.setText(i.toString());
+	}
+	
+	public void activar() {
+		setVisible(true);
+	}
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libreria>
+<libro editorial="Anaya">
+<titulo>Aplicaciones web un enfoque práctico</titulo>
+<autores>
+<autor>David Roldan</autor>
+<autor>Pedro Valderas</autor>
+<autor>Oscar Pastor</autor>
+</autores>
+<fecha>10/05/2009</fecha>
+<isbn>12345678</isbn>
+</libro>
+<libro editorial="Mcgrawhill">
+<titulo>Comunicaciones inalámbricas</titulo>
+<autores>
+<autor>David Roldan</autor>
+</autores>
+<fecha>28/09/2004</fecha>
+<isbn>9888478976218</isbn>
+</libro>
+</libreria>

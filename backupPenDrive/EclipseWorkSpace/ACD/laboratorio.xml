@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compañia nombre="... Laboratorio Fisico"
+nombrecorto="LF"
+mision="Fabricación productos farmacéuticos">
+<jefe nombre="Ricardo Roca" telefono="954234567"/>
+<departamento nombre="Productos quimicos"
+mision="gestión productos farmacéuticos">
+<grupo nombre="GP1" numemple="20"/>
+<grupo nombre="GP2" numemple="15"/>
+<grupo nombre="GP3" numemple="25"/>
+<laboratorio nombre = "Antibióticos S.A.">
+Este laboratorio se encuentra situado en la ciudad de Sevilla.
+Cuenta con dos plantas de oficinas.
+Se fabrican todo tipo de medicamentos.
+</laboratorio>
+<laboratorio nombre = "Fharma S.A.">
+Este laboratorio tiene unos mil empleados
+que trabajan produciendo los medicamentos
+más eficaces del mercado
+</laboratorio>
+</departamento>
+<departamento nombre="Almacen"
+mision="Abastecimiento">
+<grupo nombre="A1" numemple="15"/>
+<grupo nombre="A2" numemple="10"/>
+</departamento>
+</compañia>

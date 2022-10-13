@@ -1,0 +1,22 @@
+package pruebaMVC1;
+
+import java.util.Observable;
+
+public class Modelo extends Observable{
+	int valor;
+	
+	Modelo(){
+		valor = 0;
+	}
+	
+	void sumar() {
+		System.out.println("Procedemos a incrementar el contador");
+		valor++;
+		setChanged();
+		notifyObservers();
+	}
+	
+	int obtenerValor() {
+		return valor;
+	}
+}

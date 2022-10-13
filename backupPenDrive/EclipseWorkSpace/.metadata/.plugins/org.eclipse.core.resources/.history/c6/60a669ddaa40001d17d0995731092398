@@ -1,0 +1,40 @@
+package ejercicioXML1;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class Main {
+	InputStreamReader isr = new InputStreamReader(System.in);
+	BufferedReader flujoE = new BufferedReader(isr);
+	PrintStream flujoS = System.out;
+	String nombre;
+	flujoS.print("Introduzca nombre del fichero XML: ");
+	nombre=flujoE.readLine();
+	File fich=new File(nombre);
+	if(fich.exists()){
+	try {
+	DocumentBuilderFactory factory =
+	DocumentBuilderFactory.newInstance();
+	DocumentBuilder builder = factory.newDocumentBuilder();
+	Document document = builder.parse(fich);
+	Element root = document.getDocumentElement();
+	// Combina nodos de textos de múltiples líneas y
+	// elimina nodos de texto vacíos
+	root.normalize();
+	printNodo(root, 0);
+	} catch (Exception e) {
+	e.printStackTrace();
+	}
+	}
+	else
+	System.out.println("No se encuentra el fichero XML");
+	}
+}

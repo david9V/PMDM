@@ -1,0 +1,6 @@
+#btnAceptar{
+   -fx-base: #b6e7c9;
+}
+#btnEliminar{
+   -fx-base: red;
+}

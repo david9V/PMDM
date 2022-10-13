@@ -1,0 +1,10 @@
+package pruebaMVC1;
+
+public class MVC {
+	public static void main(String args[]) {
+		Modelo modelo = new Modelo();
+		Vista vista = new Vista(modelo);
+		modelo.addObserver(vista);
+		vista.activar();
+	}
+}

@@ -1,0 +1,14 @@
+<empleados>
+    <empleado>
+        <id>1</id>
+        <apellido>Vilches</apellido>
+        <departamento>823</departamento>
+        <salario>8.1248912E7</salario>
+    </empleado>
+    <empleado>
+        <id>2</id>
+        <apellido>Sara</apellido>
+        <departamento>95</departamento>
+        <salario>5.0</salario>
+    </empleado>
+</empleados>
