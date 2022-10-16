@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ import com.example.prueba2.pruebaIntent.DatosActivity;
 public class MainActivity extends AppCompatActivity {
     ImageView fondo;
     Button start;
+    TextView intro;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         start = findViewById(R.id.bStart);
         start.setVisibility(View.GONE);
         start.setText(R.string.start);
+        intro = findViewById(R.id.textoIntro);
+        intro.setVisibility(View.GONE);
+        intro.setText(R.string.introJuegoGoku);
 
         cargar();
 
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 fondo.setVisibility(View.GONE);
                 start.setVisibility(View.VISIBLE);
+                intro.setVisibility(View.VISIBLE);
             }
         }, 2000); //SEGUNDOS (1000 = 1s)
     }

@@ -1,9 +1,14 @@
 package com.example.prueba2.rockpaperscissors;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +21,8 @@ import java.util.Random;
 
 public class RunningActivity extends AppCompatActivity implements View.OnClickListener{
     TextView textoGoku;
+    TextView tcJugador;
+    TextView tcGoku;
 
     ImageButton piedra;
     ImageButton papel;
@@ -30,6 +37,9 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
     ImageView mondongo;
     ImageView gokuDrip;
 
+
+    int pJugador = 0;
+    int pGoku = 0;
     boolean flag = false;
 
     @SuppressLint("MissingInflatedId")
@@ -39,6 +49,10 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.rps2);
         textoGoku = findViewById(R.id.textoGoku);
         textoGoku.setText(R.string.goku_waiting);
+        tcJugador = findViewById(R.id.contadorJugador);
+        tcGoku = findViewById(R.id.contadorGoku);
+        tcJugador.setText(String.valueOf(pJugador));
+        tcGoku.setText(String.valueOf(pGoku));
 
         piedra = findViewById(R.id.bRock);
         papel = findViewById(R.id.bPaper);
@@ -63,20 +77,31 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         int id = view.getId();
         if (!flag){
+            flag = true;
             switch (id){
                 case R.id.bScissors:
+                    animarBoton(tijeras);
+                    desaparecer(piedra);
+                    desaparecer(papel);
                     new Handler().postDelayed(() -> textoGoku.setText(calcularResultadoFinal(calcularResultadoTijeras(calcularTiradaDeGoku()))), 1500);
                     break;
                 case R.id.bRock:
+                    animarBoton(piedra);
+                    desaparecer(tijeras);
+                    desaparecer(papel);
                     new Handler().postDelayed(() -> textoGoku.setText(calcularResultadoFinal(calcularResultadoPiedra(calcularTiradaDeGoku()))), 1500);
                     break;
                 case R.id.bPaper:
+                    animarBoton(papel);
+                    desaparecer(piedra);
+                    desaparecer(tijeras);
                     new Handler().postDelayed(() -> textoGoku.setText(calcularResultadoFinal(calcularResultadoPapel(calcularTiradaDeGoku()))), 1500);
                     break;
             }
             new Handler().postDelayed(() -> reset(), 3500);
 
         }
+
 
     }
 
@@ -85,18 +110,18 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
         String res = "";
         if (n == 0){
             res = "Piedra";
-            piedraGoku.setVisibility(View.VISIBLE);
+            aparecer(piedraGoku);
             tijerasGoku.setVisibility(View.INVISIBLE);
             papelGoku.setVisibility(View.INVISIBLE);
         } else if (n == 1){
             res = "Papel";
             piedraGoku.setVisibility(View.INVISIBLE);
             tijerasGoku.setVisibility(View.INVISIBLE);
-            papelGoku.setVisibility(View.VISIBLE);
+            aparecer(papelGoku);
         } else if (n == 2){
             res = "Tijeras";
             piedraGoku.setVisibility(View.INVISIBLE);
-            tijerasGoku.setVisibility(View.VISIBLE);
+            aparecer(tijerasGoku);
             papelGoku.setVisibility(View.INVISIBLE);
         }
         return res;
@@ -141,14 +166,11 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
     public String calcularResultadoFinal(int n){
         String res = "";
         if (n == -1){
-            res = "Derrota";
-            perder();
+            new Handler().postDelayed(() -> perder(), 500);
         } else if (n == 0){
-            res = "Empate";
-            empatar();
+            new Handler().postDelayed(() -> empatar(), 500);
         } else{
-            res = "Victoria";
-            ganar();
+            new Handler().postDelayed(() -> ganar(), 500);
         }
         return res;
     }
@@ -158,6 +180,12 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
         taMal.setVisibility(View.VISIBLE);
         taBien.setVisibility(View.INVISIBLE);
         mondongo.setVisibility(View.INVISIBLE);
+        pJugador++;
+        animarNumero(tcJugador);
+        tcJugador.setText(String.valueOf(pJugador));
+        if (pJugador == 3){
+            finBueno();
+        }
     }
 
     public void perder(){
@@ -165,6 +193,12 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
         taMal.setVisibility(View.INVISIBLE);
         taBien.setVisibility(View.INVISIBLE);
         mondongo.setVisibility(View.VISIBLE);
+        pGoku++;
+        animarNumero(tcGoku);
+        tcGoku.setText(String.valueOf(pGoku));
+        if (pGoku == 3){
+            finMalo();
+        }
     }
 
     public void empatar(){
@@ -183,6 +217,80 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
         piedraGoku.setVisibility(View.INVISIBLE);
         tijerasGoku.setVisibility(View.INVISIBLE);
         papelGoku.setVisibility(View.INVISIBLE);
-        flag = true;
+        flag = false;
+    }
+
+    public void animarBoton(ImageButton b){
+        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        b.startAnimation(animation);
+    }
+
+    public void desaparecer(ImageButton b){
+        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.fade);
+        final Animation animation2 = AnimationUtils.loadAnimation(this, R.anim.fade2);
+        b.startAnimation(animation);
+        b.startAnimation(animation2);
+    }
+
+    public void aparecer(ImageView b){
+        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        b.startAnimation(animation);
+    }
+
+    public void animarNumero(TextView t){
+        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.bounce2);
+        t.startAnimation(animation);
+    }
+
+    public void finBueno(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("¡Has ganado!");
+        builder.setMessage("¡Felicidades! Has ganado a goku, ¿quieres jugar de nuevo o salir?");
+        builder.setPositiveButton("Jugar de nuevo",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        pJugador = 0;
+                        pGoku = 0;
+                        tcJugador.setText(String.valueOf(pJugador));
+                        tcGoku.setText(String.valueOf(pGoku));
+                    }
+                });
+        builder.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAndRemoveTask();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void finMalo(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Has perdido...");
+        builder.setMessage("No te preocupes, la próxima vez será... Es que goku a piedra, papel o tijeras es de los mejores.");
+        builder.setPositiveButton("Intentar de nuevo",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        pJugador = 0;
+                        pGoku = 0;
+                        tcJugador.setText(String.valueOf(pJugador));
+                        tcGoku.setText(String.valueOf(pGoku));
+                    }
+                });
+        builder.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAndRemoveTask();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

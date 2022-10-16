@@ -17,7 +17,11 @@
 
     <string name="start">Start</string>
 
-    <string name="goku_waiting">Come on try to beat me boy</string>
+    <string name="goku_waiting">Come on kid, try to beat me >:)</string>
     <string name="goku_waiting2">Let\'s go again!</string>
+    <string name="ganas">Victory</string>
+    <string name="pierdes">Defeat</string>
+    <string name="empatas">Tie</string>
+    <string name="introJuegoGoku">In this app you will play against goku the classic game of rock, paper or scissors, enjoy!</string>
 
 </resources>

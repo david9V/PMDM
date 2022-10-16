@@ -9,7 +9,12 @@
     <string name="password">Clave:</string>
     <string name="start">Empezar</string>
 
-    <string name="goku_waiting">Venga intenta ganarme chaval</string>
+    <string name="goku_waiting">Venga chaval, intenta ganarme >:)</string>
     <string name="goku_waiting2">¡Vamos otra vez!</string>
-    
+    <string name="ganas">Victoria</string>
+    <string name="pierdes">¡Derrota!</string>
+    <string name="empatas">¡Empate!</string>
+    <string name="introJuegoGoku">En esta app jugarás contra goku al clásico juego de piedra, papel o tijeras, ¡disfruta!</string>
+
+
 </resources>
