@@ -46,6 +46,30 @@
             android:exported="true"
             android:label="Calculadora">
         </activity>
+
+        <activity
+            android:name=".elementosGraficos.MainActivity"
+            android:exported="true"
+            android:label="Calculadora">
+        </activity>
+
+        <activity
+            android:name=".actividadInternacionalizacion.MainActivity"
+            android:exported="true"
+            android:label="App de David">
+        </activity>
+
+        <activity
+            android:name=".rockpaperscissors.MainActivity"
+            android:exported="true"
+            android:label="Piedra, papel o tijeras">
+        </activity>
+
+        <activity
+            android:name=".rockpaperscissors.RunningActivity"
+            android:exported="true"
+            android:label="Piedra, papel o tijeras">
+        </activity>
     </application>
 
 

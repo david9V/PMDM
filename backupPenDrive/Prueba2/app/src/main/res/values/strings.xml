@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Prueba App</string>
+
+    <string name="intro">Bienvenido al formulario de registro!</string>
+    <string name="action_settings">Configuración</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellidos">Apellidos:</string>
+    <string name="email">Email:</string>
+    <string name="password">Clave:</string>
+    <string name="start">Empezar</string>
+
+    <string name="goku_waiting">Venga intenta ganarme chaval</string>
+    <string name="goku_waiting2">¡Vamos otra vez!</string>
+    
 </resources>

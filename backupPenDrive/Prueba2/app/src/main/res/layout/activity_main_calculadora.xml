@@ -39,15 +39,14 @@
                 android:textSize="48sp" />
 
             <Button
-                android:id="@+id/bRaiz"
+                android:id="@+id/bPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                android:backgroundTint="#675B5B"
+                android:layout_marginLeft="2dp"
+                android:backgroundTint="#B52121"
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="10dp"
-                android:text="√"
+                android:text="CE"
                 android:textSize="48sp" />
 
             <Button
@@ -222,14 +221,15 @@
                 android:textSize="48sp" />
 
             <Button
-                android:id="@+id/bPercent"
+                android:id="@+id/bRaiz"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:layout_marginLeft="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
                 android:backgroundTint="#675B5B"
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="10dp"
-                android:text="%"
+                android:text="√"
                 android:textSize="48sp" />
 
         </TableRow>

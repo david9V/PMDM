@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Internacionalization</string>
+
+    <string name="intro">Welcome to sign up form</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="nombre">Name:</string>
+
+    <string name="apellidos">Surname:</string>
+
+    <string name="email">Email:</string>
+
+    <string name="password">Password:</string>
+
+    <string name="start">Start</string>
+
+    <string name="goku_waiting">Come on try to beat me boy</string>
+    <string name="goku_waiting2">Let\'s go again!</string>
+
+</resources>

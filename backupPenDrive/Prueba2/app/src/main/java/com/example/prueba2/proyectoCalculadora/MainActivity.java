@@ -11,7 +11,7 @@ import com.example.prueba2.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     Button n0, n1, n2, n3, n4, n5, n6,  n7, n8, n9, nIgual, nRestar, nSumar, nDividir, nMultiplicar;
-    Button nBorrar, nRaiz, nPorcentaje, nPunto;
+    Button nBorrar, nRaiz, nCe, nPunto;
     TextView resultado;
     Boolean suma;
     Boolean resta;
@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         nBorrar.setOnClickListener(this);
         nRaiz = findViewById(R.id.bRaiz);
         nRaiz.setOnClickListener(this);
-        nPorcentaje = findViewById(R.id.bPercent);
-        nPorcentaje.setOnClickListener(this);
+        nCe = findViewById(R.id.bPercent);
+        nCe.setOnClickListener(this);
         nPunto = findViewById(R.id.bDot);
         nPunto.setOnClickListener(this);
 
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.b8){
             if (sustituirNumInicial(resultado.getText().toString())){
                 resultado.setText("8");
-            } resultado.append("8");
+            } else resultado.append("8");
         }
         if (id == R.id.b9){
             if (sustituirNumInicial(resultado.getText().toString())){
@@ -231,11 +231,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             porcentaje = false;
         }
         if (id == R.id.bC){
+
+            resultado.setText("");
+        }
+        if (id == R.id.bPercent){
+
             check = resultado.getText().toString();
             if(check.length() > 0){
                 String aux = check.substring(0, check.length() - 1);
                 resultado.setText(aux);
             }
+
         }
         if (id == R.id.bRaiz && !sustituirNumInicial(resultado.getText().toString())){
             check = resultado.getText().toString();
@@ -257,25 +263,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             porcentaje = false;
         }
 
-        if (id == R.id.bPercent && !sustituirNumInicial(resultado.getText().toString())){
-            check = resultado.getText().toString();
-            if (check.charAt(check.length() - 1) != '%'){
-                if(check.charAt(check.length() - 1) == '+' || check.charAt(check.length() - 1) == '/' || check.charAt(check.length() - 1) == '-' || check.charAt(check.length() - 1) == '√' || check.charAt(check.length() - 1) == 'x'){
-                    String aux = check.substring(0, check.length() - 1);
-                    aux += "%";
-                    resultado.setText(aux);
-                }  else { // se pone el mas
-                    resultado.append("%");
-                }
-            }
-
-            suma = false;
-            resta = false;
-            multiplicacion = false;
-            division = false;
-            raiz = false;
-            porcentaje = true;
-        }
         if (id == R.id.bDot && !sustituirNumInicial(resultado.getText().toString())){
             check = resultado.getText().toString();
             if (check.charAt(check.length() - 1) != '.'){

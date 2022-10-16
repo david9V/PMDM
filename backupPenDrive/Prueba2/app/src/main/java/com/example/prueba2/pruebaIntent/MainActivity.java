@@ -15,12 +15,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_act_intent);
         Button bPasarDatos = (Button) findViewById(R.id.bDatos);
-        bPasarDatos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                lanzarIntent(view);
-            }
-        });
+        bPasarDatos.setOnClickListener(view -> lanzarIntent(view));
 
 
     }

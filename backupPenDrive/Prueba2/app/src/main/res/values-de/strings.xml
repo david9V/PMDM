@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Internacionalization</string>
+
+    <string name="intro">Willkommen zu anmeldung Formular!</string>
+
+    <string name="action_settings">Einstellungen</string>
+
+    <string name="nombre">Vorname:</string>
+
+    <string name="apellidos">Nachname:</string>
+
+    <string name="email">Email:</string>
+
+    <string name="password">Passwort:</string>
+
+    <string name="start">Anfang</string>
+
+    <string name="goku_waiting">Kom op probeer me te verslaan jongen</string>
+    <string name="goku_waiting2">Laten we opnieuw gaan!</string>
+
+</resources>
