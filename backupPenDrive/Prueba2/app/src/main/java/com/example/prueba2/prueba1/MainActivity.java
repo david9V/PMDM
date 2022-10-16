@@ -1,55 +1,65 @@
 package com.example.prueba2.prueba1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.prueba2.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
+    ImageView fondo;
+    Button start;
+    TextView intro;
 
-    TextView texto1;
-    TextView texto2;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        texto1 = (TextView)findViewById(R.id.textView);
-        texto1.setOnClickListener(this);
-        texto2 = (TextView)findViewById(R.id.textView2);
-        texto2.setOnClickListener(this);
+        setContentView(R.layout.rockpaperscissors);
+        fondo = findViewById(R.id.icono);
+        start = findViewById(R.id.bStart);
+        start.setVisibility(View.GONE);
+        start.setText(R.string.start);
+        intro = findViewById(R.id.textoIntro);
+        intro.setVisibility(View.GONE);
+        intro.setText(R.string.introJuegoGoku);
 
-        Button boton = (Button) findViewById(R.id.button2);
-        boton.setOnClickListener(new View.OnClickListener() {
+        cargar();
+
+        start.setOnClickListener(view -> lanzarIntent(view));
+    }
+
+    public void cargar(){ //muestra icono y tras 3s da la opción de empezar el juego
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Se ha hecho click en el botón de la esquina", Toast.LENGTH_SHORT).show();
-                Log.i("CICLO VIDA", "metodo onClick");
+            public void run() {
+                fondo.setVisibility(View.GONE);
+                start.setVisibility(View.VISIBLE);
+                intro.setVisibility(View.VISIBLE);
             }
-        });
+        }, 2000); //SEGUNDOS (1000 = 1s)
     }
 
-    @Override
-    public void onClick(View view) { // forma 3
-        int id = view.getId();
-        if (id == R.id.textView){
-            Toast.makeText(MainActivity.this, "Se ha hecho click en el texto 'Hola'", Toast.LENGTH_SHORT).show();
-        } else{
-            Toast.makeText(MainActivity.this, "Se ha hecho click en el texto 'Hello David'", Toast.LENGTH_LONG).show();
-        }
+    public void lanzarIntent(View view){
+        Intent intent = new Intent(MainActivity.this, RunningActivity.class);
+        startActivity(intent);
     }
-
-    public void ejemplo1(View view){ // forma 1
-        Toast.makeText(MainActivity.this, "Se ha hecho click en el botón", Toast.LENGTH_SHORT).show();
-    }
-
-
-
-
-
 }
+
+
+
+/*
+new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                   //CODIGO CUALQUIERA
+                }
+            }, 3000); //SEGUNDOS (1000 = 1s)
+ */

@@ -70,6 +70,12 @@
             android:exported="true"
             android:label="Piedra, papel o tijeras">
         </activity>
+
+        <activity
+            android:name=".prueba1.RunningActivity"
+            android:exported="true"
+            android:label="Piedra, papel o tijeras">
+        </activity>
     </application>
 
 
