@@ -76,6 +76,12 @@
             android:exported="true"
             android:label="Piedra, papel o tijeras">
         </activity>
+
+        <activity
+            android:name=".hangmanGame.MainActivity"
+            android:exported="true"
+            android:label="Hangman game">
+        </activity>
     </application>
 
 

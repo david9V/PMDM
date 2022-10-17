@@ -16,5 +16,5 @@
     <string name="empatas">¡Empate!</string>
     <string name="introJuegoGoku">En esta app jugarás contra goku al clásico juego de piedra, papel o tijeras, ¡disfruta!</string>
 
-
+    <string name="introHangman">¡Bienvenido al juego del ahorcado! Antes de empezar elige un tema...</string>
 </resources>
