@@ -45,8 +45,8 @@ public class ActInsertCafe2 {
 
 		    System.out.println("Desea insertar otro registro? (S/N)");
 		    String end = reader.readLine();
-		    if (end.compareTo("S") != 0) flag = true;
-		} while (flag != true);
+		    if (end.equals("S")) flag = true;
+		} while (flag == false);
 		return instruccion;
 	}
 }
