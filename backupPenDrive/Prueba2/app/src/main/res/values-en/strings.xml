@@ -23,5 +23,6 @@
     <string name="pierdes">Defeat</string>
     <string name="empatas">Tie</string>
     <string name="introJuegoGoku">In this app you will play against goku the classic game of rock, paper or scissors, enjoy!</string>
+    <string name="introHangman">Welcome to the hangman game! Before you start choose a topic...</string>
 
 </resources>
