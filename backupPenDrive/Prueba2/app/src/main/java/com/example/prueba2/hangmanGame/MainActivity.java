@@ -3,6 +3,7 @@ package com.example.prueba2.hangmanGame;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,13 @@ import com.example.prueba2.R;
 public class MainActivity extends AppCompatActivity {
     ImageView intro;
     ImageView loading;
+    Button bAnimal;
+    Button bDeporte;
+    Button bRopa;
+    Button bHerramienta;
+    Button bPais;
+    Button bComida;
+
 
     TextView textoIntro;
 
@@ -27,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         Glide.with(this).load(R.drawable.hangman_intro).into(intro);
         Glide.with(this).load(R.drawable.loading).into(loading);
+
+        bAnimal = findViewById(R.id.bAnimales);
+        bDeporte = findViewById(R.id.bDeporte);
+        bRopa = findViewById(R.id.bRopa);
+        bHerramienta = findViewById(R.id.bHerramientas);
+        bPais = findViewById(R.id.bPaises);
+        bComida = findViewById(R.id.bComida);
 
         textoIntro = findViewById(R.id.infoHangman);
 
@@ -43,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
                 loading.setVisibility(View.GONE);
                 textoIntro.setVisibility(View.VISIBLE);
                 textoIntro.setText(R.string.introHangman);
+
+                bAnimal.setVisibility(View.VISIBLE);
+                bDeporte.setVisibility(View.VISIBLE);
+                bRopa.setVisibility(View.VISIBLE);
+                bHerramienta.setVisibility(View.VISIBLE);
+                bPais.setVisibility(View.VISIBLE);
+                bComida.setVisibility(View.VISIBLE);
             }
         }, 6000); //SEGUNDOS (1000 = 1s)
     }

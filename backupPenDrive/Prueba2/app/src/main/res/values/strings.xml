@@ -17,4 +17,12 @@
     <string name="introJuegoGoku">En esta app jugarás contra goku al clásico juego de piedra, papel o tijeras, ¡disfruta!</string>
 
     <string name="introHangman">¡Bienvenido al juego del ahorcado! Antes de empezar elige un tema...</string>
+    <string name="animals"></string>
+    <string name="tools"></string>
+    <string name="food"></string>
+    <string name="countries"></string>
+    <string name="clothes"></string>
+    <string name="sports"></string>
+
+
 </resources>
