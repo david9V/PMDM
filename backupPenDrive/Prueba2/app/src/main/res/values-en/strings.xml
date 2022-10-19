@@ -24,5 +24,21 @@
     <string name="empatas">Tie</string>
     <string name="introJuegoGoku">In this app you will play against goku the classic game of rock, paper or scissors, enjoy!</string>
     <string name="introHangman">Welcome to the hangman game! Before you start choose a topic...</string>
+    <string name="animals">animals</string>
+    <string name="tools">Tools</string>
+    <string name="food">Food</string>
+    <string name="countries">Countries</string>
+    <string name="clothes">Clothes</string>
+    <string name="sports">Sports</string>
 
+    <string-array name="sports_array">
+        <item>swimming</item>
+        <item>tennis</item>
+        <item>athletics</item>
+        <item>basketball</item>
+        <item>boxing</item>
+        <item>cycling</item>
+        <item>fencing</item>
+        <item>football</item>
+    </string-array>
 </resources>

@@ -17,12 +17,77 @@
     <string name="introJuegoGoku">En esta app jugarás contra goku al clásico juego de piedra, papel o tijeras, ¡disfruta!</string>
 
     <string name="introHangman">¡Bienvenido al juego del ahorcado! Antes de empezar elige un tema...</string>
-    <string name="animals"></string>
-    <string name="tools"></string>
-    <string name="food"></string>
-    <string name="countries"></string>
-    <string name="clothes"></string>
-    <string name="sports"></string>
+    <string name="animals">Animales</string>
+    <string name="tools">Herramientas</string>
+    <string name="food">Comida</string>
+    <string name="countries">Países</string>
+    <string name="clothes">Ropa</string>
+    <string name="sports">Deportes</string>
 
+    <string-array name="sports_array">
+        <item>natación</item>
+        <item>tenis</item>
+        <item>atletismo</item>
+        <item>baloncesto</item>
+        <item>boxeo</item>
+        <item>ciclismo</item>
+        <item>esgrima</item>
+        <item>fútbol</item>
+    </string-array>
+
+    <string-array name="countries_array">
+        <item>Kenya</item>
+        <item>Eslovenia</item>
+        <item>Jersey</item>
+        <item>Montenegro</item>
+        <item>Rusia</item>
+        <item>Irán</item>
+        <item>Taiwán</item>
+        <item>Gabón</item>
+    </string-array>
+
+    <string-array name="animals_array">
+        <item>Higuana</item>
+        <item>Hamster</item>
+        <item>Rinoceronte</item>
+        <item>Buitre</item>
+        <item>Bisonte</item>
+        <item>Salamandra</item>
+        <item>Jabalí</item>
+        <item>Loro</item>
+    </string-array>
+
+    <string-array name="food_array">
+        <item>Tartar</item>
+        <item>Udon</item>
+        <item>Paszteciki</item>
+        <item>Paella</item>
+        <item>Gula</item>
+        <item>Ensalada</item>
+        <item>Hamburguesa</item>
+        <item>Kebab</item>
+    </string-array>
+
+    <string-array name="tools_array">
+        <item>Destornillador</item>
+        <item>Martillo</item>
+        <item>Mazi</item>
+        <item>Troquel</item>
+        <item>Pico</item>
+        <item>Lima</item>
+        <item>Soplete</item>
+        <item>Metro</item>
+    </string-array>
+
+    <string-array name="clothes_array">
+        <item>Anorak</item>
+        <item>Medias</item>
+        <item>Corbata</item>
+        <item>Burka</item>
+        <item>Tutu</item>
+        <item>Sandalias</item>
+        <item>Bermudas</item>
+        <item>Crocs</item>
+    </string-array>
 
 </resources>

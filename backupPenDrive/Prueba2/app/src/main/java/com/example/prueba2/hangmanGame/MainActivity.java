@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.prueba2.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     ImageView intro;
     ImageView loading;
     Button bAnimal;
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button bPais;
     Button bComida;
 
+    String[] palabras;
 
     TextView textoIntro;
 
@@ -42,8 +43,22 @@ public class MainActivity extends AppCompatActivity {
         bHerramienta = findViewById(R.id.bHerramientas);
         bPais = findViewById(R.id.bPaises);
         bComida = findViewById(R.id.bComida);
+        bAnimal.setText(R.string.animals);
+        bDeporte.setText(R.string.sports);
+        bRopa.setText(R.string.clothes);
+        bHerramienta.setText(R.string.tools);
+        bPais.setText(R.string.countries);
+        bComida.setText(R.string.food);
+
+        bAnimal.setOnClickListener(this);
+        bDeporte.setOnClickListener(this);
+        bRopa.setOnClickListener(this);
+        bHerramienta.setOnClickListener(this);
+        bPais.setOnClickListener(this);
+        bComida.setOnClickListener(this);
 
         textoIntro = findViewById(R.id.infoHangman);
+
 
 
         cargar();
@@ -68,4 +83,30 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 6000); //SEGUNDOS (1000 = 1s)
     }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id){
+            case R.id.bAnimales:
+                palabras = getResources().getStringArray(R.array.animals_array);
+                break;
+            case R.id.bComida:
+                palabras = getResources().getStringArray(R.array.food_array);
+                break;
+            case R.id.bDeporte:
+                palabras = getResources().getStringArray(R.array.sports_array);
+                break;
+            case R.id.bHerramientas:
+                palabras = getResources().getStringArray(R.array.tools_array);
+                break;
+            case R.id.bRopa:
+                palabras = getResources().getStringArray(R.array.clothes_array);
+                break;
+            case R.id.bPaises:
+                palabras = getResources().getStringArray(R.array.countries_array);
+                break;
+        }
+    }
+
 }

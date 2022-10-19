@@ -53,7 +53,7 @@
         android:layout_width="124dp"
         android:layout_height="69dp"
         android:backgroundTint="#56DC4D"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Button"
         android:textColor="#000000"
@@ -61,35 +61,17 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
-
-    <Button
-        android:id="@+id/bAnimales"
-        android:layout_width="124dp"
-        android:layout_height="69dp"
-        android:backgroundTint="#56DC4D"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:text="Button"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469" />
+        app:layout_constraintVertical_bias="0.332" />
 
     <Button
         android:id="@+id/bHerramientas"
         android:layout_width="124dp"
         android:layout_height="69dp"
         android:backgroundTint="#56DC4D"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Button"
         android:textColor="#000000"
@@ -97,17 +79,17 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.712" />
+        app:layout_constraintVertical_bias="0.805" />
 
     <Button
         android:id="@+id/bPaises"
         android:layout_width="124dp"
         android:layout_height="69dp"
         android:backgroundTint="#56DC4D"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Button"
         android:textColor="#000000"
@@ -115,35 +97,17 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintHorizontal_bias="0.829"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintVertical_bias="0.332" />
 
     <Button
         android:id="@+id/bComida"
         android:layout_width="124dp"
         android:layout_height="69dp"
         android:backgroundTint="#56DC4D"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:text="Button"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.808"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469" />
-
-    <Button
-        android:id="@+id/bRopa"
-        android:layout_width="124dp"
-        android:layout_height="69dp"
-        android:backgroundTint="#56DC4D"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Button"
         android:textColor="#000000"
@@ -154,7 +118,43 @@
         app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.712" />
+        app:layout_constraintVertical_bias="0.561" />
+
+    <Button
+        android:id="@+id/bRopa"
+        android:layout_width="124dp"
+        android:layout_height="69dp"
+        android:backgroundTint="#56DC4D"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="Button"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.805" />
+
+    <Button
+        android:id="@+id/bAnimales"
+        android:layout_width="124dp"
+        android:layout_height="69dp"
+        android:backgroundTint="#56DC4D"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="Button"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.561" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"

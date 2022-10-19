@@ -24,5 +24,11 @@
     <string name="ganas">Sieg</string>
     <string name="introJuegoGoku">In dieser App spielst du gegen Goku, das klassische Spiel Stein, Papier oder Schere, viel Spaß!</string>
     <string name="introHangman">Willkommen beim Henkerspiel! Bevor Sie beginnen, wählen Sie ein Thema...</string>
+    <string name="tools">Werkzeug</string>
+    <string name="animals">Tiere</string>
+    <string name="food">Essen</string>
+    <string name="countries">Länder</string>
+    <string name="clothes">Kleidung</string>
+    <string name="sports">Sport</string>
 
 </resources>
