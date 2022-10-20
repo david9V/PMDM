@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void lanzarIntent(View view){
-        Intent intent = new Intent(com.example.prueba2.hangmanGame.MainActivity.this, RunningActivity.class);
+        Intent intent = new Intent(com.example.prueba2.hangmanGame.MainActivity.this, com.example.prueba2.hangmanGame.RunningActivity.class);
         Bundle b = new Bundle();
         b.putStringArray("palabras", palabras);
         intent.putExtras(b);

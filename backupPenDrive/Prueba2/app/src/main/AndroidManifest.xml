@@ -82,6 +82,12 @@
             android:exported="true"
             android:label="Hangman game">
         </activity>
+
+        <activity
+            android:name=".hangmanGame.RunningActivity"
+            android:exported="true"
+            android:label="Hangman game">
+        </activity>
     </application>
 
 
