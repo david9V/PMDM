@@ -1,5 +1,6 @@
 package com.example.prueba2.hangmanGame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.prueba2.R;
+import com.example.prueba2.rockpaperscissors.RunningActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     ImageView intro;
@@ -107,6 +109,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 palabras = getResources().getStringArray(R.array.countries_array);
                 break;
         }
+        lanzarIntent(view);
+    }
+
+    public void lanzarIntent(View view){
+        Intent intent = new Intent(com.example.prueba2.hangmanGame.MainActivity.this, RunningActivity.class);
+        Bundle b = new Bundle();
+        b.putStringArray("palabras", palabras);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 
 }
