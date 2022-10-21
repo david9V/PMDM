@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String args[]) throws SQLException, NumberFormatException, IOException {
 		CafeBD bd = new CafeBD();
-		insertarDatosBD(bd);
+		insertarDatosBD(bd); // 172.17.0.2
 		menu(bd);
 	}
 
@@ -60,18 +60,25 @@ public class Main {
 			case 4 -> {
 				System.out.println("Introduzca el nombre del café a mostrar");
 				String nombre = reader.readLine();
-				System.out.println(bd.mostrarCafe(nombre));
+				try {					
+					System.out.println(bd.mostrarCafe(nombre));
+				} catch (SQLException e) {
+					System.out.println("Ha ocurrido un error al intentar mostrar la entrada");
+				}
 			}
 			case 5 -> {
-				ArrayList<Cafe> l = bd.mostrarTodos();
-
-				for (Cafe c : l) {
-					System.out.println(c);
+				try {
+					ArrayList<Cafe> l = bd.mostrarTodos();		
+					for (Cafe c : l) {
+						System.out.println(c);
+					}
+				} catch(SQLException e) {
+					System.out.println("Ha ocurrido un erro al intentar listar todas las entradas");
 				}
 			}
 			}
 		} while (opc < 6);
-		
+		bd.finalizarSentencia();
 		bd.conexion.cerrarConexion();
 	}
 

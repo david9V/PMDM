@@ -60,52 +60,44 @@ public class CafeBD {
 		return error;
 	}
 
-	Cafe mostrarCafe(String nombreCafe) {
+	Cafe mostrarCafe(String nombreCafe) throws SQLException {
 		Cafe cBuscado = new Cafe();
 		this.instruccion = "SELECT * FROM CAFES";
-		try {
-			this.sentencia = conexion.getConexion().createStatement();
-			ResultSet rs = this.sentencia.executeQuery(this.instruccion);
-			while (rs.next()) {
-				String nombre = rs.getString("CAFE_NOMBRE");
-				if (nombre.equals(nombreCafe)) {
-					cBuscado.setCafe_nombre(nombre);
-					cBuscado.setProv_id(rs.getInt("PROV_ID"));
-					cBuscado.setPrecio(rs.getFloat("PRECIO"));
-					cBuscado.setVentas(rs.getInt("VENTAS"));
-					cBuscado.setTotal(rs.getInt("TOTAL"));
-				}
+		this.sentencia = conexion.getConexion().createStatement();
+		ResultSet rs = this.sentencia.executeQuery(this.instruccion);
+		while (rs.next()) {
+			String nombre = rs.getString("CAFE_NOMBRE");
+			if (nombre.equals(nombreCafe)) {
+				cBuscado.setCafe_nombre(nombre);
+				cBuscado.setProv_id(rs.getInt("PROV_ID"));
+				cBuscado.setPrecio(rs.getFloat("PRECIO"));
+				cBuscado.setVentas(rs.getInt("VENTAS"));
+				cBuscado.setTotal(rs.getInt("TOTAL"));
 			}
-			this.sentencia.clearBatch();
-			rs.close();
-		} catch (SQLException e) {
-			System.out.println("Error al intentar mostrar la entrada");
 		}
-		
+		this.sentencia.clearBatch();
+		rs.close();
+
 		return cBuscado;
 	}
 
-	ArrayList<Cafe> mostrarTodos() {
+	ArrayList<Cafe> mostrarTodos() throws SQLException {
 		this.instruccion = "SELECT * FROM CAFES";
 		ArrayList<Cafe> lista = new ArrayList<>();
-		try {
-			this.sentencia = conexion.getConexion().createStatement();
-			ResultSet rs = this.sentencia.executeQuery(this.instruccion);
-			while (rs.next()) {
-				Cafe c = new Cafe();
-				c.setCafe_nombre(rs.getString("CAFE_NOMBRE"));
-				c.setProv_id(rs.getInt("PROV_ID"));
-				c.setPrecio(rs.getFloat("PRECIO"));
-				c.setVentas(rs.getInt("VENTAS"));
-				c.setTotal(rs.getInt("TOTAL"));
-				lista.add(c);
-			}
-			this.sentencia.clearBatch();
-			rs.close();
-		} catch (SQLException e) {
-			System.out.println("Error al intentar listar las todas entradas");
+		this.sentencia = conexion.getConexion().createStatement();
+		ResultSet rs = this.sentencia.executeQuery(this.instruccion);
+		while (rs.next()) {
+			Cafe c = new Cafe();
+			c.setCafe_nombre(rs.getString("CAFE_NOMBRE"));
+			c.setProv_id(rs.getInt("PROV_ID"));
+			c.setPrecio(rs.getFloat("PRECIO"));
+			c.setVentas(rs.getInt("VENTAS"));
+			c.setTotal(rs.getInt("TOTAL"));
+			lista.add(c);
 		}
-		
+		this.sentencia.clearBatch();
+		rs.close();
+
 		return lista;
 	}
 
