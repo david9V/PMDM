@@ -15,6 +15,10 @@ public class Cafe {
 		this.ventas = ventas;
 		this.total = total;
 	}
+	
+	public Cafe() {
+		
+	}
 
 	public String getCafe_nombre() {
 		return cafe_nombre;
@@ -38,6 +42,12 @@ public class Cafe {
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	@Override
+	public String toString() {
+		return "[cafe_nombre=" + cafe_nombre + ", prov_id=" + prov_id + ", precio=" + precio + ", ventas=" + ventas
+				+ ", total=" + total + "]";
 	}
 
 	public int getVentas() {
