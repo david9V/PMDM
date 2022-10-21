@@ -28,60 +28,70 @@
                 android:id="@+id/bQ"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="Q" />
 
             <Button
                 android:id="@+id/bW"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="W" />
 
             <Button
                 android:id="@+id/bE"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="E" />
 
             <Button
                 android:id="@+id/bR"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="R" />
 
             <Button
                 android:id="@+id/bT"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="T" />
 
             <Button
                 android:id="@+id/bY"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="Y" />
 
             <Button
                 android:id="@+id/bU"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="U" />
 
             <Button
                 android:id="@+id/bI"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="I" />
 
             <Button
                 android:id="@+id/bO"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="O" />
 
             <Button
                 android:id="@+id/bP"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="P" />
         </TableRow>
 
@@ -94,60 +104,70 @@
                 android:id="@+id/bA"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="A" />
 
             <Button
                 android:id="@+id/bS"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="S" />
 
             <Button
                 android:id="@+id/bD"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="D" />
 
             <Button
                 android:id="@+id/bF"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="F" />
 
             <Button
                 android:id="@+id/bG"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="G" />
 
             <Button
                 android:id="@+id/bH"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="H" />
 
             <Button
                 android:id="@+id/bJ"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="J" />
 
             <Button
                 android:id="@+id/bK"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="K" />
 
             <Button
                 android:id="@+id/bL"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="L" />
 
             <Button
                 android:id="@+id/bÑ"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="Ñ" />
         </TableRow>
 
@@ -160,42 +180,49 @@
                 android:id="@+id/bZ"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="Z" />
 
             <Button
                 android:id="@+id/bX"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="X" />
 
             <Button
                 android:id="@+id/bCC"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="C" />
 
             <Button
                 android:id="@+id/bV"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="V" />
 
             <Button
                 android:id="@+id/bB"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="B" />
 
             <Button
                 android:id="@+id/bN"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="N" />
 
             <Button
                 android:id="@+id/bM"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
+                android:backgroundTint="#686767"
                 android:text="M" />
 
         </TableRow>
@@ -208,7 +235,7 @@
         android:layout_height="54dp"
         android:gravity="center"
         android:text="TextView"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

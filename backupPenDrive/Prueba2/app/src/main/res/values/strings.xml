@@ -25,14 +25,14 @@
     <string name="sports">Deportes</string>
 
     <string-array name="sports_array">
-        <item>natación</item>
-        <item>tenis</item>
-        <item>atletismo</item>
-        <item>baloncesto</item>
-        <item>boxeo</item>
-        <item>ciclismo</item>
-        <item>esgrima</item>
-        <item>fútbol</item>
+        <item>Natacion</item>
+        <item>Tenis</item>
+        <item>Atletismo</item>
+        <item>Baloncesto</item>
+        <item>Boxeo</item>
+        <item>Ciclismo</item>
+        <item>Esgrima</item>
+        <item>Futbol</item>
     </string-array>
 
     <string-array name="countries_array">
@@ -42,7 +42,7 @@
         <item>Montenegro</item>
         <item>Rusia</item>
         <item>Irán</item>
-        <item>Taiwán</item>
+        <item>Taiwan</item>
         <item>Gabón</item>
     </string-array>
 
@@ -53,7 +53,7 @@
         <item>Buitre</item>
         <item>Bisonte</item>
         <item>Salamandra</item>
-        <item>Jabalí</item>
+        <item>Jabali</item>
         <item>Loro</item>
     </string-array>
 
@@ -71,7 +71,7 @@
     <string-array name="tools_array">
         <item>Destornillador</item>
         <item>Martillo</item>
-        <item>Mazi</item>
+        <item>Mazo</item>
         <item>Troquel</item>
         <item>Pico</item>
         <item>Lima</item>

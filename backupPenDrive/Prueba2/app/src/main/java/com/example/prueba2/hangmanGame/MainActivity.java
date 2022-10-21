@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         textoIntro = findViewById(R.id.infoHangman);
 
-
-
         cargar();
     }
 
