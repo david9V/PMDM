@@ -124,6 +124,7 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
         bT.setOnClickListener(this);
         bU.setOnClickListener(this);
         bV.setOnClickListener(this);
+        bW.setOnClickListener(this);
         bX.setOnClickListener(this);
         bY.setOnClickListener(this);
         bZ.setOnClickListener(this);
@@ -242,6 +243,9 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
                     break;
                 case R.id.bV:
                     comprobarLetra(bV);
+                    break;
+                case R.id.bW:
+                    comprobarLetra(bW);
                     break;
                 case R.id.bX:
                     comprobarLetra(bX);
