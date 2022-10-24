@@ -11,8 +11,12 @@ public class Main {
 
 	public static void main(String args[]) throws SQLException, NumberFormatException, IOException {
 		CafeBD bd = new CafeBD();
-		insertarDatosBD(bd); // 172.17.0.2
-		menu(bd);
+		if (insertarDatosBD(bd)) {
+			menu(bd);
+			// 172.17.0.2
+		}
+		
+		
 	}
 
 	public static void menu(CafeBD bd) throws NumberFormatException, IOException, SQLException {
@@ -25,12 +29,14 @@ public class Main {
 			case 1 -> {
 				System.out.println("Introduzca el nombre del café a modificar:");
 				String nombre = reader.readLine();
-				System.out.println("Introduzca el nuevo número de ventas;");
-				int ventas = Integer.parseInt(reader.readLine());
-				
-				if (bd.actualizarCafe(nombre, ventas)) {
-					System.out.println("Ha ocurrido un error al intentar realizar la modificación");
+				try {
+					bd.existe(nombre);					
+				} catch(Excepcion e) {
+					System.out.println("El café introducido no existe");
 				}
+				System.out.println("Introduzca el nuevo número de ventas;");
+				int ventas = Integer.parseInt(reader.readLine());				
+				bd.actualizarCafe(nombre, ventas);
 			}
 			case 2 -> {
 				System.out.println("Introduzca el nombre del café:");
@@ -45,17 +51,13 @@ public class Main {
 				int total = Integer.parseInt(reader.readLine());
 				Cafe c = new Cafe(nombre, id_prov, precio, ventas, total);
 				
-				if (bd.añadirCafe(c)) {
-					System.out.println("Ha ocurrido un error al intentar añadir una nueva entrada");
-				}
+				bd.añadirCafe(c);
 			}
 			case 3 -> {
 				System.out.println("Introduzca el nombre del café a borrar");
 				String nombre = reader.readLine();
 				
-				if (bd.borrarCafe(nombre)) {
-					System.out.println("Ha ocurrido un error al intentar realizar la eliminación");
-				}
+				bd.borrarCafe(nombre);
 			}
 			case 4 -> {
 				System.out.println("Introduzca el nombre del café a mostrar");
@@ -73,7 +75,7 @@ public class Main {
 						System.out.println(c);
 					}
 				} catch(SQLException e) {
-					System.out.println("Ha ocurrido un erro al intentar listar todas las entradas");
+					System.out.println("Ha ocurrido un error al intentar listar todas las entradas");
 				}
 			}
 			}
@@ -92,7 +94,8 @@ public class Main {
 		System.out.println("6- Salir");
 	}
 	
-	public static void insertarDatosBD(CafeBD bd) throws SQLException, IOException {
+	public static boolean insertarDatosBD(CafeBD bd) throws IOException {
+		boolean conectado = true;
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("IP: ");
 		String ip = reader.readLine();
@@ -101,6 +104,13 @@ public class Main {
 		System.out.println("Contraseña: ");
 		String contraseña = reader.readLine();
 		bd.conexion.setConDatos(usuario, contraseña, ip);
-		bd.conexion.establecerConexion();
+		try {			
+			bd.conexion.establecerConexion();
+		} catch(SQLException e) {
+			System.out.println("No se ha podido establecer la conexión con los datos introducidos");
+			conectado = false;
+		}
+		
+		return conectado;
 	}
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MarginRight10dp">
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+</resources>

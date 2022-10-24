@@ -17,47 +17,39 @@ public class CafeBD {
 		this.conexion = new ConexionBD();
 	}
 
-	boolean actualizarCafe(String nombreCafe, int ventas) {
-		boolean error = false;
-		this.instruccion = "UPDATE CAFES SET VENTAS=" + ventas + " WHERE CAFE_NOMBRE='" + nombreCafe + "'";
-		try {
-			this.sentencia = conexion.getConexion().createStatement();
-			this.sentencia.executeUpdate(this.instruccion);
-			this.sentencia.clearBatch();
-		} catch (SQLException e) {
-			error = true;
-		}
+	void existe(String nombreCafe) throws SQLException, Excepcion {
+		this.instruccion = "SELECT CAFE_NOMBRE FROM CAFES WHERE CAFE_NOMBRE='" + nombreCafe + "'";
+		this.sentencia = conexion.getConexion().createStatement();
+		ResultSet rs = this.sentencia.executeQuery(this.instruccion);
 
-		return error;
+		if (!rs.isBeforeFirst()) {
+			throw new Excepcion();
+		}
 	}
 
-	boolean añadirCafe(Cafe cafe) {
-		boolean error = false;
+	void actualizarCafe(String nombreCafe, int ventas) throws SQLException {
+		this.sentencia.clearBatch();
+		this.instruccion = "UPDATE CAFES SET VENTAS=" + ventas + " WHERE CAFE_NOMBRE='" + nombreCafe + "'";
+		this.sentencia = conexion.getConexion().createStatement();
+		this.sentencia.executeUpdate(this.instruccion);
+		this.sentencia.clearBatch();
+	}
+
+	void añadirCafe(Cafe cafe) throws SQLException {
 		this.instruccion = "INSERT INTO CAFES " + "VALUES ('" + cafe.getCafe_nombre() + "', " + cafe.getProv_id() + ", "
 				+ cafe.getPrecio() + ", " + cafe.getVentas() + ", " + cafe.getTotal() + ")";
-		try {
-			this.sentencia = conexion.getConexion().createStatement();
-			this.sentencia.executeUpdate(this.instruccion);
-			this.sentencia.clearBatch();
+		this.sentencia = conexion.getConexion().createStatement();
+		this.sentencia.executeUpdate(this.instruccion);
+		this.sentencia.clearBatch();
 
-		} catch (SQLException e) {
-			error = true;
-		}
-		return error;
 	}
 
-	boolean borrarCafe(String nombreCafe) {
-		boolean error = false;
+	void borrarCafe(String nombreCafe) throws SQLException {
 		this.instruccion = "DELETE FROM CAFES WHERE CAFE_NOMBRE='" + nombreCafe + "'";
-		try {
-			this.sentencia = conexion.getConexion().createStatement();
-			this.sentencia.executeUpdate(this.instruccion);
-			this.sentencia.clearBatch();
-		} catch (SQLException e) {
-			error = true;
-		}
+		this.sentencia = conexion.getConexion().createStatement();
+		this.sentencia.executeUpdate(this.instruccion);
+		this.sentencia.clearBatch();
 
-		return error;
 	}
 
 	Cafe mostrarCafe(String nombreCafe) throws SQLException {

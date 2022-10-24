@@ -88,6 +88,12 @@
             android:exported="true"
             android:label="Hangman game">
         </activity>
+
+        <activity
+            android:name=".wordle.MainActivity"
+            android:exported="true"
+            android:label="Wordle">
+        </activity>
     </application>
 
 
