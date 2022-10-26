@@ -90,4 +90,15 @@
         <item>Crocs</item>
     </string-array>
 
+    <string-array name="wordle_words">
+        <item>CASCO</item>
+        <item>METRO</item>
+        <item>SILLA</item>
+        <item>ORION</item>
+        <item>MISIL</item>
+        <item>PUTIN</item>
+        <item>LIMON</item>
+        <item>PULPO</item>
+    </string-array>
+
 </resources>
