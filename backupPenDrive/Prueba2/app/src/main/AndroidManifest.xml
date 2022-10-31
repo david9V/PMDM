@@ -94,6 +94,24 @@
             android:exported="true"
             android:label="Wordle">
         </activity>
+
+        <activity
+            android:name=".pruebaWidgetsSeleccion.PruebaListView"
+            android:exported="true"
+            android:label="Test">
+        </activity>
+
+        <activity
+            android:name=".pruebaWidgetsSeleccion.PruebaSpinner"
+            android:exported="true"
+            android:label="Test">
+        </activity>
+
+        <activity
+            android:name=".pruebaWidgetsSeleccion.PruebaListViewAlumno"
+            android:exported="true"
+            android:label="Test">
+        </activity>
     </application>
 
 
