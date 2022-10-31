@@ -2,12 +2,14 @@ package act;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class GestionBD {
 	Connection conn;
 
-	GestionBD(){
+	GestionBD() throws SQLException{
 		cargarDriver();
 	}
 	
@@ -21,7 +23,8 @@ public class GestionBD {
 	
 	void establecerConexion() {
 		try {
-			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@172.17.0.2:1521:xe", "EMPRESA", "EMPRESA");			
+			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@172.17.0.2:1521:xe", "EMPRESA", "EMPRESA");
+						
 		} catch(SQLException ex) {
 			System.out.println("\n--- SQLException capturada ---\n");
 			while (ex != null) {

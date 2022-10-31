@@ -8,16 +8,16 @@ import java.util.ArrayList;
 
 public class Main {
 
-	public static void main(String args[]) {
-
+	public static void main(String args[]) throws NumberFormatException, IOException, SQLException {
+		menu();
 	}
 
-	public static void menu() throws NumberFormatException, IOException {
+	public static void menu() throws NumberFormatException, IOException, SQLException {
 		EmpleadoBD emp = new EmpleadoBD();
+		
 		DepartamentoBD depart = new DepartamentoBD();
 		
-		emp.conexion.establecerConexion();
-		depart.conexion.establecerConexion();
+		//depart.conexion.establecerConexion();
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int opc;
@@ -77,7 +77,7 @@ public class Main {
 			}
 		} while (opc < 7);
 		emp.conexion.cerrarConexion();
-		depart.conexion.cerrarConexion();
+		//depart.conexion.cerrarConexion();
 	}
 
 	public static void opciones() {
