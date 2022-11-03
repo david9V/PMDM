@@ -22,30 +22,38 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.tarea3_listview);
 
         List<String> entradas = new ArrayList<>();
-        //Button agregar = findViewById(R.id.bAgregar);
-        //EditText edit = findViewById(R.id.editTarea3);
-/*
-        agregar.setOnClickListener(view -> {
-            String entrada = String.valueOf(edit.getText());
-            entradas.add(convertirEntrada(entrada));
-        });
+        Button agregar = findViewById(R.id.bAgregar);
+        EditText edit = findViewById(R.id.editTarea3);
 
- */
-/*
-        ListView l = findViewById(R.id.lista_tarea3);
+        entradas.add("sdkfdsk");
+
+        ListView l = findViewById(R.id.listaTarea3);
         ArrayAdapter<String> adaptador;
         adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, entradas);
 
         l.setAdapter(adaptador);
+
+
+        agregar.setOnClickListener(view -> {
+            String entrada = String.valueOf(edit.getText());
+            entradas.add(convertirEntrada(entrada));
+            adaptador.notifyDataSetChanged();
+            edit.setText("");
+        });
+
+
+
+
         l.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                entradas.remove(i);
+                adaptador.notifyDataSetChanged();
                 return false;
             }
         });
 
- */
+
     }
 
     public String convertirEntrada(String e){

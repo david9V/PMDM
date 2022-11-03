@@ -1,23 +1,30 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
+        android:id="@+id/alumnoNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/descripcion"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:ellipsize="none"
-        android:scrollHorizontally="false"
-        android:layout_marginTop="26dp"/>
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/alumnoNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp" />
+
+
+    <TextView
+        android:id="@+id/alumnoDir"
+        android:layout_width="97dp"
+        android:layout_height="68dp"
+        android:textAlignment="textStart"
+        android:textSize="16dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-
-</RelativeLayout>
-
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:id="@+id/alumnoFoto"/>
+</LinearLayout>

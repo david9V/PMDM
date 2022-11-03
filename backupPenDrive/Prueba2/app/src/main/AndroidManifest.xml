@@ -116,7 +116,8 @@
         <activity
             android:name=".tareaListView3.MainActivity"
             android:exported="true"
-            android:label="Test">
+            android:label="Test"
+            android:windowSoftInputMode="adjustPan">
         </activity>
 
     </application>
