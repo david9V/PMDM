@@ -1,6 +1,7 @@
 package com.example.prueba2.pruebaWidgetsSeleccion;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -27,14 +28,12 @@ public class PruebaListViewAlumno extends AppCompatActivity implements AdapterVi
         List<Alumno> alumnos = new ArrayList<>();
         Alumno a1 = new Alumno("David");
         Alumno a2 = new Alumno("José");
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageView i = findViewById(R.id.alumno);
-        ImageView i2 = new ImageView(this);
-        i.setBackgroundResource(R.drawable.alumno);
-        i2.setBackgroundResource(R.drawable.alumno2);
-        a1.setFoto(i);
-        a2.setFoto(i2);
+        //a1.setFoto(new ImageView(this));
+        //a2.setFoto(new ImageView(this));
         alumnos.add(a1);
         alumnos.add(a2);
+
+
 
         ArrayAdapter<Alumno> adaptador;
 
@@ -51,4 +50,7 @@ public class PruebaListViewAlumno extends AppCompatActivity implements AdapterVi
         TextView t = findViewById(R.id.eleccion);
         t.setText(adapterView.getItemAtPosition(i).toString());
     }
+
+
 }
+
