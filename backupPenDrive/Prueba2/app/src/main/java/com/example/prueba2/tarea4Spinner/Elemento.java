@@ -1,4 +1,4 @@
-package com.example.prueba2.tarea4GridView;
+package com.example.prueba2.tarea4Spinner;
 
 public class Elemento {
 

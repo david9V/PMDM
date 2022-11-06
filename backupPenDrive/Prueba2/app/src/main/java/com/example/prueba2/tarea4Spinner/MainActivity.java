@@ -1,25 +1,27 @@
-package com.example.prueba2.tarea4GridView;
+package com.example.prueba2.tarea4Spinner;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.prueba2.R;
+import com.example.prueba2.tarea4GridView.AdaptadorPersonalizado;
+import com.example.prueba2.tarea4GridView.Elemento;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
-    private GridView g;
-    private AdaptadorPersonalizado adaptador;
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tarea4_1);
+        setContentView(R.layout.spinner_test1);
 
         List<Elemento> cosas = new ArrayList<>();
         cosas.add(new Elemento(R.drawable.boxeo, "Boxeo"));
@@ -31,18 +33,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         cosas.add(new Elemento(R.drawable.kung_fu, "Kung-Fu"));
         cosas.add(new Elemento(R.drawable.capoeira, "Capoeira"));
 
+        AdaptadorPersonalizado adaptador;
         adaptador = new AdaptadorPersonalizado(cosas, this);
-        g = findViewById(R.id.gridTarea4);
-        g.setAdapter(adaptador);
-        g.setOnItemClickListener(this);
+
+        Spinner s = findViewById(R.id.spinner);
+
+        s.setAdapter(adaptador);
+        s.setOnItemSelectedListener(this);
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Elemento el = (Elemento) adapterView.getItemAtPosition(i);
-        Intent intent = new Intent(this, IntentActivity.class);
-        intent.putExtra("Elemento", el.getIdImg());
-        intent.putExtra("Nombre", el.getNombre());
-        startActivity(intent);
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        TextView t = findViewById(R.id.eleccion2);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
     }
 }
+
