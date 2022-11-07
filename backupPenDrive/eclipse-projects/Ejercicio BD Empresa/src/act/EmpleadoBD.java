@@ -43,8 +43,10 @@ public class EmpleadoBD {
 
 		cstmt.registerOutParameter(1, Types.INTEGER);
 		cstmt.registerOutParameter(2, Types.INTEGER);
+		
 		cstmt.setInt(1, dep);
 		cstmt.setInt(2, subida);
+		
 		cstmt.execute();
 		cstmt.close();
 	}
