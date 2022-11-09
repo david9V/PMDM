@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.Controller">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.ClientOverviewController">
     <children>
         <SplitPane dividerPositions="0.45819397993311034" layoutX="200.0" layoutY="120.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
@@ -35,7 +36,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="331.0" prefWidth="269.0" SplitPane.resizableWithParent="false">
                            <children>
-                                    <TableView fx:id="personTable" prefHeight="318.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="clientTable" prefHeight="318.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                         <columns>
                                             <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="Nombre" />
                                             <TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="Apellidos" />
@@ -76,6 +77,7 @@
                                               <rowConstraints>
                                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -83,19 +85,21 @@
                                               <children>
                                                   <Label text="Nombre" GridPane.halignment="CENTER" />
                                                   <Label text="Apellidos" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                                  <Label text="Direccion" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                  <Label text="Localidad" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                                                  <Label text="Provincia" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                                  <Label text="Direccion" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                                  <Label text="Localidad" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                                  <Label text="Provincia" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                                                   <Label fx:id="firstNameLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                                   <Label fx:id="lastNameLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                                  <Label fx:id="streetLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                  <Label fx:id="cityLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                                                  <Label fx:id="postalCodeLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                                  <Label fx:id="addressLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                                  <Label fx:id="cityLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                                  <Label fx:id="provinceLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                          <Label text="DNI" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                          <Label fx:id="dniLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                                               </children>
                                           </GridPane>
                                           <HBox alignment="CENTER" spacing="30.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                               <children>
-                                                  <Button mnemonicParsing="false">
+                                                  <Button mnemonicParsing="false" onAction="#handleNewClient">
                                              <graphic>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -104,7 +108,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                                  <Button mnemonicParsing="false">
+                                                  <Button mnemonicParsing="false" onAction="#handleEditClient">
                                              <graphic>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -113,7 +117,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                                  <Button mnemonicParsing="false">
+                                                  <Button mnemonicParsing="false" onAction="#handleDeleteClient">
                                              <graphic>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -156,6 +160,9 @@
                                        <image>
                                           <Image url="@../../../../res/dni.png" />
                                        </image>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
                                     </ImageView>
                                  </children>
                               </GridPane>
