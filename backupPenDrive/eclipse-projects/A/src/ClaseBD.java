@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -56,6 +59,27 @@ public class ClaseBD {
 		cstmt.execute();
 		cstmt.close();
 	}
+	 */
+	
+	////////////////////////////////
+	
+	/* EJEMPLO USAR FUNCION
+	 * CallableStatement cstmt = this.conexion.getConexion().prepareCall("{? = call NOMBRE_DEP(?,?)}");
+
+		int dept_no = navegar.getInt(1);
+		cstmt.setInt(2, dept_no);
+
+		cstmt.registerOutParameter(3, Types.VARCHAR);
+		cstmt.registerOutParameter(1, Types.VARCHAR);
+
+		cstmt.execute();
+
+		String nombre = cstmt.getString(1);
+		String loc = cstmt.getString(3);
+
+		System.out.println("DEPT_NO=" + dept_no + " | DNOMBRE=" + nombre + " | LOC=" + loc);
+		cstmt.close();
+
 	 */
 	
 	///////////////////////////////////////
@@ -156,6 +180,36 @@ public class ClaseBD {
 		rs.close();
 
 		return lista;
+	}
+	 */
+	
+	
+	////////////
+	//////////////////////////////////
+	
+	
+	/* EJEMPLO RARO
+	 * public static String meterDatos() throws IOException {
+		boolean flag = false;
+		String instruccion = "";
+		do {
+			BufferedReader reader =new BufferedReader(new InputStreamReader(System.in));
+		    System.out.println("Introduzca el nombre del café: ");
+		    String nombre = reader.readLine();
+		    System.out.println("Introduzca la ID del proveedor: ");
+		    String id = reader.readLine();
+		    System.out.println("Introduzca el precio del café: ");
+		    String precio = reader.readLine();
+		    System.out.println("Introduzca el número de ventas del café: ");
+		    String ventas = reader.readLine();
+		    
+		    instruccion = "INSERT INTO CAFES " + "VALUES ('"+nombre+"', "+String.valueOf(id)+", "+String.valueOf(precio)+", "+String.valueOf(precio)+", "+String.valueOf(ventas)+")";
+
+		    System.out.println("Desea insertar otro registro? (S/N)");
+		    String end = reader.readLine();
+		    if (end.compareTo("S") != 0) flag = true;
+		} while (flag != true);
+		return instruccion;
 	}
 	 */
 }
