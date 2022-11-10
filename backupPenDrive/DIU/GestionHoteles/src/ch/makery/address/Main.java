@@ -1,19 +1,25 @@
 package ch.makery.address;
 
-import ch.makery.address.controller.Controller;
+import ch.makery.address.controller.ClientEditController;
+import ch.makery.address.controller.ClientOverviewController;
+import ch.makery.address.model.Client;
+import ch.makery.address.model.ClientVO;
+import ch.makery.address.model.ExcepcionClient;
+import ch.makery.address.model.Model;
+import ch.makery.address.model.repository.impl.ClientRepositoryImpl;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
+
+import static ch.makery.address.util.ClientConverter.ClientVOtoClientConverter;
 
 public class Main extends Application {
 
@@ -21,30 +27,28 @@ public class Main extends Application {
 
     private BorderPane rootLayout;
 
-    // private Model modelo;
+    private Model model;
 
-    // private PersonaRepositoryImpl repo;
+    private ClientRepositoryImpl clientRepository;
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Hotel Vilches");
 
-        // this.modelo = new Model();
-        // this.repo = new PersonaRepositoryImpl();
+        this.model = new Model();
+        this.clientRepository = new ClientRepositoryImpl();
 
         initRootLayout();
 
-         showClientOverview();
+        showClientOverview();
     }
 
     public void initRootLayout() {
         try {
-            // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/RootLayout.fxml"));
             rootLayout = loader.load();
 
-            // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
 
@@ -62,22 +66,57 @@ public class Main extends Application {
 
             rootLayout.setCenter(personOverview);
 
-            Controller controller = loader.getController();
-
-            /*
-            controller.setModelo(modelo);
-            controller.getModelo().setRep(repo);
-            personData = convertirPersonVOtoPerson(controller.getModelo().recuperarPersonas());
-            controller.setMainApp(this);
-             */
-
+            ClientOverviewController clientOverviewController = loader.getController(); // Load controller
+            clientOverviewController.setModel(model); // Model injection
+            clientOverviewController.getModel().setClientRep(clientRepository); // Client repo injection
+            clientData = ClientVOtoClientConverter(clientOverviewController.getModel().loadClientList()); // Load client list from database
+            clientOverviewController.setMain(this);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ExcepcionClient e) {
+            throw new RuntimeException(e);
         }
     }
 
+    public boolean showClientEdit(Client client) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/ClientEditDialog.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
 
-    public static void main(String[] args) {
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Detalles cliente");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            ClientEditController controller = loader.getController(); // Load controller
+            controller.setModel(model); // Model injection
+            controller.setDialogStage(dialogStage);
+            controller.setClient(client);
+
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private ObservableList<Client> clientData = FXCollections.observableArrayList();
+
+    public Main(){
+    }
+
+    public ObservableList<Client> getClientData() {
+        return clientData;
+    }
+    public static void main(String[] args) throws ExcepcionClient {
         launch(args);
+        //c.guardar(new ClientVO("s", "s", "s", "s", "s", "s"));
+        //c.eliminar(1);
+        //c.actualizar(new ClientVO(2, "s", "s", "s", "s", "s", "edit"));
     }
 }

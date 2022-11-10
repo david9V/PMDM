@@ -29,4 +29,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenSola"
         app:layout_constraintVertical_bias="0.5" />
+
+    <ImageButton
+        android:id="@+id/bAtras"
+        android:layout_width="87dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/imagenSola"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.503"
+        app:srcCompat="@drawable/ic_baseline_subdirectory_arrow_left_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
