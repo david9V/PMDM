@@ -41,7 +41,6 @@ public class CafeBD {
 		this.sentencia = conexion.getConexion().createStatement();
 		this.sentencia.executeUpdate(this.instruccion);
 		this.sentencia.clearBatch();
-
 	}
 
 	void borrarCafe(String nombreCafe) throws SQLException {
