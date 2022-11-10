@@ -1,9 +1,12 @@
 package ch.makery.address.controller;
 
 import ch.makery.address.Main;
+import ch.makery.address.model.Booking;
 import ch.makery.address.model.Client;
 import ch.makery.address.model.ExcepcionClient;
 import ch.makery.address.model.Model;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -82,10 +85,12 @@ public class ClientOverviewController {
     }
 
     @FXML
-    private void handleDeleteClient() {
+    private void handleDeleteClient() throws ExcepcionClient {
         int selectedIndex = clientTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
+            Client c = clientTable.getItems().get(selectedIndex);
             clientTable.getItems().remove(selectedIndex);
+            model.deleteClient(c.getId());
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -141,4 +146,11 @@ public class ClientOverviewController {
     public Model getModel(){
         return this.model;
     }
+
+    private ObservableList<Booking> bookingData = FXCollections.observableArrayList();
+
+    public ObservableList<Booking> getBookingData() {
+        return bookingData;
+    }
+
 }

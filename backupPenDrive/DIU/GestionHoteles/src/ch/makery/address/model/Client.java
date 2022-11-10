@@ -36,9 +36,9 @@ public class Client {
 
         // Random data to test
         this.dni = new SimpleStringProperty("12345678A");
-        this.address = new SimpleStringProperty("Some address");
-        this.city = new SimpleStringProperty("Some city");
-        this.province = new SimpleStringProperty("Some province");
+        this.address = new SimpleStringProperty("Dirección cualquiera");
+        this.city = new SimpleStringProperty("Localidad cualquiera");
+        this.province = new SimpleStringProperty("Provincia cualquiera");
     }
 
     public Client(IntegerProperty id, StringProperty firstName, StringProperty lastName, StringProperty dni, StringProperty address, StringProperty city, StringProperty province) {
