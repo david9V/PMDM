@@ -1,5 +1,12 @@
-INDEX VERSION 1.131+/home/usuario/Desktop/git/pendriveGIT/backupPenDrive/eclipse-projects/.metadata/.plugins/org.eclipse.jdt.core
+INDEX VERSION 1.131+C:\Users\David\Desktop\Proyecto1TPMDM\backupPenDrive\eclipse-projects\.metadata\.plugins\org.eclipse.jdt.core
+3238190367.index
+2016795284.index
+1542157462.index
+1443656097.index
+2490461820.index
+4183598968.index
 1865797976.index
+<<<<<<< HEAD
 2861522782.index
 1242217823.index
 1222710660.index
@@ -7,3 +14,5 @@ INDEX VERSION 1.131+/home/usuario/Desktop/git/pendriveGIT/backupPenDrive/eclipse
 2401150514.index
 4100536774.index
 3082521630.index
+=======
+>>>>>>> 087d0d5eea3298f0c67d0432294f1289f8903859

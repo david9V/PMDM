@@ -1,3 +1,28 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchHistory>
+    <launchGroup id="org.eclipse.debug.ui.launchGroup.debug">
+        <mruHistory/>
+        <favorites/>
+    </launchGroup>
+    <launchGroup id="org.eclipse.debug.ui.launchGroup.profile">
+        <mruHistory/>
+        <favorites/>
+    </launchGroup>
+    <launchGroup id="org.eclipse.eclemma.ui.launchGroup.coverage">
+        <mruHistory/>
+        <favorites/>
+    </launchGroup>
+    <launchGroup id="org.eclipse.ui.externaltools.launchGroup">
+        <mruHistory/>
+        <favorites/>
+    </launchGroup>
+    <launchGroup id="org.eclipse.debug.ui.launchGroup.run">
+        <mruHistory/>
+        <favorites/>
+    </launchGroup>
+</launchHistory>
+=======
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchHistory>
     <launchGroup id="org.eclipse.debug.ui.launchGroup.debug">
@@ -25,3 +50,4 @@
         <favorites/>
     </launchGroup>
 </launchHistory>
+>>>>>>> c13d2420c75870a4a02355b7122e74fdb1471756
