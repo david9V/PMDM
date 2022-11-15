@@ -1,11 +1,10 @@
 package ch.makery.address;
 
+import ch.makery.address.controller.BookingOverviewController;
 import ch.makery.address.controller.ClientEditController;
 import ch.makery.address.controller.ClientOverviewController;
-import ch.makery.address.model.Client;
-import ch.makery.address.model.ClientVO;
-import ch.makery.address.model.ExcepcionClient;
-import ch.makery.address.model.Model;
+import ch.makery.address.model.*;
+import ch.makery.address.model.repository.impl.BookingRepositoryImpl;
 import ch.makery.address.model.repository.impl.ClientRepositoryImpl;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -30,6 +29,7 @@ public class Main extends Application {
     private Model model;
 
     private ClientRepositoryImpl clientRepository;
+    private BookingRepositoryImpl bookingRepository;
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -37,6 +37,7 @@ public class Main extends Application {
 
         this.model = new Model();
         this.clientRepository = new ClientRepositoryImpl();
+        this.bookingRepository = new BookingRepositoryImpl();
 
         initRootLayout();
 
@@ -104,6 +105,26 @@ public class Main extends Application {
             return false;
         }
     }
+
+    public void showBookingOverview(Client client) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/BookingOverview.fxml"));
+            AnchorPane bookingOverview = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(bookingOverview);
+
+            BookingOverviewController bookingOverviewController = loader.getController(); // Load controller
+            bookingOverviewController.setModel(model); // Model injection
+            bookingOverviewController.getModel().setBookingRep(bookingRepository); // Client repo injection
+            //bookingOverviewController.setController(clientOverviewController);
+            bookingOverviewController.setMain(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private ObservableList<Client> clientData = FXCollections.observableArrayList();
 

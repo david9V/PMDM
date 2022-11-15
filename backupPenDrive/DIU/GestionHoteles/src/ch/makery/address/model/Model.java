@@ -1,11 +1,14 @@
 package ch.makery.address.model;
 
+import ch.makery.address.model.repository.BookingRepository;
 import ch.makery.address.model.repository.ClientRepository;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Model {
     private ClientRepository clientRep;
+    private BookingRepository bookingRep;
 
     public void setClientRep(ClientRepository r){
         this.clientRep = r;
@@ -14,6 +17,16 @@ public class Model {
     public ClientRepository getClientRep(){
         return this.clientRep;
     }
+
+    public void setBookingRep(BookingRepository b){
+        this.bookingRep =  b;
+    }
+
+    public BookingRepository getBookingRep(){
+        return this.bookingRep;
+    }
+
+    //CLIENTS METHODS
 
     public void addClient(ClientVO client) throws ExcepcionClient {
         this.clientRep.guardar(client);
@@ -35,4 +48,9 @@ public class Model {
         return this.clientRep.lastId();
     }
 
+    // BOOKING METHODS
+
+    public ArrayList<BookingVO> loadBookingList(int idCliente) throws ExcepcionBooking{
+        return this.bookingRep.cargar(idCliente);
+    }
 }

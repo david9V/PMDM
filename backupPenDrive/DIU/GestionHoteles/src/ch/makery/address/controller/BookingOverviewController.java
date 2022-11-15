@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class BookingOverviewController {
+
     @FXML
     private TableView<Booking> bookingTable;
     @FXML
@@ -34,12 +35,11 @@ public class BookingOverviewController {
     @FXML
     private Label regimenLabel;
 
+
     private Model model;
+    private Main main;
 
     private ClientOverviewController c;
-
-    BookingOverviewController(){
-    }
 
     @FXML
     private void initialize() {
@@ -52,13 +52,25 @@ public class BookingOverviewController {
 
         bookingTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showBookingDetails(newValue));
-
     }
+
 
     public void setController(ClientOverviewController c) { // To get the booking List
         this.c = c;
 
         bookingTable.setItems(c.getBookingData());
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
+    public void setModel(Model m){
+        this.model = m;
+    }
+
+    public Model getModel(){
+        return this.model;
     }
 
     private void showBookingDetails(Booking booking) {

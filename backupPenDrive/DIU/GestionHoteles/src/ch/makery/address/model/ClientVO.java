@@ -15,10 +15,6 @@ public class ClientVO {
 
     private String province;
 
-    public ClientVO() {
-        this(null, null);
-    }
-
     public ClientVO(int id, String firstName, String lastName, String dni, String address, String city, String province) {
         this.id = id;
         this.dni = dni;
@@ -27,25 +23,6 @@ public class ClientVO {
         this.address = address;
         this.city = city;
         this.province = province;
-    }
-
-    public ClientVO(String firstName, String lastName, String dni, String address, String city, String province) {
-        this.dni = dni;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.province = province;
-    }
-
-    public ClientVO(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-
-        this.dni = "12345678A";
-        this.address = "Some address";
-        this.city = "Some city";
-        this.province = "Some province";
     }
 
     public int getId() {

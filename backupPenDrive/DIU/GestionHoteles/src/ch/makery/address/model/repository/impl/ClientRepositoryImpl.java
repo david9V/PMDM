@@ -104,5 +104,6 @@ public class ClientRepositoryImpl implements ClientRepository {
             return id;
         } catch (SQLException var5) {
             throw new ExcepcionClient( "No se ha podido realizar la busqueda del ID");
-        }    }
+        }
+    }
 }

@@ -139,6 +139,25 @@ public class ClientOverviewController {
         }
     }
 
+    @FXML
+    private void handleShowBookings(){
+        Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
+        if (selectedClient != null) {
+            main.showBookingOverview(selectedClient);
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No ha seleccionado ningún cliente");
+            alert.setContentText("Por favor, elija un cliente");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get().equals(ButtonType.OK)) {
+                alert.close();
+            }
+        }
+    }
+
     public void setModel(Model m){
         this.model = m;
     }

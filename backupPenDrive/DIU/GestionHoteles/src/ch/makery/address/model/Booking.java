@@ -15,6 +15,7 @@ public class Booking {
     private final ObjectProperty<TipoHabitacion> tipoHab;
     private final BooleanProperty fumador;
     private final ObjectProperty<Regimen> regimen;
+    private final IntegerProperty idCliente;
 
     public Booking(){
         this(null);
@@ -28,9 +29,10 @@ public class Booking {
         this.tipoHab = new SimpleObjectProperty<>(TipoHabitacion.JUNIOR);
         this.fumador = new SimpleBooleanProperty(false);
         this.regimen = new SimpleObjectProperty<>(Regimen.PENSION_COMPLETA);
+        this.idCliente = new SimpleIntegerProperty(123);
     }
 
-    public Booking(IntegerProperty cod, ObjectProperty<LocalDate> fechEntrada, ObjectProperty<LocalDate> fechSalida, IntegerProperty nHab, ObjectProperty<TipoHabitacion> tipoHab, BooleanProperty fumador, ObjectProperty<Regimen> regimen) {
+    public Booking(IntegerProperty cod, ObjectProperty<LocalDate> fechEntrada, ObjectProperty<LocalDate> fechSalida, IntegerProperty nHab, ObjectProperty<TipoHabitacion> tipoHab, BooleanProperty fumador, ObjectProperty<Regimen> regimen, IntegerProperty idCliente) {
         this.cod = cod;
         this.fechEntrada = fechEntrada;
         this.fechSalida = fechSalida;
@@ -38,6 +40,7 @@ public class Booking {
         this.tipoHab = tipoHab;
         this.fumador = fumador;
         this.regimen = regimen;
+        this.idCliente = idCliente;
     }
 
     public int getCod() {
@@ -123,5 +126,17 @@ public class Booking {
 
     public void setRegimen(Regimen regimen) {
         this.regimen.set(regimen);
+    }
+
+    public int getIdCliente() {
+        return idCliente.get();
+    }
+
+    public IntegerProperty idClienteProperty() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente.set(idCliente);
     }
 }
