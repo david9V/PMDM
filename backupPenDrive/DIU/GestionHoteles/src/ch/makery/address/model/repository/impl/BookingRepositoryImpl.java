@@ -8,12 +8,8 @@ import ch.makery.address.model.repository.BookingRepository;
 import ch.makery.address.util.Regimen;
 import ch.makery.address.util.TipoHabitacion;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class BookingRepositoryImpl implements BookingRepository {
     private final ConexionJDBC conexion = new ConexionJDBC();

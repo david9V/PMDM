@@ -1,9 +1,9 @@
 package ch.makery.address.controller;
 
 import ch.makery.address.Main;
-import ch.makery.address.model.Booking;
-import ch.makery.address.model.Client;
-import ch.makery.address.model.Model;
+import ch.makery.address.model.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -13,6 +13,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Locale;
+
+import static ch.makery.address.util.ClientConverter.ClienttoClientVOConverter;
 
 public class BookingOverviewController {
 
@@ -39,8 +41,6 @@ public class BookingOverviewController {
     private Model model;
     private Main main;
 
-    private ClientOverviewController c;
-
     @FXML
     private void initialize() {
         codeColumn.setCellValueFactory(
@@ -54,11 +54,8 @@ public class BookingOverviewController {
                 (observable, oldValue, newValue) -> showBookingDetails(newValue));
     }
 
-
-    public void setController(ClientOverviewController c) { // To get the booking List
-        this.c = c;
-
-        bookingTable.setItems(c.getBookingData());
+    public void initializeTable(){
+        bookingTable.setItems(bookingData);
     }
 
     public void setMain(Main main) {
@@ -92,5 +89,29 @@ public class BookingOverviewController {
             smokeLabel.setText("");
             regimenLabel.setText("");
         }
+    }
+
+    @FXML
+    private void handleNewBooking() throws ExcepcionBooking {
+        Booking tempBooking = new Booking();
+        boolean okClicked = main.showBookingEdit(tempBooking);
+        if (okClicked) {
+            bookingData.add(tempBooking);
+            //tempBooking.setId(model.getLastId() + 1);
+            //model.addClient(ClienttoClientVOConverter(tempClient));
+        }
+    }
+
+
+
+    @FXML
+    private void handleGoBack(){
+        main.showClientOverview();
+    }
+
+    private ObservableList<Booking> bookingData = FXCollections.observableArrayList();
+
+    public void setBookingData(ObservableList<Booking> l){
+        this.bookingData = l;
     }
 }

@@ -9,7 +9,7 @@ public enum TipoHabitacion {
     private final String name;
 
     TipoHabitacion(String s) {
-        name = s;
+        this.name = s;
     }
 
     @Override

@@ -1,45 +1,50 @@
 package model;
 
-import java.io.Serializable;
+import java.io.*;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+@Entity (name = "Student")
+@Table (name = "\"Students\"", schema = "public")
+@PrimaryKeyJoinColumn (name = "id", foreignKey = @ForeignKey (name = "fk_student_person"))
+public class Student extends Person implements Serializable {
 
-@Entity(name = "Student")
-@Table(name = "\"Students\"", schema = "public")
-@PrimaryKeyJoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_student_person"))
-public class Student extends Person implements Serializable{
+    private static final long serialVersionUID = 1L;
+    
+    @Column (name = "schoolarship", columnDefinition = "boolean DEFAULT 'false'")
+    private Boolean schoolarship = false;
+    
+    // State = 1: Inscrito; 2: Retirado; 3: Graduado; etc.
+    @Column (name = "state", columnDefinition = "integer DEFAULT '1'")
+    private Integer state = 1;
 
-	private static final long serialVersionUID = 1L;
-	
-	@Column(name = "scholarship", columnDefinition = "boolean DEFAULT 'false'")
-	private boolean scholarship = false;
-	
-	@Column(name = "state", columnDefinition = "integer DEFAULT '1'")
-	private Integer state = 1;
+    public Boolean getSchoolarship () {
+        
+        return schoolarship;
+        
+    }
 
-	public boolean isScholarship() {
-		return scholarship;
-	}
+    public void setSchoolarship (Boolean schoolarship) {
+        
+        this.schoolarship = schoolarship;
+        
+    }
 
-	public void setScholarship(boolean scholarship) {
-		this.scholarship = scholarship;
-	}
+    public Integer getState () {
+        
+        return state;
+        
+    }
 
-	public Integer getState() {
-		return state;
-	}
+    public void setState (Integer state) {
+        
+        this.state = state;
+        
+    }
 
-	public void setState(Integer state) {
-		this.state = state;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
+    public static long getSerialversionuid () {
+        
+        return serialVersionUID;
+        
+    }
+    
 }

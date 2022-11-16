@@ -166,10 +166,4 @@ public class ClientOverviewController {
         return this.model;
     }
 
-    private ObservableList<Booking> bookingData = FXCollections.observableArrayList();
-
-    public ObservableList<Booking> getBookingData() {
-        return bookingData;
-    }
-
 }

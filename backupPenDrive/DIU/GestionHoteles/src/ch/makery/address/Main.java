@@ -1,5 +1,6 @@
 package ch.makery.address;
 
+import ch.makery.address.controller.BookingEditController;
 import ch.makery.address.controller.BookingOverviewController;
 import ch.makery.address.controller.ClientEditController;
 import ch.makery.address.controller.ClientOverviewController;
@@ -18,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static ch.makery.address.util.BookingConverter.BookingVOtoBookingConverter;
 import static ch.makery.address.util.ClientConverter.ClientVOtoClientConverter;
 
 public class Main extends Application {
@@ -118,10 +120,40 @@ public class Main extends Application {
             BookingOverviewController bookingOverviewController = loader.getController(); // Load controller
             bookingOverviewController.setModel(model); // Model injection
             bookingOverviewController.getModel().setBookingRep(bookingRepository); // Client repo injection
-            //bookingOverviewController.setController(clientOverviewController);
+            bookingOverviewController.setBookingData(BookingVOtoBookingConverter(bookingOverviewController.getModel().loadBookingList(client.getId())));
+            bookingOverviewController.initializeTable();
             bookingOverviewController.setMain(this);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ExcepcionBooking e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean showBookingEdit(Booking booking) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/BookingEditDialog.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Detalles reserva");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            BookingEditController controller = loader.getController(); // Load controller
+
+            //controller.setModel(model); // Model injection
+            controller.setDialogStage(dialogStage);
+            //controller.setClient(client);
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

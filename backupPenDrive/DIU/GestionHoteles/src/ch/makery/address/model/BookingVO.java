@@ -3,8 +3,8 @@ package ch.makery.address.model;
 import ch.makery.address.util.Regimen;
 import ch.makery.address.util.TipoHabitacion;
 
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class BookingVO {
     private int cod;
@@ -89,5 +89,19 @@ public class BookingVO {
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
+    }
+
+    @Override
+    public String toString() {
+        return "BookingVO{" +
+                "cod=" + cod +
+                ", fechEntrada=" + fechEntrada +
+                ", fechSalida=" + fechSalida +
+                ", nHab=" + nHab +
+                ", tipoHab='" + tipoHab + '\'' +
+                ", fumador=" + fumador +
+                ", regimen='" + regimen + '\'' +
+                ", idCliente=" + idCliente +
+                '}';
     }
 }
