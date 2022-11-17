@@ -25,8 +25,9 @@ public class BookingRepositoryImpl implements BookingRepository {
     public void guardar(BookingVO booking) throws ExcepcionBooking {
         try {
             Connection conn = this.conexion.conectarBD();
+            int fuma = booking.isFumador() ? 1 : 0;
             this.stmt = conn.createStatement();
-            this.sentencia = "INSERT INTO reservas (fech_llegada, fech_salida, n_hab, tipo_hab, fumador, regimen, id_cliente) VALUES ('" + booking.getFechEntrada() + "','" + booking.getFechSalida() + "', " + booking.getnHab() + ", '" + booking.getTipoHab() + "', '" + booking.isFumador() + "', '" + booking.getRegimen() + "', " + booking.getIdCliente() + ");";
+            this.sentencia = "INSERT INTO reservas (fech_llegada, fech_salida, n_hab, tipo_hab, fumador, regimen, id_cliente) VALUES ('" + booking.getFechEntrada() + "','" + booking.getFechSalida() + "', " + booking.getnHab() + ", '" + booking.getTipoHab().toString().toUpperCase().replaceAll(" ", "_").replaceFirst("Ó", "O") + "', '" + fuma + "', '" + booking.getRegimen().toString().toUpperCase().replaceAll(" ", "_").replaceFirst("Ó", "O") + "', " + booking.getIdCliente() + ")";
             this.stmt.executeUpdate(this.sentencia);
             this.stmt.close();
             this.conexion.desconectarBD(conn);
@@ -99,7 +100,7 @@ public class BookingRepositoryImpl implements BookingRepository {
             Connection conn = this.conexion.conectarBD();
             Statement comando = conn.createStatement();
 
-            for(ResultSet registro = comando.executeQuery("SELECT cod FROM reservas ORDER BY id DESC LIMIT 1"); registro.next(); cod = registro.getInt("cod")) {
+            for(ResultSet registro = comando.executeQuery("SELECT cod FROM reservas ORDER BY cod DESC LIMIT 1"); registro.next(); cod = registro.getInt("cod")) {
             }
 
             return cod;

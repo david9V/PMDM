@@ -114,7 +114,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                                  <Button mnemonicParsing="false">
+                                                  <Button mnemonicParsing="false" onAction="#handleDeleteBooking">
                                              <graphic>
                                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>

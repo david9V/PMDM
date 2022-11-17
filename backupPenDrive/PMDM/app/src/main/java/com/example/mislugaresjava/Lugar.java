@@ -28,7 +28,7 @@ public class Lugar {
 
     public Lugar() {
         fecha = System.currentTimeMillis();
-        posicion =  GeoPunto.(0.0, 0.0);
+        posicion = new GeoPunto(0.0,0.0);
         tipo = TipoLugar.OTROS;
     }
 

@@ -53,4 +53,16 @@ public class Model {
     public ArrayList<BookingVO> loadBookingList(int idCliente) throws ExcepcionBooking{
         return this.bookingRep.cargar(idCliente);
     }
+
+    public int getLastCod() throws ExcepcionBooking{
+        return this.bookingRep.lastCod();
+    }
+
+    public void addBooking(BookingVO booking) throws ExcepcionBooking {
+        this.bookingRep.guardar(booking);
+    }
+
+    public void deleteBooking(int cod) throws ExcepcionBooking{
+        this.bookingRep.eliminar(cod);
+    }
 }

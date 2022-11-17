@@ -4,7 +4,7 @@ public enum TipoHabitacion {
     DOBLE_DE_USO_INDIVIDUAL ("Doble de uso individual"),
     DOBLE ("Doble"),
     JUNIOR_SUITE ("Junior suite"),
-    JUNIOR ("Junior");
+    SUITE ("Suite");
 
     private final String name;
 

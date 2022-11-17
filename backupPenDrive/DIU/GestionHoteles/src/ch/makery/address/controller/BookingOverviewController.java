@@ -5,15 +5,15 @@ import ch.makery.address.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Optional;
 
+import static ch.makery.address.util.BookingConverter.BookingToBookingVOConverter;
 import static ch.makery.address.util.ClientConverter.ClienttoClientVOConverter;
 
 public class BookingOverviewController {
@@ -40,6 +40,7 @@ public class BookingOverviewController {
 
     private Model model;
     private Main main;
+    int idCliente;
 
     @FXML
     private void initialize() {
@@ -52,6 +53,10 @@ public class BookingOverviewController {
 
         bookingTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showBookingDetails(newValue));
+    }
+
+    public void setClientId(int id){
+        this.idCliente = id;
     }
 
     public void initializeTable(){
@@ -96,13 +101,56 @@ public class BookingOverviewController {
         Booking tempBooking = new Booking();
         boolean okClicked = main.showBookingEdit(tempBooking);
         if (okClicked) {
+            tempBooking.setCod(model.getLastCod() + 1);
             bookingData.add(tempBooking);
-            //tempBooking.setId(model.getLastId() + 1);
-            //model.addClient(ClienttoClientVOConverter(tempClient));
+            tempBooking.setIdCliente(idCliente);
+            model.addBooking(BookingToBookingVOConverter(tempBooking));
         }
     }
 
+    @FXML
+    private void handleDeleteBooking() throws ExcepcionBooking {
+        int selectedIndex = bookingTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            Booking b = bookingTable.getItems().get(selectedIndex);
+            bookingTable.getItems().remove(selectedIndex);
+            model.deleteBooking(b.getCod());
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No ha seleccionado ningún cliente");
+            alert.setContentText("Por favor, elija un cliente");
 
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get().equals(ButtonType.OK)) {
+                alert.close();
+            }
+        }
+    }
+
+    @FXML
+    private void handleEditBooking() throws ExcepcionClient {
+        Booking selectedBooking = bookingTable.getSelectionModel().getSelectedItem();
+        if (selectedBooking != null) {
+            boolean okClicked = main.showBookingEdit(selectedBooking);
+            if (okClicked) {
+                model.editClient(ClienttoClientVOConverter(selectedClient));
+                bookingTable(selectedBooking);
+            }
+
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No ha seleccionado ningún cliente");
+            alert.setContentText("Por favor, elija un cliente");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get().equals(ButtonType.OK)) {
+                alert.close();
+            }
+        }
+    }
 
     @FXML
     private void handleGoBack(){

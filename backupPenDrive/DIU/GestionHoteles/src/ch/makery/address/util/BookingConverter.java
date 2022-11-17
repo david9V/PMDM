@@ -8,6 +8,7 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -29,5 +30,19 @@ public class BookingConverter {
             p.add(booking);
         }
         return p;
+    }
+
+    public static BookingVO BookingToBookingVOConverter(Booking booking){
+        int cod = booking.getCod();
+        Date fEntr = Date.valueOf(booking.getFechEntrada());
+        Date fSal = Date.valueOf(booking.getFechSalida());
+        int nHab = booking.getnHab();
+        TipoHabitacion tipo = booking.getTipoHab();
+        boolean fumador = booking.isFumador();
+        Regimen regimen = booking.getRegimen();
+        int idClie = booking.getIdCliente();
+        BookingVO b = new BookingVO(cod, fEntr, fSal, nHab, tipo, fumador, regimen, idClie);
+
+        return b;
     }
 }

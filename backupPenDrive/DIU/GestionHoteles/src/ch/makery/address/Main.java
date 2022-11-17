@@ -118,6 +118,7 @@ public class Main extends Application {
             rootLayout.setCenter(bookingOverview);
 
             BookingOverviewController bookingOverviewController = loader.getController(); // Load controller
+            bookingOverviewController.setClientId(client.getId());
             bookingOverviewController.setModel(model); // Model injection
             bookingOverviewController.getModel().setBookingRep(bookingRepository); // Client repo injection
             bookingOverviewController.setBookingData(BookingVOtoBookingConverter(bookingOverviewController.getModel().loadBookingList(client.getId())));
@@ -145,9 +146,9 @@ public class Main extends Application {
 
             BookingEditController controller = loader.getController(); // Load controller
 
-            //controller.setModel(model); // Model injection
+            controller.setModel(model); // Model injection
             controller.setDialogStage(dialogStage);
-            //controller.setClient(client);
+            controller.setBooking(booking);
             dialogStage.showAndWait();
 
             return controller.isOkClicked();

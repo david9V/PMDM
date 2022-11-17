@@ -8,9 +8,9 @@
 		<version>2.1.8.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>09_EstructuraRutasCompleto</artifactId>
+	<artifactId>10_ClasesYAnotacionesCompleto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api_rest1</name>
+	<name>api_rest_response_entity</name>
 
 	<properties>
 		<java.version>1.8</java.version>

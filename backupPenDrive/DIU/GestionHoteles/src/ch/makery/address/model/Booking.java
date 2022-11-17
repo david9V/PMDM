@@ -22,14 +22,14 @@ public class Booking {
     }
 
     public Booking(LocalDate fechaEntrada){
-        this.cod = new SimpleIntegerProperty(123);
-        this.fechEntrada = new SimpleObjectProperty<>(fechaEntrada);
-        this.fechSalida = new SimpleObjectProperty<>(LocalDate.of(2023, 05, 05));
-        this.nHab = new SimpleIntegerProperty(1);
-        this.tipoHab = new SimpleObjectProperty<>(TipoHabitacion.JUNIOR);
-        this.fumador = new SimpleBooleanProperty(false);
-        this.regimen = new SimpleObjectProperty<>(Regimen.PENSION_COMPLETA);
-        this.idCliente = new SimpleIntegerProperty(123);
+        this.cod = new SimpleIntegerProperty();
+        this.fechEntrada = new SimpleObjectProperty<>();
+        this.fechSalida = new SimpleObjectProperty<>();
+        this.nHab = new SimpleIntegerProperty();
+        this.tipoHab = new SimpleObjectProperty<>(null);
+        this.fumador = new SimpleBooleanProperty();
+        this.regimen = new SimpleObjectProperty<>(null);
+        this.idCliente = new SimpleIntegerProperty();
     }
 
     public Booking(IntegerProperty cod, ObjectProperty<LocalDate> fechEntrada, ObjectProperty<LocalDate> fechSalida, IntegerProperty nHab, ObjectProperty<TipoHabitacion> tipoHab, BooleanProperty fumador, ObjectProperty<Regimen> regimen, IntegerProperty idCliente) {

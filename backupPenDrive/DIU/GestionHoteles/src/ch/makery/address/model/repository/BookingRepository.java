@@ -15,7 +15,7 @@ public interface BookingRepository {
 
     void actualizar(BookingVO booking) throws ExcepcionBooking;
 
-    ArrayList<BookingVO> cargar(int idCliente) throws ExcepcionBooking;
+    ArrayList<BookingVO> cargar(int idBooking) throws ExcepcionBooking;
 
     int lastCod() throws ExcepcionBooking;
 
