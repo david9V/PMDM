@@ -19,6 +19,11 @@ public class Empleado implements Serializable {
 	private Integer edad;
 
 	public Empleado() {
+		
+	}
+	
+	public Empleado(Long id) {
+		this.id = id;
 	}
 
 	public Empleado(Long id, String nombre, String nif, Integer edad) {
@@ -70,6 +75,6 @@ public class Empleado implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Empleado [id=" + id + ", nombre=" + nombre + ", nif=" + nif + ", edad=" + edad + "]";
+		return "Empleado [id=" + id + ", nombre=" + nombre + ", nif=" + nif + ", edad=" + edad + "]\n";
 	}
 }

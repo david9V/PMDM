@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Examen</string>
+
+    <string name="normas">Bienvenido al juego del 3 en raya, introduce tu usuario (opcional)
+    y dale al botón de jugar para comenzar. El primero que alinee 3 fichas gana. Puede ser de
+    manera vertical, horizontal o diagonal. ¡Buena suerte!</string>
 </resources>
