@@ -42,7 +42,7 @@ public class BookingEditController {
       comboHab.setItems(list);
 
         this.valueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(1,9);
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0,1);
         valueFactory.setValue(0);
         spinner.setValueFactory(valueFactory);
     }
@@ -51,7 +51,7 @@ public class BookingEditController {
         this.booking = booking;
 
         int indiceCombo = -1;
-        if (booking.getTipoHab() != null) calcularIndiceCombo(booking);
+        if (booking.getTipoHab() != null) indiceCombo = calcularIndiceCombo(booking);
 
         fechEntrada.setValue(booking.getFechEntrada());
         fechSalida.setValue(booking.getFechSalida());

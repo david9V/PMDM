@@ -101,10 +101,10 @@ public class BookingOverviewController {
         Booking tempBooking = new Booking();
         boolean okClicked = main.showBookingEdit(tempBooking);
         if (okClicked) {
-            tempBooking.setCod(model.getLastCod() + 1);
             bookingData.add(tempBooking);
             tempBooking.setIdCliente(idCliente);
             model.addBooking(BookingToBookingVOConverter(tempBooking));
+            tempBooking.setCod(model.getLastCod());
         }
     }
 
@@ -116,10 +116,10 @@ public class BookingOverviewController {
             bookingTable.getItems().remove(selectedIndex);
             model.deleteBooking(b.getCod());
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
-            alert.setHeaderText("No ha seleccionado ningún cliente");
-            alert.setContentText("Por favor, elija un cliente");
+            alert.setHeaderText("No ha seleccionado ninguna reserva");
+            alert.setContentText("Por favor, elija una reserva");
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get().equals(ButtonType.OK)) {
@@ -129,21 +129,21 @@ public class BookingOverviewController {
     }
 
     @FXML
-    private void handleEditBooking() throws ExcepcionClient {
+    private void handleEditBooking() throws  ExcepcionBooking {
         Booking selectedBooking = bookingTable.getSelectionModel().getSelectedItem();
         if (selectedBooking != null) {
             boolean okClicked = main.showBookingEdit(selectedBooking);
             if (okClicked) {
-                model.editClient(ClienttoClientVOConverter(selectedClient));
-                bookingTable(selectedBooking);
+                model.editBooking(BookingToBookingVOConverter(selectedBooking));
+                showBookingDetails(selectedBooking);
             }
 
         } else {
             // Nothing selected.
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
-            alert.setHeaderText("No ha seleccionado ningún cliente");
-            alert.setContentText("Por favor, elija un cliente");
+            alert.setHeaderText("No ha seleccionado ninguna reserva");
+            alert.setContentText("Por favor, elija una reserva");
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get().equals(ButtonType.OK)) {

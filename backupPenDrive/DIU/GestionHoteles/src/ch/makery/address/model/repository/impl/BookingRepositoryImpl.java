@@ -56,7 +56,8 @@ public class BookingRepositoryImpl implements BookingRepository {
         try {
             Connection conn = this.conexion.conectarBD();
             this.stmt = conn.createStatement();
-            String sql = String.format("UPDATE reservas SET cod = " + booking.getCod() + ", fech_llegada = '" + booking.getFechEntrada() + "', fech_salida = '" + booking.getFechSalida() + "', n_hab = " + booking.getnHab() + ", tipo_hab = '" + booking.getTipoHab() + "', fumador = " + booking.isFumador() + ", regimen = '" + booking.getRegimen() + "' WHERE cod = " + booking.getCod());
+            int fuma = booking.isFumador() ? 1 : 0;
+            String sql = String.format("UPDATE reservas SET cod = " + booking.getCod() + ", fech_llegada = '" + booking.getFechEntrada() + "', fech_salida = '" + booking.getFechSalida() + "', n_hab = " + booking.getnHab() + ", tipo_hab = '" + booking.getTipoHab().toString().toUpperCase().replaceAll(" ", "_").replaceFirst("Ó", "O") + "', fumador = " + fuma + ", regimen = '" + booking.getRegimen().toString().toUpperCase().replaceAll(" ", "_").replaceFirst("Ó", "O") + "' WHERE cod = " + booking.getCod());
             this.stmt.executeUpdate(sql);
         } catch (Exception var4) {
             throw new ExcepcionBooking("No se ha podido realizar la edición");

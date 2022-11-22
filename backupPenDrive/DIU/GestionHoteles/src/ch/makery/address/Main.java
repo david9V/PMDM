@@ -72,6 +72,7 @@ public class Main extends Application {
             ClientOverviewController clientOverviewController = loader.getController(); // Load controller
             clientOverviewController.setModel(model); // Model injection
             clientOverviewController.getModel().setClientRep(clientRepository); // Client repo injection
+            clientOverviewController.getModel().setBookingRep(bookingRepository);
             clientData = ClientVOtoClientConverter(clientOverviewController.getModel().loadClientList()); // Load client list from database
             clientOverviewController.setMain(this);
         } catch (IOException e) {

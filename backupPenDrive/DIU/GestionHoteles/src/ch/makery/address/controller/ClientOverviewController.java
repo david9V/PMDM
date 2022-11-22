@@ -1,10 +1,7 @@
 package ch.makery.address.controller;
 
 import ch.makery.address.Main;
-import ch.makery.address.model.Booking;
-import ch.makery.address.model.Client;
-import ch.makery.address.model.ExcepcionClient;
-import ch.makery.address.model.Model;
+import ch.makery.address.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -33,6 +30,8 @@ public class ClientOverviewController {
     private Label cityLabel;
     @FXML
     private Label provinceLabel;
+    @FXML
+    private TextField dniTextField;
 
     private Model model;
 
@@ -92,7 +91,7 @@ public class ClientOverviewController {
             clientTable.getItems().remove(selectedIndex);
             model.deleteClient(c.getId());
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
             alert.setHeaderText("No ha seleccionado ningún cliente");
             alert.setContentText("Por favor, elija un cliente");
@@ -127,7 +126,7 @@ public class ClientOverviewController {
 
         } else {
             // Nothing selected.
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
             alert.setHeaderText("No ha seleccionado ningún cliente");
             alert.setContentText("Por favor, elija un cliente");
@@ -140,13 +139,26 @@ public class ClientOverviewController {
     }
 
     @FXML
-    private void handleShowBookings(){
+    private void handleShowBookings() throws ExcepcionBooking {
         Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
         if (selectedClient != null) {
-            main.showBookingOverview(selectedClient);
+            if (model.loadBookingList(selectedClient.getId()).size() > 0)
+                main.showBookingOverview(selectedClient);
+            else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cliente sin reservas");
+                alert.setHeaderText("El cliente seleccionado no tiene ninguna reserva asociada");
+                alert.setContentText("Imposible mostrar reservas");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get().equals(ButtonType.OK)) {
+                    alert.close();
+                }
+            }
+
         } else {
             // Nothing selected.
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
             alert.setHeaderText("No ha seleccionado ningún cliente");
             alert.setContentText("Por favor, elija un cliente");
@@ -156,6 +168,24 @@ public class ClientOverviewController {
                 alert.close();
             }
         }
+    }
+
+    @FXML
+    private void handleSearchClient(){
+        String dni = dniTextField.getText();
+        int i = main.getClientData().indexOf(new Client(dni));
+        if (i == -1){ // NO EXISTE UN CLIENTE CON ESE DNI
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("Cliente no encontrado");
+            alert.setContentText("Introduzca un DNI correcto");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get().equals(ButtonType.OK)) {
+                alert.close();
+            }
+        } else
+            main.showBookingOverview(main.getClientData().get(i));
     }
 
     public void setModel(Model m){

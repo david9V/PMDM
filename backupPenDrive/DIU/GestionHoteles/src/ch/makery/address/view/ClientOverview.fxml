@@ -145,8 +145,8 @@
                                     <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="24.0" prefWidth="142.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                                    <Button mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <TextField fx:id="dniTextField" alignment="CENTER" prefHeight="24.0" prefWidth="142.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                    <Button mnemonicParsing="false" onAction="#handleSearchClient" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                              <image>

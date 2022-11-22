@@ -62,6 +62,10 @@ public class Model {
         this.bookingRep.guardar(booking);
     }
 
+    public void editBooking(BookingVO booking) throws ExcepcionBooking{
+        this.bookingRep.actualizar(booking);
+    }
+
     public void deleteBooking(int cod) throws ExcepcionBooking{
         this.bookingRep.eliminar(cod);
     }

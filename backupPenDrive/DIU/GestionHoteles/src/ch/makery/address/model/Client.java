@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.util.Objects;
+
 public class Client {
 
     private final IntegerProperty id;
@@ -49,6 +51,19 @@ public class Client {
         this.address = address;
         this.city = city;
         this.province = province;
+    }
+
+    public Client(String dni){
+        this.dni = new SimpleStringProperty(dni);
+        this.id = new SimpleIntegerProperty(123);
+        this.firstName = new SimpleStringProperty("aa");
+        this.lastName = new SimpleStringProperty("aa");
+
+        // Random data to test
+        this.address = new SimpleStringProperty("Dirección cualquiera");
+        this.city = new SimpleStringProperty("Localidad cualquiera");
+        this.province = new SimpleStringProperty("Provincia cualquiera");
+
     }
 
     public String getFirstName() {
@@ -131,4 +146,17 @@ public class Client {
         return this.id.get();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        boolean e = this.dni.getValue().equals(client.dni.getValue());
+        return e;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni);
+    }
 }
