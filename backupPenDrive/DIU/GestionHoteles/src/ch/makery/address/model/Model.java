@@ -2,6 +2,7 @@ package ch.makery.address.model;
 
 import ch.makery.address.model.repository.BookingRepository;
 import ch.makery.address.model.repository.ClientRepository;
+import ch.makery.address.util.TipoHabitacion;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -69,4 +70,11 @@ public class Model {
     public void deleteBooking(int cod) throws ExcepcionBooking{
         this.bookingRep.eliminar(cod);
     }
+
+    // INFO METHODS
+
+    public ArrayList<BookingVO>loadFullBookingList() throws ExcepcionBooking{
+        return this.bookingRep.cargarTodo();
+    }
+
 }

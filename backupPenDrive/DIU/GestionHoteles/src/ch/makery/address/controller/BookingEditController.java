@@ -34,16 +34,13 @@ public class BookingEditController {
     private Model model;
     private Booking booking;
 
-
-
     @FXML
     private void initialize() {
       ObservableList<String> list = FXCollections.observableArrayList("Doble de uso individual", "Doble", "Junior Suite", "Suite");
       comboHab.setItems(list);
 
         this.valueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(0,1);
-        valueFactory.setValue(0);
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0,1,0);
         spinner.setValueFactory(valueFactory);
     }
 
@@ -117,7 +114,7 @@ public class BookingEditController {
         if (fechSalida.getValue() == null) {
             errorMessage += "Fecha de salida no válida\n";
         }
-        if (spinner.getValue() == null) {
+        if (spinner.getValue() == null || spinner.getValue() == 0 ) {
             errorMessage += "Número de habitaciones no válido\n";
         }
         if (comboHab.getSelectionModel().getSelectedItem() == null) {

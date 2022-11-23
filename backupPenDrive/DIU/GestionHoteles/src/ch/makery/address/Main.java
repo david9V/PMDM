@@ -1,13 +1,11 @@
 package ch.makery.address;
 
-import ch.makery.address.controller.BookingEditController;
-import ch.makery.address.controller.BookingOverviewController;
-import ch.makery.address.controller.ClientEditController;
-import ch.makery.address.controller.ClientOverviewController;
+import ch.makery.address.controller.*;
 import ch.makery.address.model.*;
 import ch.makery.address.model.repository.impl.BookingRepositoryImpl;
 import ch.makery.address.model.repository.impl.ClientRepositoryImpl;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +30,12 @@ public class Main extends Application {
 
     private ClientRepositoryImpl clientRepository;
     private BookingRepositoryImpl bookingRepository;
+
+    private int hDu = 0;//Doble de uso individual
+    private int d = 0;//Doble
+    private int jS = 0;//Junior Suite
+    private int s = 0;//Suite
+
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -52,10 +56,12 @@ public class Main extends Application {
             loader.setLocation(Main.class.getResource("view/RootLayout.fxml"));
             rootLayout = loader.load();
 
+            RootLayoutController rootLayoutController = loader.getController();
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
 
             primaryStage.show();
+            rootLayoutController.setMain(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -159,6 +165,51 @@ public class Main extends Application {
         }
     }
 
+    public void showOccupationStatistics() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/OccupationStatistics.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(personOverview);
+
+            OccupationStatisticsController occupationStatisticsController = loader.getController(); // Load controller
+            occupationStatisticsController.setModel(model); // Model injection
+            occupationStatisticsController.getModel().setBookingRep(bookingRepository);
+            occupationStatisticsController.cargar();
+            occupationStatisticsController.setData(occupationStatisticsController.getLista());
+            occupationStatisticsController.setMain(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ExcepcionBooking e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void showRoomTypes() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/RoomTypes.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Habitaciones");
+            dialogStage.initModality(Modality.NONE);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(personOverview);
+            dialogStage.setScene(scene);
+
+            RoomTypesController roomTypesController = loader.getController(); // Load controller
+            dialogStage.showAndWait();
+
+            //roomTypesController.setModel(model); // Model injection
+            //roomTypesController.getModel().setBookingRep(bookingRepository);
+            //occupationStatisticsController.setMain(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private ObservableList<Client> clientData = FXCollections.observableArrayList();
 
@@ -168,6 +219,46 @@ public class Main extends Application {
     public ObservableList<Client> getClientData() {
         return clientData;
     }
+
+    public int gethDu() {
+        return hDu;
+    }
+
+    public void sethDu(int hDu) {
+        this.hDu = hDu;
+    }
+
+    public int getD() {
+        return d;
+    }
+
+    public void setD(int d) {
+        this.d = d;
+    }
+
+    public int getjS() {
+        return jS;
+    }
+
+    public void setjS(int jS) {
+        this.jS = jS;
+    }
+
+    public int getS() {
+        return s;
+    }
+
+    public void setS(int s) {
+        this.s = s;
+    }
+
+    public void exit(){
+        this.primaryStage.setOnCloseRequest(t -> {
+            Platform.exit();
+            System.exit(0);
+        });
+    }
+
     public static void main(String[] args) throws ExcepcionClient {
         launch(args);
         //c.guardar(new ClientVO("s", "s", "s", "s", "s", "s"));

@@ -4,6 +4,7 @@ import ch.makery.address.model.BookingVO;
 import ch.makery.address.model.ClientVO;
 import ch.makery.address.model.ExcepcionBooking;
 import ch.makery.address.model.ExcepcionClient;
+import ch.makery.address.util.TipoHabitacion;
 
 import java.util.ArrayList;
 
@@ -19,4 +20,5 @@ public interface BookingRepository {
 
     int lastCod() throws ExcepcionBooking;
 
+    public ArrayList<BookingVO> cargarTodo() throws ExcepcionBooking;
 }

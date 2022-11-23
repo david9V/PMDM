@@ -94,6 +94,35 @@ public class BookingRepositoryImpl implements BookingRepository {
     }
 
     @Override
+    public ArrayList<BookingVO> cargarTodo() throws ExcepcionBooking {
+        try {
+            Connection conn = this.conexion.conectarBD();
+            this.lista = new ArrayList();
+            this.stmt = conn.createStatement();
+            this.sentencia = "SELECT * FROM reservas";
+            ResultSet rs = this.stmt.executeQuery(this.sentencia);
+
+            while(rs.next()) {
+                Integer cod = rs.getInt("cod");
+                Date fEntr = rs.getDate("fech_llegada");
+                Date fSal = rs.getDate("fech_salida");
+                Integer nHab = rs.getInt("n_hab");
+                TipoHabitacion tipoHab = TipoHabitacion.valueOf(rs.getString("tipo_hab"));
+                boolean fumador = rs.getBoolean("fumador");
+                Regimen regimen = Regimen.valueOf(rs.getString("regimen"));
+                Integer idClie = rs.getInt("id_cliente");
+
+                this.b = new BookingVO(cod, fEntr, fSal, nHab, tipoHab, fumador, regimen, idClie);
+                this.lista.add(this.b);
+            }
+            this.conexion.desconectarBD(conn);
+            return this.lista;
+        } catch (SQLException var6) {
+            throw new ExcepcionBooking("No se ha podido realizar la operación");
+        }
+    }
+
+    @Override
     public int lastCod() throws ExcepcionBooking {
         int cod = 0;
 
@@ -109,4 +138,5 @@ public class BookingRepositoryImpl implements BookingRepository {
             throw new ExcepcionBooking( "No se ha podido realizar la busqueda del código");
         }
     }
+
 }
