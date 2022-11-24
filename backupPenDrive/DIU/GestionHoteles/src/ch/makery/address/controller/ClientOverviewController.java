@@ -207,7 +207,7 @@ public class ClientOverviewController {
         else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
-            alert.setHeaderText("DNI NO VÁLIDO");
+            alert.setHeaderText("DNI NO VALIDO");
             alert.setContentText("Introduzca un DNI con un formato correcto");
 
             Optional<ButtonType> result = alert.showAndWait();
