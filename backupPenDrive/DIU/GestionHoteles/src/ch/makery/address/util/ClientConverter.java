@@ -10,6 +10,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ClientConverter {
+    /**
+     * @param lista
+     * @return
+     */
     public  static ObservableList<Client> ClientVOtoClientConverter(ArrayList<ClientVO> lista){
         ObservableList<Client> p = FXCollections.observableArrayList();
         for (int i = 0; i < lista.size(); i++){
@@ -27,6 +31,10 @@ public class ClientConverter {
         return p;
     }
 
+    /**
+     * @param client
+     * @return
+     */
     public static ClientVO ClienttoClientVOConverter(Client client){
         int id = client.getId();
         String fn = client.getFirstName();

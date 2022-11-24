@@ -16,6 +16,16 @@ public class BookingVO {
     private Regimen regimen;
     private int idCliente;
 
+    /**
+     * @param cod
+     * @param fechEntrada
+     * @param fechSalida
+     * @param nHab
+     * @param tipoHab
+     * @param fumador
+     * @param regimen
+     * @param idCliente
+     */
     public BookingVO(int cod, Date fechEntrada, Date fechSalida, int nHab, TipoHabitacion tipoHab, boolean fumador, Regimen regimen, int idCliente) {
         this.cod = cod;
         this.fechEntrada = fechEntrada;
@@ -27,70 +37,73 @@ public class BookingVO {
         this.idCliente = idCliente;
     }
 
+    /**
+     * @return
+     */
     public int getCod() {
         return cod;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
-    }
 
+    /**
+     * @return
+     */
     public Date getFechEntrada() {
         return fechEntrada;
     }
 
-    public void setFechEntrada(Date fechEntrada) {
-        this.fechEntrada = fechEntrada;
-    }
 
+    /**
+     * @return
+     */
     public Date getFechSalida() {
         return fechSalida;
     }
 
-    public void setFechSalida(Date fechSalida) {
-        this.fechSalida = fechSalida;
-    }
 
+    /**
+     * @return
+     */
     public int getnHab() {
         return nHab;
     }
 
-    public void setnHab(int nHab) {
-        this.nHab = nHab;
-    }
 
+    /**
+     * @return
+     */
     public TipoHabitacion getTipoHab() {
         return tipoHab;
     }
 
-    public void setTipoHab(TipoHabitacion tipoHab) {
-        this.tipoHab = tipoHab;
-    }
 
+    /**
+     * @return
+     */
     public boolean isFumador() {
         return fumador;
     }
 
-    public void setFumador(boolean fumador) {
-        this.fumador = fumador;
-    }
 
+    /**
+     * @return
+     */
     public Regimen getRegimen() {
         return regimen;
     }
 
-    public void setRegimen(Regimen regimen) {
-        this.regimen = regimen;
-    }
 
+    /**
+     * @return
+     */
     public int getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "BookingVO{" +

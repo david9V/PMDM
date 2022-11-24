@@ -2,6 +2,7 @@ package ch.makery.address.controller;
 
 import ch.makery.address.Main;
 import ch.makery.address.model.*;
+import ch.makery.address.util.ValidadorDNI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -37,9 +38,15 @@ public class ClientOverviewController {
 
     private Main main;
 
+    /**
+     *
+     */
     public ClientOverviewController() {
     }
 
+    /**
+     *
+     */
     @FXML
     private void initialize() {
         // Initialize the person table with the two columns.
@@ -56,12 +63,18 @@ public class ClientOverviewController {
                 (observable, oldValue, newValue) -> showClientDetails(newValue));
     }
 
+    /**
+     * @param main
+     */
     public void setMain(Main main) {
         this.main = main;
 
         clientTable.setItems(main.getClientData());
     }
 
+    /**
+     * @param client
+     */
     private void showClientDetails(Client client) {
         if (client != null) {
             // Fill the labels with info from the person object.
@@ -83,6 +96,9 @@ public class ClientOverviewController {
         }
     }
 
+    /**
+     * @throws ExcepcionClient
+     */
     @FXML
     private void handleDeleteClient() throws ExcepcionClient {
         int selectedIndex = clientTable.getSelectionModel().getSelectedIndex();
@@ -103,6 +119,9 @@ public class ClientOverviewController {
         }
     }
 
+    /**
+     * @throws ExcepcionClient
+     */
     @FXML
     private void handleNewClient() throws ExcepcionClient {
         Client tempClient = new Client();
@@ -114,6 +133,9 @@ public class ClientOverviewController {
         }
     }
 
+    /**
+     * @throws ExcepcionClient
+     */
     @FXML
     private void handleEditClient() throws ExcepcionClient {
         Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
@@ -138,24 +160,14 @@ public class ClientOverviewController {
         }
     }
 
+    /**
+     * @throws ExcepcionBooking
+     */
     @FXML
     private void handleShowBookings() throws ExcepcionBooking {
         Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
         if (selectedClient != null) {
-            if (model.loadBookingList(selectedClient.getId()).size() > 0)
-                main.showBookingOverview(selectedClient);
-            else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Cliente sin reservas");
-                alert.setHeaderText("El cliente seleccionado no tiene ninguna reserva asociada");
-                alert.setContentText("Imposible mostrar reservas");
-
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.get().equals(ButtonType.OK)) {
-                    alert.close();
-                }
-            }
-
+            main.showBookingOverview(selectedClient);
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -170,28 +182,51 @@ public class ClientOverviewController {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     private void handleSearchClient(){
         String dni = dniTextField.getText();
-        int i = main.getClientData().indexOf(new Client(dni));
-        if (i == -1){ // NO EXISTE UN CLIENTE CON ESE DNI
+
+        if (new ValidadorDNI(dni).validar()){
+            int i = main.getClientData().indexOf(new Client(dni));
+            if (i == -1){ // NO EXISTE UN CLIENTE CON ESE DNI
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Error");
+                alert.setHeaderText("Cliente no encontrado");
+                alert.setContentText("Introduzca un DNI asociado a un cliente existente");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get().equals(ButtonType.OK)) {
+                    alert.close();
+                }
+            } else
+                main.showBookingOverview(main.getClientData().get(i));
+        }
+        else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
-            alert.setHeaderText("Cliente no encontrado");
-            alert.setContentText("Introduzca un DNI correcto");
+            alert.setHeaderText("DNI NO VÁLIDO");
+            alert.setContentText("Introduzca un DNI con un formato correcto");
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get().equals(ButtonType.OK)) {
                 alert.close();
             }
-        } else
-            main.showBookingOverview(main.getClientData().get(i));
+        }
     }
 
+    /**
+     * @param m
+     */
     public void setModel(Model m){
         this.model = m;
     }
 
+    /**
+     * @return
+     */
     public Model getModel(){
         return this.model;
     }

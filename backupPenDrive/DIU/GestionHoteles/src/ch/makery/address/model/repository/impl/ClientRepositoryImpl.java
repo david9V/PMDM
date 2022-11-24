@@ -20,6 +20,10 @@ public class ClientRepositoryImpl implements ClientRepository {
     public ClientRepositoryImpl(){
     }
 
+    /**
+     * @param client
+     * @throws ExcepcionClient
+     */
     @Override
     public void guardar(ClientVO client) throws ExcepcionClient {
         try {
@@ -35,6 +39,10 @@ public class ClientRepositoryImpl implements ClientRepository {
         }
     }
 
+    /**
+     * @param id
+     * @throws ExcepcionClient
+     */
     @Override
     public void eliminar(int id) throws ExcepcionClient {
         try {
@@ -49,6 +57,10 @@ public class ClientRepositoryImpl implements ClientRepository {
         }
     }
 
+    /**
+     * @param client
+     * @throws ExcepcionClient
+     */
     @Override
     public void actualizar(ClientVO client) throws ExcepcionClient {
         try {
@@ -61,6 +73,10 @@ public class ClientRepositoryImpl implements ClientRepository {
         }
     }
 
+    /**
+     * @return
+     * @throws ExcepcionClient
+     */
     @Override
     public ArrayList<ClientVO> cargar() throws ExcepcionClient {
         try {
@@ -90,6 +106,10 @@ public class ClientRepositoryImpl implements ClientRepository {
         }
     }
 
+    /**
+     * @return
+     * @throws ExcepcionClient
+     */
     @Override
     public int lastId() throws ExcepcionClient {
         int id = 0;

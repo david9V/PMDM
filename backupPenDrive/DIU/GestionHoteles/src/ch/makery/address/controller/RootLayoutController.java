@@ -16,22 +16,42 @@ public class RootLayoutController {
     private void initialize() {
     }
 
+    /**
+     * @param main
+     */
     public void setMain(Main main) {
         this.main = main;
     }
 
+    /**
+     *
+     */
     @FXML
     private void handleOpenStatistics(){
         main.showOccupationStatistics();
     }
 
+    /**
+     *
+     */
     @FXML
     private void handleOpenRoomTypes(){
         main.showRoomTypes();
     }
 
+    /**
+     *
+     */
     @FXML
-    private void handleExit() {
-        main.exit();
+    private void handleGoBackMain() {
+        main.showClientOverview();
+    }
+
+    /**
+     *
+     */
+    @FXML
+    private void handleOpenJavaDoc(){
+        main.showJavaDoc();
     }
 }

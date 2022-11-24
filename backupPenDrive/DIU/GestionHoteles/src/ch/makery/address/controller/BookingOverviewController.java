@@ -75,6 +75,9 @@ public class BookingOverviewController {
         return this.model;
     }
 
+    /**
+     * @param booking
+     */
     private void showBookingDetails(Booking booking) {
         if (booking != null) {
             // Fill the labels with info from the person object.
@@ -96,6 +99,9 @@ public class BookingOverviewController {
         }
     }
 
+    /**
+     * @throws ExcepcionBooking
+     */
     @FXML
     private void handleNewBooking() throws ExcepcionBooking {
         Booking tempBooking = new Booking();
@@ -108,6 +114,9 @@ public class BookingOverviewController {
         }
     }
 
+    /**
+     * @throws ExcepcionBooking
+     */
     @FXML
     private void handleDeleteBooking() throws ExcepcionBooking {
         int selectedIndex = bookingTable.getSelectionModel().getSelectedIndex();
@@ -128,6 +137,9 @@ public class BookingOverviewController {
         }
     }
 
+    /**
+     * @throws ExcepcionBooking
+     */
     @FXML
     private void handleEditBooking() throws  ExcepcionBooking {
         Booking selectedBooking = bookingTable.getSelectionModel().getSelectedItem();
@@ -152,6 +164,9 @@ public class BookingOverviewController {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     private void handleGoBack(){
         main.showClientOverview();
@@ -159,6 +174,9 @@ public class BookingOverviewController {
 
     private ObservableList<Booking> bookingData = FXCollections.observableArrayList();
 
+    /**
+     * @param l
+     */
     public void setBookingData(ObservableList<Booking> l){
         this.bookingData = l;
     }

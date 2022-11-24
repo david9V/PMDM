@@ -6,10 +6,17 @@ public enum Regimen {
     PENSION_COMPLETA ("Pensión completa");
 
     private final String name;
+
+    /**
+     * @param s
+     */
     Regimen(String s) {
         name = s;
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return this.name;

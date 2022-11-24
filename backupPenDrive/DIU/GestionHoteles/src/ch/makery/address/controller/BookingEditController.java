@@ -13,6 +13,9 @@ import javafx.stage.Stage;
 
 import java.util.Optional;
 
+/**
+ *
+ */
 public class BookingEditController {
 
     @FXML
@@ -26,14 +29,20 @@ public class BookingEditController {
     @FXML
     private CheckBox fumador;
     @FXML
+    private Label fumadorLabel;
+    @FXML
     private RadioButton rButton1, rButton2, rButton3;
 
     SpinnerValueFactory<Integer> valueFactory;
     private boolean okClicked = false;
     private Stage dialogStage;
     private Model model;
+
     private Booking booking;
 
+    /**
+     *
+     */
     @FXML
     private void initialize() {
       ObservableList<String> list = FXCollections.observableArrayList("Doble de uso individual", "Doble", "Junior Suite", "Suite");
@@ -42,8 +51,20 @@ public class BookingEditController {
         this.valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0,1,0);
         spinner.setValueFactory(valueFactory);
+
+        fumador.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (fumador.isSelected()){
+                fumadorLabel.setText("En virtud de la ley de sanidad,\n" +
+                        "se informa a los clientes de que\n" +
+                        "solo podrán fumar en las habitaciones \n" +
+                        "reservadas para tal coxis.");
+            } else fumadorLabel.setText("");
+        });
     }
 
+    /**
+     * @param booking
+     */
     public void setBooking(Booking booking) {
         this.booking = booking;
 
@@ -62,6 +83,10 @@ public class BookingEditController {
         fumador.setSelected(booking.isFumador());
     }
 
+    /**
+     * @param booking
+     * @return
+     */
     public int calcularIndiceCombo(Booking booking){
         if (booking.getTipoHab().toString().equals("Doble de uso individual")) return 0;
         else if (booking.getTipoHab().toString().equals("Doble")) return 1;
@@ -70,6 +95,9 @@ public class BookingEditController {
         else return -1;
     }
 
+    /**
+     * @return
+     */
     public String calcularRegimenElegido(){
         String r = "";
         if (rButton1.isSelected()) r = rButton1.getText();
@@ -78,6 +106,9 @@ public class BookingEditController {
         return r;
     }
 
+    /**
+     * @param dialogStage
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
@@ -87,6 +118,9 @@ public class BookingEditController {
         dialogStage.close();
     }
 
+    /**
+     * @return
+     */
     public boolean isOkClicked() {
         return okClicked;
     }
@@ -140,10 +174,16 @@ public class BookingEditController {
         }
     }
 
+    /**
+     * @return
+     */
     public Model getModel(){
         return this.model;
     }
 
+    /**
+     * @param model
+     */
     public void setModel(Model model){
         this.model = model;
     }

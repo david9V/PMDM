@@ -8,10 +8,16 @@ public enum TipoHabitacion {
 
     private final String name;
 
+    /**
+     * @param s
+     */
     TipoHabitacion(String s) {
         this.name = s;
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return this.name;

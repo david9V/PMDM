@@ -21,6 +21,10 @@ public class BookingRepositoryImpl implements BookingRepository {
     public BookingRepositoryImpl(){
     }
 
+    /**
+     * @param booking
+     * @throws ExcepcionBooking
+     */
     @Override
     public void guardar(BookingVO booking) throws ExcepcionBooking {
         try {
@@ -37,6 +41,10 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @param cod
+     * @throws ExcepcionBooking
+     */
     @Override
     public void eliminar(int cod) throws ExcepcionBooking {
         try {
@@ -64,6 +72,11 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @param idCliente
+     * @return
+     * @throws ExcepcionBooking
+     */
     @Override
     public ArrayList<BookingVO> cargar(int idCliente) throws ExcepcionBooking {
         try {
@@ -93,6 +106,10 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
     @Override
     public ArrayList<BookingVO> cargarTodo() throws ExcepcionBooking {
         try {
@@ -122,6 +139,10 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
     @Override
     public int lastCod() throws ExcepcionBooking {
         int cod = 0;
@@ -139,6 +160,10 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
     public int getNdU() throws ExcepcionBooking {
         int cantidad = 0;
 
@@ -157,6 +182,10 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
     public int getNd() throws ExcepcionBooking {
         int cantidad = 0;
 
@@ -175,6 +204,10 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
     public int getNjS() throws ExcepcionBooking {
         int cantidad = 0;
 
@@ -193,6 +226,10 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
     public int getNs() throws ExcepcionBooking {
         int cantidad = 0;
 
@@ -211,6 +248,11 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    /**
+     * @param cod
+     * @return
+     * @throws ExcepcionBooking
+     */
     @Override
     public TipoHabitacion getTipoHab(int cod) throws ExcepcionBooking {
         try {

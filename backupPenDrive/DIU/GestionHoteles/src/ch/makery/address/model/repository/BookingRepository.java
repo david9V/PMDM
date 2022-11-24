@@ -10,27 +10,73 @@ import java.util.ArrayList;
 
 public interface BookingRepository {
 
+    /**
+     * @param booking
+     * @throws ExcepcionBooking
+     */
     void guardar(BookingVO booking) throws ExcepcionBooking;
 
+    /**
+     * @param cod
+     * @throws ExcepcionBooking
+     */
     void eliminar(int cod) throws ExcepcionBooking;
 
+    /**
+     * @param booking
+     * @throws ExcepcionBooking
+     */
     void actualizar(BookingVO booking) throws ExcepcionBooking;
 
+    /**
+     * @param idBooking
+     * @return
+     * @throws ExcepcionBooking
+     */
     ArrayList<BookingVO> cargar(int idBooking) throws ExcepcionBooking;
 
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
     int lastCod() throws ExcepcionBooking;
 
-    public ArrayList<BookingVO> cargarTodo() throws ExcepcionBooking;
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
+    ArrayList<BookingVO> cargarTodo() throws ExcepcionBooking;
 
-    public int getNdU() throws ExcepcionBooking;
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
+    int getNdU() throws ExcepcionBooking;
 
-    public int getNd() throws ExcepcionBooking;
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
+    int getNd() throws ExcepcionBooking;
 
-    public int getNjS() throws ExcepcionBooking;
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
+    int getNjS() throws ExcepcionBooking;
 
-    public int getNs() throws ExcepcionBooking;
+    /**
+     * @return
+     * @throws ExcepcionBooking
+     */
+    int getNs() throws ExcepcionBooking;
 
-    public TipoHabitacion getTipoHab(int cod) throws ExcepcionBooking;
+    /**
+     * @param cod
+     * @return
+     * @throws ExcepcionBooking
+     */
+    TipoHabitacion getTipoHab(int cod) throws ExcepcionBooking;
 
 
 }

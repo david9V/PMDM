@@ -14,6 +14,10 @@ import java.util.ArrayList;
 
 public class BookingConverter {
 
+    /**
+     * @param lista
+     * @return
+     */
     public  static ObservableList<Booking> BookingVOtoBookingConverter(ArrayList<BookingVO> lista){
         ObservableList<Booking> p = FXCollections.observableArrayList();
         for (int i = 0; i < lista.size(); i++){
@@ -32,6 +36,10 @@ public class BookingConverter {
         return p;
     }
 
+    /**
+     * @param booking
+     * @return
+     */
     public static BookingVO BookingToBookingVOConverter(Booking booking){
         int cod = booking.getCod();
         Date fEntr = Date.valueOf(booking.getFechEntrada());

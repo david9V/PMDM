@@ -2,6 +2,7 @@ package ch.makery.address.controller;
 
 import ch.makery.address.model.Client;
 import ch.makery.address.model.Model;
+import ch.makery.address.util.ValidadorDNI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -30,14 +31,23 @@ public class ClientEditController {
 
     private Model model;
 
+    /**
+     *
+     */
     @FXML
     private void initialize() {
     }
 
+    /**
+     * @param dialogStage
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
+    /**
+     * @param client
+     */
     public void setClient(Client client) {
         this.client = client;
 
@@ -49,10 +59,16 @@ public class ClientEditController {
         provinceField.setText(client.getProvince());
     }
 
+    /**
+     * @return
+     */
     public boolean isOkClicked() {
         return okClicked;
     }
 
+    /**
+     *
+     */
     @FXML
     private void handleOk() {
         if (isInputValid()) {
@@ -67,11 +83,17 @@ public class ClientEditController {
         }
     }
 
+    /**
+     *
+     */
     @FXML
     private void handleCancel() {
         dialogStage.close();
     }
 
+    /**
+     * @return
+     */
     private boolean isInputValid() {
         String errorMessage = "";
 
@@ -81,7 +103,7 @@ public class ClientEditController {
         if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
             errorMessage += "Apellido no válido\n";
         }
-        if (dniField.getText() == null || dniField.getText().length() == 0) {
+        if (dniField.getText() == null || dniField.getText().length() == 0 || !new ValidadorDNI(dniField.getText()).validar()) {
             errorMessage += "DNI no válido\n";
         }
         if (addressField.getText() == null || addressField.getText().length() == 0) {
@@ -110,10 +132,16 @@ public class ClientEditController {
         }
     }
 
+    /**
+     * @return
+     */
     public Model getModel(){
         return this.model;
     }
 
+    /**
+     * @param model
+     */
     public void setModel(Model model){
         this.model = model;
     }

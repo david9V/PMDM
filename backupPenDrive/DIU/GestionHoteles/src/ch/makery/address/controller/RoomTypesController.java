@@ -18,7 +18,7 @@ import javafx.scene.image.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomTypesController{
+public class RoomTypesController {
 
     @FXML
     private ComboBox<String> comboHab;
@@ -35,9 +35,16 @@ public class RoomTypesController{
 
     private List<Image> imagenActual;
     private int i = 0; // iterador que va a recorrer el array
-    private IntegerProperty cantidadBarra = new SimpleIntegerProperty();
+
+    private IntegerProperty cantidadBarra_dU = new SimpleIntegerProperty();
+    private IntegerProperty cantidadBarra_d = new SimpleIntegerProperty();
+    private IntegerProperty cantidadBarra_jS = new SimpleIntegerProperty();
+    private IntegerProperty cantidadBarra_s = new SimpleIntegerProperty();
     private Model model;
 
+    /**
+     * @throws ExcepcionBooking
+     */
     public void inicializar() throws ExcepcionBooking {
         ObservableList<String> list = FXCollections.observableArrayList("Doble de uso individual", "Doble", "Junior Suite", "Suite");
         this.comboHab.setItems(list);
@@ -50,51 +57,61 @@ public class RoomTypesController{
 
         this.imagenActual = new ArrayList<>();
         loadImages();
-        actualizarAdU();
 
-        /*
-        this.cantidadBarra.addListener((observable, oldValue, newValue) -> {
-            if (this.comboHab.getSelectionModel().getSelectedItem().toString().compareTo("Doble de uso individual") == 0 ) {
+
+        this.cantidadBarra_dU.addListener((observable, oldValue, newValue) -> {
+            if (this.comboHab.getSelectionModel().getSelectedItem().compareTo("Doble de uso individual") == 0) {
                 try {
                     actualizarAdU();
                 } catch (ExcepcionBooking e) {
                     throw new RuntimeException(e);
                 }
-                setProgress_dU();
-                setNProgress_dU();
             }
-            if (this.comboHab.getSelectionModel().getSelectedItem().toString().compareTo("Doble") == 0 ){
+        });
+        this.cantidadBarra_d.addListener((observable, oldValue, newValue) -> {
+
+            if (this.comboHab.getSelectionModel().getSelectedItem().compareTo("Doble") == 0) {
                 try {
                     actualizarAd();
                 } catch (ExcepcionBooking e) {
                     throw new RuntimeException(e);
                 }
-                setProgress_d();
-                setNProgress_d();
             }
-            if (this.comboHab.getSelectionModel().getSelectedItem().toString().compareTo("Junior Suite") == 0 ){
+        });
+        this.cantidadBarra_jS.addListener((observable, oldValue, newValue) -> {
+
+            if (this.comboHab.getSelectionModel().getSelectedItem().compareTo("Junior Suite") == 0) {
                 try {
                     actualizarAjS();
                 } catch (ExcepcionBooking e) {
                     throw new RuntimeException(e);
                 }
-                setProgress_jS();
-                setNProgress_jS();
             }
-            if (this.comboHab.getSelectionModel().getSelectedItem().toString().compareTo("Suite") == 0 ){
+        });
+        this.cantidadBarra_s.addListener((observable, oldValue, newValue) -> {
+
+            if (this.comboHab.getSelectionModel().getSelectedItem().compareTo("Suite") == 0) {
                 try {
                     actualizarAs();
                 } catch (ExcepcionBooking e) {
                     throw new RuntimeException(e);
                 }
-                setProgress_s();
-                setNProgress_s();
             }
-
         });
-         */
+
+
+        this.model.setHabActuales_dU();
+        this.model.setHabActuales_d();
+        this.model.setHabActuales_jS();
+        this.model.setHabActuales_s();
+
+        this.cantidadBarra_dU.bindBidirectional(this.model.getHabActuales_dU());
+        this.cantidadBarra_d.bindBidirectional(this.model.getHabActuales_d());
+        this.cantidadBarra_jS.bindBidirectional(this.model.getHabActuales_jS());
+        this.cantidadBarra_s.bindBidirectional(this.model.getHabActuales_s());
+
         this.comboHab.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (this.comboHab.getSelectionModel().getSelectedItem().toString().compareTo("Doble de uso individual") == 0 ){
+            if (this.comboHab.getSelectionModel().getSelectedItem().compareTo("Doble de uso individual") == 0) {
 
                 try {
                     actualizarAdU();
@@ -105,7 +122,7 @@ public class RoomTypesController{
                 this.imagenActual = this.du;
                 img.setImage(imagenActual.get(0));
             }
-            if (this.comboHab.getSelectionModel().getSelectedItem().toString().compareTo("Doble") == 0 ){
+            if (this.comboHab.getSelectionModel().getSelectedItem().compareTo("Doble") == 0) {
 
                 try {
                     actualizarAd();
@@ -116,7 +133,7 @@ public class RoomTypesController{
                 this.imagenActual = this.d;
                 img.setImage(imagenActual.get(0));
             }
-            if (this.comboHab.getSelectionModel().getSelectedItem().toString().compareTo("Junior Suite") == 0 ){
+            if (this.comboHab.getSelectionModel().getSelectedItem().compareTo("Junior Suite") == 0) {
 
                 try {
                     actualizarAjS();
@@ -127,7 +144,7 @@ public class RoomTypesController{
                 this.imagenActual = this.jS;
                 img.setImage(imagenActual.get(0));
             }
-            if (this.comboHab.getSelectionModel().getSelectedItem().toString().compareTo("Suite") == 0 ){
+            if (this.comboHab.getSelectionModel().getSelectedItem().compareTo("Suite") == 0) {
 
                 try {
                     actualizarAs();
@@ -139,9 +156,14 @@ public class RoomTypesController{
                 img.setImage(imagenActual.get(0));
             }
         });
+
+        actualizarAdU();
     }
 
-    private void loadImages(){
+    /**
+     *
+     */
+    private void loadImages() {
         this.du.add(new Image("/res/du1.jpg"));
         this.du.add(new Image("/res/du2.jpg"));
         this.du.add(new Image("/res/du3.jpg"));
@@ -165,92 +187,128 @@ public class RoomTypesController{
         this.imagenActual = this.du;
     }
 
+    /**
+     *
+     */
     @FXML
-    private void handleNext(){
+    private void handleNext() {
         if (i < 3) i++;
         else i = 0;
         img.setImage(imagenActual.get(this.i));
     }
 
+    /**
+     *
+     */
     @FXML
-    private void handlePrevious(){
+    private void handlePrevious() {
         if (i > 0) i--;
         else i = 3;
         img.setImage(imagenActual.get(this.i));
     }
 
+    /**
+     * @throws ExcepcionBooking
+     */
     public void actualizarAdU() throws ExcepcionBooking {
-        this.model.setHabActuales_dU();
-        this.cantidadBarra.unbind();
-        this.cantidadBarra.bindBidirectional(this.model.getHabActuales_dU());
         setProgress_dU();
         setNProgress_dU();
     }
 
+    /**
+     * @throws ExcepcionBooking
+     */
     public void actualizarAd() throws ExcepcionBooking {
-        this.model.setHabActuales_d();
-        this.cantidadBarra.unbind();
-        this.cantidadBarra.bindBidirectional(this.model.getHabActuales_d());
         setProgress_d();
         setNProgress_d();
     }
 
+    /**
+     * @throws ExcepcionBooking
+     */
     public void actualizarAjS() throws ExcepcionBooking {
-        this.model.setHabActuales_jS();
-        this.cantidadBarra.unbind();
-        this.cantidadBarra.bindBidirectional(this.model.getHabActuales_jS());
         setProgress_jS();
         setNProgress_jS();
     }
 
+    /**
+     * @throws ExcepcionBooking
+     */
     public void actualizarAs() throws ExcepcionBooking {
-        this.model.setHabActuales_s();
-        this.cantidadBarra.unbind();
-        this.cantidadBarra.bindBidirectional(this.model.getHabActuales_s());
         setProgress_s();
         setNProgress_s();
     }
 
-    private void setProgress_dU(){
-        double l = (double) this.cantidadBarra.getValue() / 20;
+    /**
+     *
+     */
+    private void setProgress_dU() {
+        double l = (double) this.cantidadBarra_dU.getValue() / 20;
         this.progressBar.setProgress(l);
     }
 
-    public void setNProgress_dU(){
-        this.nProgress.setText((this.cantidadBarra.getValue() * 100/20) + "%");
+    /**
+     *
+     */
+    public void setNProgress_dU() {
+        this.nProgress.setText((this.cantidadBarra_dU.getValue() * 100 / 20) + "%");
     }
 
-    private void setProgress_d(){
-        double l = (double) this.cantidadBarra.getValue() / 80;
+    /**
+     *
+     */
+    private void setProgress_d() {
+        double l = (double) this.cantidadBarra_d.getValue() / 80;
         this.progressBar.setProgress(l);
     }
 
-    public void setNProgress_d(){
-        this.nProgress.setText((this.cantidadBarra.getValue() * 100/80) + "%");
+    /**
+     *
+     */
+    public void setNProgress_d() {
+        this.nProgress.setText((this.cantidadBarra_d.getValue() * 100 / 80) + "%");
     }
 
-    private void setProgress_jS(){
-        double l = (double) this.cantidadBarra.getValue() / 15;
+    /**
+     *
+     */
+    private void setProgress_jS() {
+        double l = (double) this.cantidadBarra_jS.getValue() / 15;
         this.progressBar.setProgress(l);
     }
 
-    public void setNProgress_jS(){
-        this.nProgress.setText((this.cantidadBarra.getValue() * 100/15) + "%");
+    /**
+     *
+     */
+    public void setNProgress_jS() {
+        this.nProgress.setText((this.cantidadBarra_jS.getValue() * 100 / 15) + "%");
     }
 
-    private void setProgress_s(){
-        double l = (double) this.cantidadBarra.getValue() / 5;
+    /**
+     *
+     */
+    private void setProgress_s() {
+        double l = (double) this.cantidadBarra_s.getValue() / 5;
         this.progressBar.setProgress(l);
     }
 
-    public void setNProgress_s(){
-        this.nProgress.setText((this.cantidadBarra.getValue() * 100/5) + "%");
+    /**
+     *
+     */
+    public void setNProgress_s() {
+        this.nProgress.setText((this.cantidadBarra_s.getValue() * 100 / 5) + "%");
     }
 
+    /**
+     * @return
+     */
     public Model getModel() {
         return model;
     }
 
+    /**
+     * @param model
+     */
     public void setModel(Model model) {
         this.model = model;
     }

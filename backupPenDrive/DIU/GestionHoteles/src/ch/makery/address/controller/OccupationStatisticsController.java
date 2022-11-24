@@ -30,6 +30,9 @@ public class OccupationStatisticsController {
     private BookingRepository bookingRep;
     private Main main;
 
+    /**
+     *
+     */
     @FXML
     private void initialize() {
         String[] months = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
@@ -39,6 +42,9 @@ public class OccupationStatisticsController {
         xAxis.setCategories(monthNames);
     }
 
+    /**
+     * @param bookings
+     */
     public void setData(List<BookingVO> bookings) {
         int[] monthCounter = new int[12];
         for (BookingVO b : bookings) {
@@ -56,10 +62,16 @@ public class OccupationStatisticsController {
     }
 
 
+    /**
+     * @return
+     */
     public Model getModel(){
         return this.model;
     }
 
+    /**
+     * @param model
+     */
     public void setModel(Model model){
         this.model = model;
     }
@@ -67,19 +79,31 @@ public class OccupationStatisticsController {
     ArrayList<BookingVO> lista;
 
 
+    /**
+     * @throws ExcepcionBooking
+     */
     public void cargar() throws ExcepcionBooking {
         this.lista = this.model.loadFullBookingList();
     }
 
+    /**
+     * @return
+     */
     public ArrayList<BookingVO> getLista(){
         return this.lista;
     }
 
+    /**
+     *
+     */
     @FXML
     private void handleGoBack(){
         main.showClientOverview();
     }
 
+    /**
+     * @param main
+     */
     public void setMain(Main main){
         this.main = main;
     }

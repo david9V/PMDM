@@ -10,12 +10,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import static ch.makery.address.util.BookingConverter.BookingVOtoBookingConverter;
 import static ch.makery.address.util.ClientConverter.ClientVOtoClientConverter;
@@ -84,7 +87,14 @@ public class Main extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ExcepcionClient e) {
-            throw new RuntimeException(e);
+            clientData = null;
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No se ha podido conectar con la base de datos");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get().equals(ButtonType.OK)) {
+                alert.close();
+            }
         }
     }
 
@@ -128,6 +138,19 @@ public class Main extends Application {
             bookingOverviewController.setClientId(client.getId());
             bookingOverviewController.setModel(model); // Model injection
             bookingOverviewController.getModel().setBookingRep(bookingRepository); // Client repo injection
+
+            if (bookingOverviewController.getModel().loadBookingList(client.getId()).size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cliente sin reservas");
+                alert.setHeaderText("El cliente seleccionado no tiene ninguna reserva asociada");
+                alert.setContentText("Introduzca sus reservas");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get().equals(ButtonType.OK)) {
+                    alert.close();
+                }
+            }
+
             bookingOverviewController.setBookingData(BookingVOtoBookingConverter(bookingOverviewController.getModel().loadBookingList(client.getId())));
             bookingOverviewController.initializeTable();
             bookingOverviewController.setMain(this);
@@ -215,10 +238,32 @@ public class Main extends Application {
         }
     }
 
+    public void showJavaDoc() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/JavaDoc.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("JavaDoc");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(personOverview);
+            dialogStage.setScene(scene);
+
+            JavaDocController javaDocController = loader.getController(); // Load controller
+            dialogStage.showAndWait();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private ObservableList<Client> clientData = FXCollections.observableArrayList();
 
-    public Main(){
+    public Main() {
     }
 
     public ObservableList<Client> getClientData() {
@@ -255,13 +300,6 @@ public class Main extends Application {
 
     public void setS(int s) {
         this.s = s;
-    }
-
-    public void exit(){
-        this.primaryStage.setOnCloseRequest(t -> {
-            Platform.exit();
-            System.exit(0);
-        });
     }
 
     public static void main(String[] args) throws ExcepcionClient {
