@@ -21,7 +21,7 @@ import java.util.List;
 public class RoomTypesController{
 
     @FXML
-    private ComboBox comboHab;
+    private ComboBox<String> comboHab;
     @FXML
     private ImageView img;
     @FXML
