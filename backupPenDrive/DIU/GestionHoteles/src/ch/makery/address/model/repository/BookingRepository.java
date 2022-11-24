@@ -21,4 +21,16 @@ public interface BookingRepository {
     int lastCod() throws ExcepcionBooking;
 
     public ArrayList<BookingVO> cargarTodo() throws ExcepcionBooking;
+
+    public int getNdU() throws ExcepcionBooking;
+
+    public int getNd() throws ExcepcionBooking;
+
+    public int getNjS() throws ExcepcionBooking;
+
+    public int getNs() throws ExcepcionBooking;
+
+    public TipoHabitacion getTipoHab(int cod) throws ExcepcionBooking;
+
+
 }

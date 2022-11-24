@@ -139,4 +139,94 @@ public class BookingRepositoryImpl implements BookingRepository {
         }
     }
 
+    public int getNdU() throws ExcepcionBooking {
+        int cantidad = 0;
+
+        try {
+            Connection conn = this.conexion.conectarBD();
+            Statement comando = conn.createStatement();
+
+            ResultSet registro = comando.executeQuery("SELECT * FROM reservas WHERE tipo_hab='DOBLE_DE_USO_INDIVIDUAL'");
+
+            while (registro.next()){
+                cantidad++;
+            }
+            return cantidad;
+        } catch (SQLException var5) {
+            throw new ExcepcionBooking( "No se ha podido realizar la búsqueda");
+        }
+    }
+
+    public int getNd() throws ExcepcionBooking {
+        int cantidad = 0;
+
+        try {
+            Connection conn = this.conexion.conectarBD();
+            Statement comando = conn.createStatement();
+
+            ResultSet registro = comando.executeQuery("SELECT * FROM reservas WHERE tipo_hab='DOBLE'");
+
+            while (registro.next()){
+                cantidad++;
+            }
+            return cantidad;
+        } catch (SQLException var5) {
+            throw new ExcepcionBooking( "No se ha podido realizar la búsqueda");
+        }
+    }
+
+    public int getNjS() throws ExcepcionBooking {
+        int cantidad = 0;
+
+        try {
+            Connection conn = this.conexion.conectarBD();
+            Statement comando = conn.createStatement();
+
+            ResultSet registro = comando.executeQuery("SELECT * FROM reservas WHERE tipo_hab='JUNIOR_SUITE'");
+
+            while (registro.next()){
+                cantidad++;
+            }
+            return cantidad;
+        } catch (SQLException var5) {
+            throw new ExcepcionBooking( "No se ha podido realizar la búsqueda");
+        }
+    }
+
+    public int getNs() throws ExcepcionBooking {
+        int cantidad = 0;
+
+        try {
+            Connection conn = this.conexion.conectarBD();
+            Statement comando = conn.createStatement();
+
+            ResultSet registro = comando.executeQuery("SELECT * FROM reservas WHERE tipo_hab='SUITE'");
+
+            while (registro.next()){
+                cantidad++;
+            }
+            return cantidad;
+        } catch (SQLException var5) {
+            throw new ExcepcionBooking( "No se ha podido realizar la búsqueda");
+        }
+    }
+
+    @Override
+    public TipoHabitacion getTipoHab(int cod) throws ExcepcionBooking {
+        try {
+            Connection conn = this.conexion.conectarBD();
+            this.stmt = conn.createStatement();
+            this.sentencia = "SELECT * FROM reservas WHERE cod="+cod;
+            ResultSet rs = this.stmt.executeQuery(this.sentencia);
+
+            rs.next();
+                TipoHabitacion tipoHab = TipoHabitacion.valueOf(rs.getString("tipo_hab"));
+
+            this.conexion.desconectarBD(conn);
+            return tipoHab;
+        } catch (SQLException var6) {
+            throw new ExcepcionBooking("No se ha podido realizar la operación");
+        }
+    }
+
 }

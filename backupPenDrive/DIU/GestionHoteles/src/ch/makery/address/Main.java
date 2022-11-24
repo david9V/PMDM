@@ -200,6 +200,9 @@ public class Main extends Application {
             dialogStage.setScene(scene);
 
             RoomTypesController roomTypesController = loader.getController(); // Load controller
+            roomTypesController.setModel(model);
+            roomTypesController.getModel().setBookingRep(bookingRepository);
+            roomTypesController.inicializar();
             dialogStage.showAndWait();
 
             //roomTypesController.setModel(model); // Model injection
@@ -207,6 +210,8 @@ public class Main extends Application {
             //occupationStatisticsController.setMain(this);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ExcepcionBooking e) {
+            throw new RuntimeException(e);
         }
     }
 
