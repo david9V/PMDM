@@ -17,4 +17,12 @@
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="javax.persistence.InheritanceType"/>
     <fullyQualifiedTypeName name="javax.persistence.ForeignKey"/>
+    <fullyQualifiedTypeName name="models.Compartimento"/>
+    <fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="models.Departamento"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="model.Alumno"/>
+    <fullyQualifiedTypeName name="model.Asignatura"/>
 </qualifiedTypeNameHistroy>
