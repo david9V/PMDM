@@ -1,12 +1,7 @@
 package ch.makery.address.controller;
 
 import ch.makery.address.Main;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.stage.WindowEvent;
-
-import java.awt.*;
 
 public class RootLayoutController {
 
