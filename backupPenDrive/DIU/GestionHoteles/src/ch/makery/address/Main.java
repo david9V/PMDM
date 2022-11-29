@@ -228,9 +228,6 @@ public class Main extends Application {
             roomTypesController.inicializar();
             dialogStage.showAndWait();
 
-            //roomTypesController.setModel(model); // Model injection
-            //roomTypesController.getModel().setBookingRep(bookingRepository);
-            //occupationStatisticsController.setMain(this);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ExcepcionBooking e) {
