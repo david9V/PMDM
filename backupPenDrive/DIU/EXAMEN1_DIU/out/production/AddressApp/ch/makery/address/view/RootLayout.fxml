@@ -5,24 +5,13 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.RootLayoutController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.RootLayoutController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Menú">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Volver al principal" />
                         <MenuItem mnemonicParsing="false" onAction="#handleShowNoModal" text="No Modal" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Estadísticas">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Ver estadísticas" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Habitaciones">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Ver detalles de habitaciones" />
                     </items>
                 </Menu>
             </menus>

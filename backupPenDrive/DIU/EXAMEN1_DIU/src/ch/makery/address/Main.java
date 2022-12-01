@@ -1,12 +1,12 @@
 package ch.makery.address;
 
-import ch.makery.address.controller.MonedaOverviewController;
+import Modelo.ExcepcionMoneda;
+import Modelo.repository.impl.MonedaRepositoryImpl;
+import ch.makery.address.controller.ConversorOverviewController;
 import ch.makery.address.controller.NoModalController;
 import ch.makery.address.controller.RootLayoutController;
-import ch.makery.address.model.ExcepcionMoneda;
+import ch.makery.address.model.ConversorMonedasImpl;
 import ch.makery.address.model.Model;
-import ch.makery.address.model.MonedaVO;
-import ch.makery.address.model.repository.impl.MonedaRepositoryImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -31,15 +31,15 @@ public class Main extends Application {
     private MonedaRepositoryImpl monedaRepository;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage){
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("EXAMEN");
+        this.primaryStage.setTitle("EXAMEN MONEDAS");
 
         this.model = new Model();
         this.monedaRepository = new MonedaRepositoryImpl();
 
         initRootLayout();
-        showMonedaOverview();
+        showConversorOverview();
     }
 
     public void initRootLayout() {
@@ -59,23 +59,23 @@ public class Main extends Application {
         }
     }
 
-    public void showMonedaOverview() {
+    public void showConversorOverview() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/MonedaOverview.fxml"));
+            loader.setLocation(Main.class.getResource("view/ConversorOverview.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             rootLayout.setCenter(personOverview);
 
-            MonedaOverviewController monedaOverviewController = loader.getController();
-            //monedaOverviewController.setModel(model);
-            //monedaOverviewController.getModel().setClientRep(monedaRepository);
-            //monedaData = ClientVOtoClientConverter(clientOverviewController.getModel().loadClientList()); // Load client list from database
-            //monedaOverviewController.setMain(this);
+            ConversorOverviewController conversorOverviewController = loader.getController();
+            conversorOverviewController.setModel(model);
+            conversorOverviewController.getModel().setRep(monedaRepository);
+            // Se implementa el conversor que se va a utilizar, en este caso el de las monedas.
+            conversorOverviewController.getModel().setConversor(new ConversorMonedasImpl());
+            conversorOverviewController.cargarLista(conversorOverviewController.getModel().obtenerMonedas());
         } catch (IOException e) {
             e.printStackTrace();
-        } /*catch (ExcepcionMoneda e) {
-            monedaData = null;
+        } catch (ExcepcionMoneda e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No se ha podido conectar con la base de datos");
@@ -84,7 +84,6 @@ public class Main extends Application {
                 alert.close();
             }
         }
-        */
     }
 
     public void showNoModal() {
@@ -100,19 +99,21 @@ public class Main extends Application {
             Scene scene = new Scene(personOverview);
             dialogStage.setScene(scene);
 
-            NoModalController noModalController = loader.getController(); // Load controller
-            //noModalController.setModel(model);
-            //noModalController.getModel().setBookingRep(monedaRepository);
+            NoModalController noModalController = loader.getController();
+            noModalController.setModel(model);
+            noModalController.getModel().setRep(monedaRepository);
+            noModalController.inicializar();
             dialogStage.showAndWait();
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ExcepcionMoneda e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static void main(String[] args) throws ExcepcionMoneda {
+
+    public static void main(String[] args) {
         launch(args);
-        MonedaRepositoryImpl monedaRepository1 = new MonedaRepositoryImpl();
-        monedaRepository1.deleteMoneda(monedaRepository1.lastId());
     }
 }

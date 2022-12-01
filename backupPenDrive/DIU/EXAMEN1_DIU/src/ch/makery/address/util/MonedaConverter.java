@@ -1,12 +1,13 @@
 package ch.makery.address.util;
 
+import Modelo.MonedaVO;
 import ch.makery.address.model.Moneda;
-import ch.makery.address.model.MonedaVO;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
+
 
 public class MonedaConverter {
 
