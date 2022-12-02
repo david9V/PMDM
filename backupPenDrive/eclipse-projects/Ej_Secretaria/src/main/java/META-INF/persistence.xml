@@ -4,7 +4,7 @@
 	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
 https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
 	version="3.0">
-	<persistence-unit name="PruebaJPA1"
+	<persistence-unit name="Ej_Secretaria"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
@@ -12,11 +12,11 @@ https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
 				value="jdbc:oracle:thin:@172.17.0.2:1521/xe" />
 			<property name="hibernate.connection.driver_class"
 				value="oracle.jdbc.driver.OracleDriver" />
-			<property name="hibernate.connection.username" value="EMPRESA" />
-			<property name="hibernate.connection.password" value="EMPRESA" />
+			<property name="hibernate.connection.username" value="SECRETARIA" />
+			<property name="hibernate.connection.password" value="SECRETARIA" />
 			<property name="hibernate.archive.autodetection"
 				value="class" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			

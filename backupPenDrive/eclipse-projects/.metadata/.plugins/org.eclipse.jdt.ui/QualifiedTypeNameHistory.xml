@@ -25,4 +25,7 @@
     <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="model.Alumno"/>
     <fullyQualifiedTypeName name="model.Asignatura"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.TypedQuery"/>
+    <fullyQualifiedTypeName name="dao.MatriculaDAO"/>
+    <fullyQualifiedTypeName name="model.Matriculacion"/>
 </qualifiedTypeNameHistroy>

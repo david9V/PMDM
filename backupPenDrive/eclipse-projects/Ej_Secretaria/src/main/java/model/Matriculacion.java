@@ -21,12 +21,12 @@ public class Matriculacion implements Serializable {
 
 	//bi-directional many-to-one association to Alumno
 	@ManyToOne
-	@JoinColumn(name="DNI")
+	@JoinColumn(name="DNI", insertable=false, updatable=false)
 	private Alumno alumno;
 
 	//bi-directional many-to-one association to Asignatura
 	@ManyToOne
-	@JoinColumn(name="COD_ASIGNATURA")
+	@JoinColumn(name="COD_ASIGNATURA", insertable=false, updatable=false)
 	private Asignatura asignatura;
 
 	public Matriculacion() {
@@ -64,4 +64,5 @@ public class Matriculacion implements Serializable {
 		this.asignatura = asignatura;
 	}
 
+	
 }

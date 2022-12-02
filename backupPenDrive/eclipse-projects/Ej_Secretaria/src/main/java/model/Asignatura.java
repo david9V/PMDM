@@ -23,10 +23,16 @@ public class Asignatura implements Serializable {
 	private String titulo;
 
 	//bi-directional many-to-one association to Matriculacion
-	@OneToMany(mappedBy="asignatura")
+	@OneToMany(mappedBy="asignatura", fetch = FetchType.EAGER)
 	private List<Matriculacion> matriculacions;
 
 	public Asignatura() {
+	}
+	
+	public Asignatura(String codigo, String titulo, BigDecimal creditos) {
+		this.codigo = codigo;
+		this.titulo = titulo;
+		this.creditos = creditos;
 	}
 
 	public String getCodigo() {
@@ -74,5 +80,13 @@ public class Asignatura implements Serializable {
 
 		return matriculacion;
 	}
+
+	@Override
+	public String toString() {
+		return "Asignatura [codigo=" + codigo + ", creditos=" + creditos + ", titulo=" + titulo + ", matriculacions="
+				+ matriculacions + "]";
+	}
+	
+	
 
 }

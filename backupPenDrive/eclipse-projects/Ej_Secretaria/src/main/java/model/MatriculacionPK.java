@@ -20,6 +20,7 @@ public class MatriculacionPK implements Serializable {
 
 	public MatriculacionPK() {
 	}
+	
 	public String getDni() {
 		return this.dni;
 	}

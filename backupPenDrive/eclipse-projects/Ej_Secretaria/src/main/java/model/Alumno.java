@@ -29,10 +29,19 @@ public class Alumno implements Serializable {
 	private BigDecimal tipoacceso;
 
 	//bi-directional many-to-one association to Matriculacion
-	@OneToMany(mappedBy="alumno")
+	@OneToMany(mappedBy="alumno", fetch = FetchType.EAGER)
 	private List<Matriculacion> matriculacions;
 
 	public Alumno() {
+	}
+	
+	public Alumno(String dni, String nombre, String apellidos, String domicilio, String telefono, BigDecimal tipoacceso) {
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.domicilio = domicilio;
+		this.telefono = telefono;
+		this.tipoacceso = tipoacceso;
 	}
 
 	public String getDni() {
@@ -104,5 +113,13 @@ public class Alumno implements Serializable {
 
 		return matriculacion;
 	}
+
+	@Override
+	public String toString() {
+		return "\nAlumno [dni=" + dni + ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", nombre=" + nombre
+				+ ", telefono=" + telefono + ", tipoacceso=" + tipoacceso + ", matriculacions=" + matriculacions + "]";
+	}
+	
+	
 
 }

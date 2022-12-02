@@ -6,7 +6,7 @@ import jakarta.persistence.Persistence;
 
 public class JpaUtil {
 	
-	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("PruebaJPA1");
+	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("Ej_Secretaria");
 
 	public static EntityManager getEntityManager() {
 		return emf.createEntityManager();

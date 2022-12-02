@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Places Java</string>
+    <string name="accion_mostrar">Show places</string>
+    <string name="accion_preferencias">Settings</string>
+    <string name="accion_acerca_de">About</string>
+    <string name="accion_salir">Exit</string>
+</resources>

@@ -1,8 +1,12 @@
 package dao;
 
+import java.util.ArrayList;
+
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import model.Alumno;
 import model.Asignatura;
+import model.Matriculacion;
 import util.JpaUtil;
 
 public class AlumnoDAO {
@@ -12,7 +16,7 @@ public class AlumnoDAO {
 		String info = "";
 		try {
 			em.getTransaction().begin();
-			if (em.find(Alumno.class, alumno) == null) {
+			if (em.find(Alumno.class, ((Alumno)alumno).getDni()) == null) {
 				em.persist(alumno);
 				em.getTransaction().commit();
 				info = "Alumno dado de alta";
@@ -38,7 +42,7 @@ public class AlumnoDAO {
 		try {
 			em.getTransaction().begin();
 			Alumno a = em.find(Alumno.class, dni);
-			if (a.getMatriculacions() == null) {
+			if (a.getMatriculacions().size() == 0) {
 				em.remove(a);
 				em.getTransaction().commit();
 				info = "Alumno dado de baja";
@@ -74,5 +78,20 @@ public class AlumnoDAO {
 			return false;
 		else
 			return true;		
+	}
+	
+	public ArrayList<Alumno> alumnosPorAsig(String cod) {
+		EntityManager em = JpaUtil.getEntityManager();
+		ArrayList<Alumno> lista = new ArrayList<>();
+		TypedQuery<Matriculacion> matr = em.createQuery("select m from Matriculacion m where cod_asignatura=:cod", Matriculacion.class);
+		
+		matr.setParameter("cod", cod);
+				
+		for(Matriculacion m: matr.getResultList()) {
+			lista.add(m.getAlumno());
+		}
+		
+		em.close();
+		return lista;
 	}
 }

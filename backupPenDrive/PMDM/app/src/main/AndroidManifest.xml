@@ -17,7 +17,15 @@
             android:name=".MainPrueba"
             android:exported="true"
             android:label="Test"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".AcercaDeActivity"
+            android:exported="true"
+            android:label="Test"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+            android:windowSoftInputMode="adjustPan" />
+
     </application>
 
 </manifest>

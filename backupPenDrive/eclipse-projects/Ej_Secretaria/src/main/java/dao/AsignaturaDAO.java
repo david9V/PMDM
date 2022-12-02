@@ -1,6 +1,7 @@
 package dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import model.Alumno;
 import model.Asignatura;
 import util.JpaUtil;
@@ -13,7 +14,7 @@ public class AsignaturaDAO {
 
 		try {
 			em.getTransaction().begin();
-			if (em.find(Alumno.class, asig) == null) {
+			if (em.find(Asignatura.class, ((Asignatura)asig).getCodigo()) == null) {
 				em.persist(asig);
 				em.getTransaction().commit();
 				info = "Asignatura dada de alta";
@@ -36,7 +37,14 @@ public class AsignaturaDAO {
 	public Asignatura consultaAsig(String titulo) {
 		EntityManager em = JpaUtil.getEntityManager();
 		
-		Asignatura a = em.find(Asignatura.class, titulo);
+		TypedQuery<Asignatura> asig = em.createQuery("select a from Asignatura a where titulo=:titulo", Asignatura.class);
+		asig.setParameter("titulo", titulo);
+		Asignatura a;
+		try {
+			a = asig.getSingleResult();			
+		} catch (Exception e) {
+			a = null;
+		}
 		em.close();
 		
 		return a;
