@@ -29,39 +29,37 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Modificar el Fragmento que sale en la pantalla
-                // dentro del container
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> {
+            // Modificar el Fragmento que sale en la pantalla
+            // dentro del container
 
-                Fragment f = null;
+            Fragment f = null;
 
-                if(cargarFragmento2) {
-                    f = new FirstFragment();
-                } else {
-                    f = new SecondFragment();
-                }
-
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.container, f)
-                        .commit();
-
-                cargarFragmento2 = !cargarFragmento2;
-
+            if (cargarFragmento2) {
+                f = new FirstFragment();
+            } else {
+                f = new SecondFragment();
             }
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, f)
+                    .commit();
+
+            cargarFragmento2 = !cargarFragmento2;
+
         });
 
         // Rescatamos el contenedor y le vamos a cargar un fragmento
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container,new FirstFragment())
+                .add(R.id.container, new FirstFragment())
                 .commit();
 
 
     }
+}
