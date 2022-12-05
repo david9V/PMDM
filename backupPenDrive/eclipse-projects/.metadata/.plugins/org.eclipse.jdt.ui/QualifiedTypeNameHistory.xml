@@ -28,4 +28,7 @@
     <fullyQualifiedTypeName name="jakarta.persistence.TypedQuery"/>
     <fullyQualifiedTypeName name="dao.MatriculaDAO"/>
     <fullyQualifiedTypeName name="model.Matriculacion"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.Generated"/>
+    <fullyQualifiedTypeName name="model.Jugadore"/>
+    <fullyQualifiedTypeName name="model.Equipo"/>
 </qualifiedTypeNameHistroy>
