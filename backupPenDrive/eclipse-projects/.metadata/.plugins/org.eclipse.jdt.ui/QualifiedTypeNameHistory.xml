@@ -31,4 +31,7 @@
     <fullyQualifiedTypeName name="org.hibernate.annotations.Generated"/>
     <fullyQualifiedTypeName name="model.Jugadore"/>
     <fullyQualifiedTypeName name="model.Equipo"/>
+    <fullyQualifiedTypeName name="model.Estadistica"/>
+    <fullyQualifiedTypeName name="model.EstadisticaPK"/>
+    <fullyQualifiedTypeName name="java.math.RoundingMode"/>
 </qualifiedTypeNameHistroy>

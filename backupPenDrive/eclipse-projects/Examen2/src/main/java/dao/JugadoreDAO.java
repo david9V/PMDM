@@ -95,5 +95,20 @@ public class JugadoreDAO {
 
 		return jug;
 	}
+	
+	public ArrayList<Jugadore> recuperarJugadoresPorEquipo(String nombre_equipo) {
+		EntityManager em = JpaUtil.getEntityManager();
+		ArrayList<Jugadore> lista = new ArrayList<>();
+		TypedQuery<Jugadore> jugadores = em.createQuery("select j from Jugadore j where NOMBRE_EQUIPO=:nombre", Jugadore.class);
+
+		jugadores.setParameter("nombre", nombre_equipo);
+
+		for (Jugadore jug : jugadores.getResultList()) {
+			lista.add(jug);
+		}
+
+		em.close();
+		return lista;
+	}
 
 }

@@ -86,4 +86,12 @@ public class Estadistica implements Serializable {
 		this.jugadore = jugadore;
 	}
 
+	@Override
+	public String toString() {
+		return "      " + id.getTemporada() + "          "+this.puntosPorPartido+"             "
+	+this.asistenciasPorPartido+"            "
+				+ this.taponesPorPartido+"          "+this.rebotesPorPartido;
+	}
+
+	
 }

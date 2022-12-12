@@ -122,8 +122,7 @@ public class Jugadore implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Jugadore [idJugador=" + idJugador + ", altura=" + altura + ", nombre=" + nombre + ", peso=" + peso
-				+ ", posicion=" + posicion + ", procedencia=" + procedencia + ", equipo=" + equipo + "]";
+		return this.idJugador + ", " + this.nombre + ": " + this.altura;
 	}
 	
 	

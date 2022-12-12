@@ -1,4 +1,6 @@
-package com.example.mislugaresjava;
+package com.example.mislugaresjava.pruebas;
+
+import com.example.mislugaresjava.LugaresLista;
 
 class Principal {
     public static void main(String[] main) {

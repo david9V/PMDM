@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="@dimen/margen_botones"
-    tools:context=".MainPrueba" >
+    tools:context=".pruebas.MainPrueba" >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:text="@string/accion_mostrar"/>
-            <Button android:id="@+id/button02"
+            <Button android:id="@+id/bPreferencias"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:text="@string/accion_preferencias"/>
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:text="@string/accion_acerca_de"/>
-            <Button android:id="@+id/button04"
+            <Button android:id="@+id/bSalir"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:text="@string/accion_salir"/>

@@ -19,6 +19,12 @@ public class EstadisticaPK implements Serializable {
 
 	public EstadisticaPK() {
 	}
+	
+	public EstadisticaPK(String temporada, long idJugador) {
+		this.temporada = temporada;
+		this.idJugador = idJugador;
+	}
+	
 	public String getTemporada() {
 		return this.temporada;
 	}

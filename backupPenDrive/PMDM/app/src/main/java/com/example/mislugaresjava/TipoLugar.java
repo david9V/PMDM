@@ -1,17 +1,17 @@
 package com.example.mislugaresjava;
 
 public enum TipoLugar {
-    OTROS ("Otros", 5),
-    RESTAURANTE ("Restaurante", 2),
-    BAR ("Bar", 6),
-    COPAS ("Copas", 0),
-    ESPECTACULO ("Espectáculo", 0),
-    HOTEL ("Hotel", 0),
-    COMPRAS ("Compras", 0),
-    EDUCACION ("Educación", 0),
-    DEPORTE ("Deporte", 0),
-    NATURALEZA ("Naturaleza", 0),
-    GASOLINERA ("Gasolinera", 0);
+    OTROS ("Otros", R.drawable.otros),
+    RESTAURANTE ("Restaurante", R.drawable.restaurante),
+    BAR ("Bar", R.drawable.bar),
+    COPAS ("Copas", R.drawable.copas),
+    ESPECTACULO ("Espectáculo", R.drawable.copas),
+    HOTEL ("Hotel", R.drawable.hotel),
+    COMPRAS ("Compras", R.drawable.compras),
+    EDUCACION ("Educación", R.drawable.educacion),
+    DEPORTE ("Deporte", R.drawable.deporte),
+    NATURALEZA ("Naturaleza", R.drawable.naturaleza),
+    GASOLINERA ("Gasolinera", R.drawable.gasolinera);
 
     private final String texto;
     private final int recurso;

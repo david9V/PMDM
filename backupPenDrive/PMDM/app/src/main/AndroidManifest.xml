@@ -14,18 +14,34 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".MainPrueba"
+            android:name=".pruebas.MainPrueba"
             android:exported="true"
             android:label="Test"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".AcercaDeActivity"
+            android:name=".pruebas.AcercaDeActivity"
             android:exported="true"
             android:label="Test"
             android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:windowSoftInputMode="adjustPan" />
 
+        <activity
+            android:name=".pruebas.PreferenciasActivity"
+            android:exported="true"
+            android:label="Test" />
+
+        <activity
+            android:name=".Aplicacion"
+            android:allowBackup="true"
+            android:exported="true"
+            android:label="Test" />
+        <activity android:name="com.example.mislugaresjava.presentacion.VistaLugarActivity"
+            android:exported="true"
+            />
+        <activity android:name="com.example.mislugaresjava.presentacion.MainActivity"
+            android:exported="true"
+            />
     </application>
 
 </manifest>

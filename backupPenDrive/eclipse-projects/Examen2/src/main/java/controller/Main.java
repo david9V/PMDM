@@ -3,54 +3,29 @@ package controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 
 import dao.EquipoDAO;
 import dao.EstadisticaDAO;
 import dao.JugadoreDAO;
 import dao.PartidoDAO;
 import model.Equipo;
+import model.Estadistica;
+import model.EstadisticaPK;
+import model.Jugadore;
 
 public class Main {
-	
+
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	static EquipoDAO equipoDAO = new EquipoDAO();
+	static EstadisticaDAO estadisticaDAO = new EstadisticaDAO();
+	static JugadoreDAO jugadoreDAO = new JugadoreDAO();
+	static PartidoDAO partidoDAO = new PartidoDAO();
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		EquipoDAO equipoDAO = new EquipoDAO();
-		EstadisticaDAO estadisticaDAO= new EstadisticaDAO();
-		JugadoreDAO  jugadoreDAO = new JugadoreDAO();
-		PartidoDAO partidoDAO = new PartidoDAO();
-		
-		Equipo e = new Equipo();
-		e.setNombreEquipo("SEVILLA");
-		e.setCiudad("SEVILLA");
-		e.setDivision("PRIMERA");
-//		System.out.println(equipoDAO.altaEquipo(e));
-		
-//		System.out.println(equipoDAO.bajaEquipo("Betis"));
-		
-//		System.out.println(equipoDAO.mostrarEquipoPorNombre("SEVILLA"));
-		
-//		System.out.println(equipoDAO.mostrarEquipos());
-		
-//		Jugadore j = new Jugadore();
-//		j.setIdJugador(10);
-//		j.setAltura(new BigDecimal(1.5));
-//		j.setEquipo(e);
-//		j.setNombre("pepe");
-//		j.setPeso(new BigDecimal(100));
-//		j.setProcedencia("mexico");
-//		j.setPosicion("base");
-		
-//		System.out.println(jugadoreDAO.altaJugador(j));
-		
-//		System.out.println(jugadoreDAO.bajaJugador(10));
-		
-//		System.out.println(jugadoreDAO.mostrarJugadorPorNombre("PEPE"));
-		
-		
-		
-////////////////////////////////////////////////////////////////////////////////////////
-		/*
+
 		int opc = 0;
 		do {
 			opciones();
@@ -63,187 +38,137 @@ public class Main {
 			}
 			switch (opc) {
 			case 1 -> {
-				altaAlumno(alumnoDAO);
+				insertarEstadisticas();
 			}
 			case 2 -> {
-				altaAsig(asignaturaDAO);
+				mostrarEstadisticas();
 			}
 			case 3 -> {
-				bajasAlumno(alumnoDAO);
+				listadoJugadoresPorEquipo();
 			}
-			case 4 -> {
-				consultaAlumnoId(alumnoDAO);
-			}
-			case 5 -> {
-				consultaAsigTitulo(asignaturaDAO);
-			}
-			case 6 -> {
-				realizarMatr(alumnoDAO, asignaturaDAO, matriculaDAO);
-			}
-			case 7 -> {
-				consultaAlumnosAsig(asignaturaDAO, alumnoDAO);
 			}
 
+			System.out.println();
+		} while (opc < 4);
+
+	}
+	
+	public static void insertarEstadisticas() throws NumberFormatException, IOException {
+		System.out.println("Introduzca la ID del jugador para insertar la estadística");
+		long id = Long.parseLong(reader.readLine());
+		if (jugadoreDAO.existeJugador(id)) {
+			System.out.println("Introduzca la temporada");
+			String temporada = reader.readLine();
+			EstadisticaPK estadisticaPK = new EstadisticaPK();
+			estadisticaPK.setIdJugador(id);
+			estadisticaPK.setTemporada(temporada);
+			if (estadisticaDAO.existeEstadisticaPK(estadisticaPK)) {
+				System.out.println("");
+				System.out.println("Imposible insertar estadística");
+				System.out.println("Ya existe una estadística con esa ID");
 			}
-			System.out.println();
-		} while (opc < 8);
-		*/
-	}
-/*
-	public static void altaAlumno(AlumnoDAO alumnoDAO) throws IOException {
-		System.out.println("Introduzca el DNI del nuevo alumno");
-		String dni = reader.readLine();
-		if (alumnoDAO.existeAlumno(dni)) {
-			System.out.println();
-			System.out.println("Error al dar de alta");
-			System.out.println("Ya existe un alumno con ese DNI");
-			System.out.println();
-		} 
-		else {
-			System.out.println("Introduzca el nombre del nuevo alumno");
-			String nombre = reader.readLine();
-			System.out.println("Introduzca los apellidos del nuevo alumno");
-			String apellidos = reader.readLine();
-			System.out.println("Introduzca el domiclio del nuevo alumno");
-			String domicilio = reader.readLine();
-			System.out.println("Introduzca el teléfono del nuevo alumno");
-			String telefono = reader.readLine();
-			System.out.println("Introduzca el tipo de Acceso del nuevo alumno");
-			BigDecimal tipoAcceso = BigDecimal.valueOf(Double.parseDouble(reader.readLine()));
-			System.out.println();
-			System.out.println(alumnoDAO.altaAlumno(new Alumno(dni, nombre, apellidos, domicilio, telefono, tipoAcceso))); 
-		}
-	}
-
-	public static void altaAsig(AsignaturaDAO asignaturaDAO) throws NumberFormatException, IOException {
-		System.out.println("Introduzca el código de la nueva asignatura");
-		String codigo = reader.readLine();
-		if (asignaturaDAO.existeAsig(codigo)) {
-			System.out.println("Error al dar de alta");
-			System.out.println("Ya existe una asignatura con ese código");
-			System.out.println();
-		} 
-		else {
-			System.out.println("Introduzca el título de la nueva asignatura");
-			String titulo = reader.readLine();
-			System.out.println("Introduzca los creditos de la nueva asignatura");
-			BigDecimal creditos = BigDecimal.valueOf(Double.parseDouble(reader.readLine()));
-			System.out.println();
-			System.out.println(asignaturaDAO.altaAsig(new Asignatura(codigo, titulo, creditos)));
-		}
-	}
-
-	public static void bajasAlumno(AlumnoDAO alumnoDAO) throws IOException {
-		System.out.println("Introduzca el DNI del alumno a borrar");
-		String dni = reader.readLine();
-		if (!alumnoDAO.existeAlumno(dni)) {
-			System.out.println();
-			System.out.println("Error");
-			System.out.println("No existe un alumno con ese DNI");
+			else {
+				System.out.println("Introduzca los puntos por partido");
+				String s_puntos = reader.readLine();
+				BigDecimal puntos;
+				if (verificarNulo(s_puntos))
+					 puntos = null;
+				else
+					puntos = BigDecimal.valueOf(Double.parseDouble(s_puntos));
+				System.out.println("Introduzca las asistencias por partido");
+				String s_asistencias = reader.readLine();
+				BigDecimal asistencias;
+				if (verificarNulo(s_asistencias))
+					 asistencias = null;
+				else
+					asistencias = BigDecimal.valueOf(Double.parseDouble(s_asistencias));
+				System.out.println("Introduzca los tapones por partido");
+				String s_tapones = reader.readLine();
+				BigDecimal tapones;
+				if (verificarNulo(s_tapones))
+					 tapones = null;
+				else
+					tapones = BigDecimal.valueOf(Double.parseDouble(s_tapones));
+				System.out.println("Introduzca los rebotes por partido");
+				String s_rebotes = reader.readLine();
+				BigDecimal rebotes;
+				if (verificarNulo(s_rebotes))
+					 rebotes = null;
+				else
+					rebotes = BigDecimal.valueOf(Double.parseDouble(s_rebotes));
+				Estadistica estadistica = new Estadistica();
+				estadistica.setId(estadisticaPK);
+				estadistica.setAsistenciasPorPartido(asistencias);
+				estadistica.setPuntosPorPartido(puntos);estadistica.setRebotesPorPartido(rebotes);
+				estadistica.setTaponesPorPartido(tapones);
+				System.out.println("");
+				System.out.println(estadisticaDAO.altaEstadistica(estadistica));
+			}
 		}
 		else {
-			System.out.println("¿Está seguro de que desea borrar el siguiente alumno? (S/N)");
-			System.out.println(alumnoDAO.consultaAlumno(dni));
-			String opcion = reader.readLine();
-			if (opcion.compareTo("S") == 0)
-				System.out.println(alumnoDAO.bajaAlumno(dni));
-			else
-				System.out.println("Baja cancelada");
-			
+			System.out.println("");
+			System.out.println("Imposible insertar estadística");
+			System.out.println("No existe un jugador con esa ID");
 		}
 	}
-
-	public static void consultaAlumnoId(AlumnoDAO alumnoDAO) throws IOException {
-		System.out.println("Introduzca el DNI del alumno");
-		String dni = reader.readLine();
-		Alumno a = alumnoDAO.consultaAlumno(dni); 
-		if (a != null) {
-			System.out.println();
-			//System.out.println(a.getMatriculacions());
-			System.out.println(a);			
+	
+	static void mostrarEstadisticas() throws NumberFormatException, IOException {
+		System.out.println("Introduzca el ID de un jugador");
+		long id = Long.parseLong(reader.readLine());
+		if (jugadoreDAO.existeJugador(id)) {
+			Jugadore jugador = jugadoreDAO.consultaJugador(id);
+			System.out.println("");
+			System.out.println("Datos del jugador: " + jugador.getIdJugador());
+			System.out.println("Jugador: " + jugador.getNombre());
+			ArrayList<Estadistica> lista = estadisticaDAO.recuperarEstadisticas();
+			int n = 0;
+			System.out.println("Temporada     Puntos     Asistencias     Tapones     Rebotes");
+			for (Estadistica e : lista) {
+				if (e.getId().getIdJugador() == id) {
+					System.out.println(e);
+					n++;
+				}
+			}
+			System.out.println("Número de registros: " + n);
 		}
 		else {
-			System.out.println();
-			System.out.println("No existe ese alumno");			
-		}
-	}
-
-	public static void consultaAsigTitulo(AsignaturaDAO asignaturaDAO) throws IOException {
-		System.out.println("Introduzca el título de la asignatura");
-		String titulo = reader.readLine();
-		Asignatura a = asignaturaDAO.consultaAsig(titulo);
-		if (a == null) {
-			System.out.println();
-			System.out.println("No existe ninguna asignatura con ese título");
-		}
-		else {
-			System.out.println();
-			System.out.println(a);
+			System.out.println("");
+			System.out.println("Imposible mostrar estadísticas");
+			System.out.println("No existe un jugador con esa ID");
 		}
 		
 	}
-
-	public static void realizarMatr(AlumnoDAO alumnoDAO, AsignaturaDAO asignaturaDAO, MatriculaDAO matriculaDAO) throws IOException {
-		System.out.println("Introduzca el DNI del alumno:");
-		String dni = reader.readLine();
-		if (alumnoDAO.existeAlumno(dni)) {
-			System.out.println("Introduzca el título de la asignatura");
-			String titulo = reader.readLine();
-			Asignatura a = asignaturaDAO.consultaAsig(titulo);
-			if (a != null) {
-				System.out.println("Introduzca la nota");
-				BigDecimal nota = BigDecimal.valueOf(Double.parseDouble(reader.readLine()));
-				Matriculacion m = new Matriculacion();
-				m.setNota(nota);
-				m.setAlumno(alumnoDAO.consultaAlumno(dni));
-				m.setAsignatura(asignaturaDAO.consultaAsig(titulo));
-				MatriculacionPK pk = new MatriculacionPK();
-				pk.setDni(dni);
-				pk.setCodAsignatura(asignaturaDAO.consultaAsig(titulo).getCodigo());
-				m.setId(pk);
-				if (matriculaDAO.existeMatr(m)) {
-					System.out.println("Error, La matricula ya existe");
-				}
-				else {
-					System.out.println(matriculaDAO.altaMatr(m));
-				}
+	
+	static void listadoJugadoresPorEquipo() {
+		ArrayList<Equipo> lista = equipoDAO.recuperarEquipos();
+		System.out.println("Número de equipos: " + lista.size());;
+		
+		for(Equipo e : lista) {
+			System.out.println("Equipo: " + e.getNombreEquipo());
+			ArrayList<Jugadore> jugadores = jugadoreDAO.recuperarJugadoresPorEquipo(e.getNombreEquipo());
+			for(Jugadore j : jugadores) {
+				BigDecimal altura = j.getAltura().divide(new BigDecimal(100)).setScale(2, RoundingMode.HALF_UP);
+				System.out.println(j.getIdJugador() + ", " + j.getNombre() + ": " + altura + "m");
 			}
-			else {
-				System.out.println("Error, la asignatura no existe");
-			}
-		}
-		else {
-			System.out.println("Error, El alumno no existe");
+			System.out.println("==============================================");
 		}
 	}
-
-	public static void consultaAlumnosAsig(AsignaturaDAO asignaturaDAO, AlumnoDAO alumnoDAO) throws IOException {
-		System.out.println("Introduzca el título de la asignatura");
-		String titulo = reader.readLine();
-		Asignatura a = asignaturaDAO.consultaAsig(titulo); 
-		if (a != null) {
-			ArrayList<Alumno> lista = alumnoDAO.alumnosPorAsig(a.getCodigo());
-			if (lista.size() == 0)
-				System.out.println("No hay ningún alumno asociado a esa asignatura");
-			else {
-				System.out.println(lista);
-			}
-		}
-		else {
-			System.out.println("No existe esa asignatura");
-		}
+	
+	static boolean verificarNulo(String s) {
+		if (s.isEmpty())
+			return true;
+		else
+			return false;
 	}
-*/
+
+	
+	
 	public static void opciones() {
-		System.out.println("1- ");
-		System.out.println("2- ");
-		System.out.println("3- ");
-		System.out.println("4- ");
-		System.out.println("5- ");
-		System.out.println("6- ");
-		System.out.println("7- ");
-		System.out.println();
-		System.out.println("8- ");
+		System.out.println("1- Insertar estadísticas por jugador");
+		System.out.println("2- Mostrar estadísticas");
+		System.out.println("3- Listado de jugadores por equipo");
+		System.out.println("");
+		System.out.println("4- Salir");
 	}
 
 }

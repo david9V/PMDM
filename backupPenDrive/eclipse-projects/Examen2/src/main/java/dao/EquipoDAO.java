@@ -66,13 +66,11 @@ public class EquipoDAO {
 			return true;		
 	}
 
-	public ArrayList<Equipo> mostrarEquipos() {
+	public ArrayList<Equipo> recuperarEquipos() {
 		EntityManager em = JpaUtil.getEntityManager();
 		ArrayList<Equipo> lista = new ArrayList<>();
 		TypedQuery<Equipo> equipo = em.createQuery("select e from Equipo e", Equipo.class);
-		
-		//equipo.setParameter("cod", cod);
-				
+						
 		for(Equipo e: equipo.getResultList()) {
 			lista.add(e);
 		}
