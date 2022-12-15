@@ -10,6 +10,7 @@ import com.example.mislugaresjava.Aplicacion;
 import com.example.mislugaresjava.Lugar;
 import com.example.mislugaresjava.RepositorioLugares;
 import com.example.mislugaresjava.casos_uso.CasosUsoLugar;
+import com.example.mislugaresjava.databinding.VistaLugarBinding;
 
 import java.text.DateFormat;
 import java.util.Date;
