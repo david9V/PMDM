@@ -18,25 +18,58 @@ public class Main {
 			opc = Integer.parseInt(reader.readLine());
 			switch (opc) {
 			case 1 -> {
+				int opcIns;
+				opc();
+				opcIns = Integer.parseInt(reader.readLine());
+				switch (opcIns) {
+				case 1 -> {
 
+				}
+				case 2 -> {
+
+				}
+
+				}
 			}
 			case 2 -> {
+				int opcIns;
+				opc();
+				opcIns = Integer.parseInt(reader.readLine());
+				switch (opcIns) {
+				case 1 -> {
 
+				}
+				case 2 -> {
+
+				}
+
+				}
 			}
 			case 3 -> {
+				int opcIns;
+				opc();
+				opcIns = Integer.parseInt(reader.readLine());
+				switch (opcIns) {
+				case 1 -> {
 
+				}
+				case 2 -> {
+
+				}
+
+				}
 			}
 			case 4 -> {
 
 			}
 			case 5 -> {
 				int opc2;
-				opciones();
+				consultas();
 				opc2 = Integer.parseInt(reader.readLine());
 				switch (opc2) {
 				case 1 -> {
-					
-					}
+
+				}
 				case 2 -> {
 
 				}
@@ -52,7 +85,7 @@ public class Main {
 		} while (opc < 6);
 
 	}
-	
+
 	public static void opciones() {
 		System.out.println("");
 		System.out.println("1- Insertar");
@@ -63,7 +96,7 @@ public class Main {
 		System.out.println("");
 		System.out.println("6- Salir");
 	}
-	
+
 	public static void consultas() {
 		System.out.println("");
 		System.out.println("1- Apellidos de los empleados del departamento 10");
@@ -71,5 +104,11 @@ public class Main {
 		System.out.println("3- Apellido de los empleados cuyo director es Fernández");
 		System.out.println("4- Número de empleados por cada departamento");
 	}
-	
+
+	public static void opc() {
+		System.out.println("");
+		System.out.println("1- Departamento");
+		System.out.println("2- Empleado");
+	}
+
 }
