@@ -1,0 +1,11 @@
+--- Visualiza los libros de la editorial Garzeta, con pvp entre 20 y 25 incluidos y que tengan el tema SOCKET.
+
+db.libros.find({editorial:"Garzeta", pvp:{$gte:20}, pvp:{$lte:25}, temas:"Socket"});
+
+--- Agrega el tema SOCKET a los libros que no lo tengan.
+
+db.libros.update({temas: {$exists:true} },{$addToSet: {temas:"Socket"} }, {multi:true});
+
+--- Baja a 5 el precio de los libros de la editorial Garzeta.
+
+db.libros.update({editorial:"Garzeta"}, {$inc:{pvp:-5}}, {multi:true});
