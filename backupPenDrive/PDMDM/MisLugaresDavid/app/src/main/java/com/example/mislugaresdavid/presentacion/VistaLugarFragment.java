@@ -38,7 +38,7 @@ public class VistaLugarFragment extends Fragment {
    private AdaptadorLugaresBD adaptador;
 
    private CasosUsoLugarFecha usoLugar;
-   /*private*/public int pos;
+   public int pos;
    public int _id = -1;
 
    private Lugar lugar;
@@ -144,14 +144,11 @@ public class VistaLugarFragment extends Fragment {
       usoLugar.visualizarFoto(lugar, foto);
    }
 
-   @Override /*protected*/ public void onActivityResult(int requestCode, int resultCode,
+   @Override public void onActivityResult(int requestCode, int resultCode,
                                                         Intent data) {
-      //super.onActivityResult(requestCode,resultCode, data);
 
       if (requestCode == RESULTADO_EDITAR) {
-         //int id = adaptador.idPosicion(pos);
          lugar = lugares.elemento(_id);
-         //adaptador.cursor = lugares.extraeCursor();
          pos = adaptador.posicionId(_id);
          actualizaVistas();
       } else if (requestCode == RESULTADO_GALERIA) {

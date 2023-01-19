@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int SOLICITUD_PERMISO_LOCALIZACION = 1;
     static final int RESULTADO_PREFERENCIAS = 0;
 
-    //private RecyclerView recyclerView;
     private LugaresBD lugares;
     public AdaptadorLugaresBD adaptador;
     private CasosUsoLugar usoLugar;
@@ -47,23 +46,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*adaptador.setOnItemClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                int pos = (Integer)(v.getTag());
-                usoLugar.mostrar(pos);
-            }
-        });
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adaptador);*/
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
                 usoLugar.nuevo();
             }
         });
@@ -71,19 +59,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             usoActividades.lanzarPreferencias(RESULTADO_PREFERENCIAS);
             return true;
@@ -96,11 +79,6 @@ public class MainActivity extends AppCompatActivity {
             lanzarVistaLugar(null);
             return true;
         }
-        /*if (id==R.id.menu_mapa) {
-            usoActividades.lanzarMapa();
-        }
-
-         */
         return super.onOptionsItemSelected(item);
     }
 
@@ -110,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 && grantResults.length == 1
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
             usoLocalizacion.permisoConcedido();
-            //recyclerView.invalidate();
     }
 
     public void lanzarVistaLugar(View view){
@@ -130,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-   // LOCALIZACION
 
     @Override protected void onActivityResult(int requestCode, int resultCode,
                                               Intent data) {

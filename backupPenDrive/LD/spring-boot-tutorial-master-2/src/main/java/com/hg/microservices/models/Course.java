@@ -55,6 +55,7 @@ public class Course implements Serializable {
 	private String name;
 	
 	@Column(name = "start_date", nullable = false, columnDefinition = "date DEFAULT 'now()'")
+
 	private LocalDate start_date = ZonedDateTime.now(ZoneId.of("America/Guayaquil")).toLocalDate();
 	
 	@Column(name = "ending_date", nullable = false)
@@ -118,6 +119,11 @@ public class Course implements Serializable {
 
 	public void setEnrolled_students(List<Student> enrolled_students) {
 		this.enrolled_students = enrolled_students;
+	}
+
+	@Override
+	public String toString() {
+		return "Course [name=" + name + ", start_date=" + start_date + ", ending_date=" + ending_date + "]";
 	}
 	
 	

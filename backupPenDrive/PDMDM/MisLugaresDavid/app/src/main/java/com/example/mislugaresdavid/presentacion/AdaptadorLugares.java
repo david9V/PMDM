@@ -73,23 +73,19 @@ public class AdaptadorLugares extends
         }
     }
 
-    // Creamos el ViewHolder con la vista de un elemento sin personalizar
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Inflamos la vista desde el xml
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.elemento_lista, parent, false);
         v.setOnClickListener(onClickListener);
         return new ViewHolder(v);
     }
 
-    // Usando como base el ViewHolder y lo personalizamos
     @Override
     public void onBindViewHolder(ViewHolder holder, int posicion) {
         Lugar lugar = lugares.elemento(posicion);
         holder.personaliza(lugar);
     }
-    // Indicamos el número de elementos de la lista
     @Override public int getItemCount() {
         return lugares.tamaño();
     }

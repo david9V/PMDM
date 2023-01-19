@@ -68,6 +68,10 @@ public class Teacher extends Person implements Serializable {
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Teacher [degree=" + degree + ", salary=" + salary + ", courses=" + courses + ", toString()="
+				+ super.toString() + "]";
+	}
 }

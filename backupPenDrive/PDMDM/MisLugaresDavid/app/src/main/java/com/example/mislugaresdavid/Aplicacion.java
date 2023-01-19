@@ -17,13 +17,4 @@ public class Aplicacion extends Application {
         lugares = new LugaresBD(this);
         adaptador = new AdaptadorLugaresBD(lugares, lugares.extraeCursor());
     }
-   /* @Override public void onCreate() {
-        super.onCreate();
-        lugares.añadeEjemplos();
-    }*/
-
-
-/*    public LugaresLista getLugares() {
-        return lugares;
-    }*/
 }

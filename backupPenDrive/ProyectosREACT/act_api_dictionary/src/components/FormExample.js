@@ -14,13 +14,16 @@ class Form_Example extends Component {
         const value = event.target.value;
         this.setState({ word: value });
     }
-
+/*
     handleClick = event => {
         event.target.disabled = true;
         event.target.textContent = "Searching";
     }
+*/
     
     handleSubmit = event => {
+        document.getElementById("boton").disabled = true;
+        document.getElementById("boton").textContent = "Searching";
         event.preventDefault();
         fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.state.word}`, {
             method: 'GET', 
@@ -61,7 +64,7 @@ class Form_Example extends Component {
             </Row>
             <Row>
                 <FormGroup>
-                    <Button type="submit" onClick={this.handleClick} id="boton">Search</Button>
+                    <Button type="submit"  id="boton">Search</Button>
                 </FormGroup>
             </Row>
         </Form>)
