@@ -7,9 +7,7 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,19 +19,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hg.microservices.models.Course;
 import com.hg.microservices.models.Teacher;
-import com.hg.microservices.models.dto.TeacherDto;
 
 @Controller
-public class Controlador4 {
-
-    @RequestMapping(value = "/listadoJSPTeacher")
+public class Controlador3 {
+	
+	@RequestMapping(value = "/listadoJSPCourse")
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
@@ -42,16 +37,17 @@ public class Controlador4 {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String uri2 = "/WEB-INF/vistas/index.jsp";
-        List<Teacher> l = obtenerDTO_list(request, response);
-        Iterator<Teacher> it = l.listIterator();
+        List<Course> l = obtenerDTO_list(request, response);
+        Iterator<Course> it = l.listIterator();
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("<html><head><title>Listado de profesores</title></head><body>");
-        out.println("<p>Nombre</p>");
+        out.println("<html><head><title>Listado de cursos</title></head>");
+/*
         while (it.hasNext()) {
             out.println("<h2>" + ((Teacher) it.next()).getEmail() + "</h2><br>");
         }
 
+*/
         out.println("</body></html>");
         /*
          * RequestDispatcher dispatcher = request.getRequestDispatcher(uri2); if
@@ -59,13 +55,13 @@ public class Controlador4 {
          */
     }
 
-    protected List<Teacher> obtenerDTO_list(HttpServletRequest request, HttpServletResponse response)
+    protected List<Course> obtenerDTO_list(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String uri = "/api/colegio/profesores";
+        String uri = "/api/colegio/cursos";
 
-        String url1 = "http://localhost:8081/api/colegio/profesores";
-        List<Teacher> l = new LinkedList<Teacher>();
-        Teacher t;
+        String url1 = "http://localhost:8081/api/colegio/cursos";
+        List<Course> l = new LinkedList<Course>();
+        Course c;
         try {
             URL url = new URL(url1);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -80,7 +76,7 @@ public class Controlador4 {
             
             		
             String output;
-            List<TeacherDto> list = new ArrayList();
+            List<Course> list = new ArrayList();
 
             // tratar la lista de objetos JSON
             while ((output = br.readLine()) != null) {
@@ -89,45 +85,12 @@ public class Controlador4 {
                 Object obj = parser.parse(output);
                 JsonArray json = (JsonArray) obj;
                 for (int i = 0; i < json.size(); i++) {
-
                     JsonObject object = (JsonObject) json.get(i);
+                    c = new Course();
                     
-                    // hay que parsear uno a uno los atributos del objeto Teacher y añadirlo a una
-                    // lista
-                    Teacher teacher = new Teacher();
-                    teacher.setId(String.valueOf(object.get("id")));
-                    teacher.setDegree(String.valueOf(object.get("degree")));
-                    teacher.setSalary(Double.valueOf(String.valueOf(object.get("salary"))));
-                    teacher.setName(String.valueOf(object.get("name")));
-                    teacher.setGender(String.valueOf(object.get("gender")));
-                    teacher.setEmail(String.valueOf(object.get("email")));
-                    JsonArray coursesJson = object.getAsJsonArray("courses");
-                    List<Course> courseList = new LinkedList();
-                    
-                    for (int j = 0; j < coursesJson.size(); j++) {
-                    	JsonObject cJson = (JsonObject) coursesJson.get(i);
-                    	Course c = new Course();
-                    	c.setName(String.valueOf(cJson.get("name")));
-                    	String fIn = String.valueOf(cJson.get("start_date"));
-                    	String fFin = String.valueOf(cJson.get("ending_date"));
-                    	c.setStart_date(Date.valueOf(fIn.substring(1, fIn.length() - 1)).toLocalDate());
-                    	c.setEnding_date(Date.valueOf(fFin.substring(1, fIn.length() - 1)).toLocalDate());
-                    	courseList.add(c);                    	
-                    }
-                    
-                    teacher.setCourses(courseList);
-                    TeacherDto teacherDto = new TeacherDto(teacher.getId(), teacher.getName(), teacher.getGender(), teacher.getEmail(), teacher.getDegree(), teacher.getSalary(),
-                    		teacher.getCourses());
-                    list.add(teacherDto);
-                    
-                    //System.out.println(teacher);
-                    //System.out.println(object.get("id"));
-                    //System.out.println(object.get("name"));
-                    
-                }
+                }	
 
             }
-            System.out.println(list);
             conn.disconnect();
 
         } catch (MalformedURLException e) {

@@ -17,6 +17,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity(name = "Teacher")
@@ -33,11 +34,9 @@ public class Teacher extends Person implements Serializable {
 	@Column(name = "salary", nullable = false)
 	private Double salary;
 	
-	@JsonIdentityInfo(
-			generator = ObjectIdGenerators.PropertyGenerator.class,
-			property = "key"
-			)
+		
 	@JsonIdentityReference(alwaysAsId = true)
+	@JsonIgnoreProperties("teacher")
 	@OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Course> courses;
 
