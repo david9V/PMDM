@@ -26,14 +26,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     previamente he guardado todos los id's de todos los textview del layout. Mientras se va escribiendo o borrando se van sumando o restando los indices respectivamente.
     Al darle al enter a parte de hacer el checkeo de las letras también se sube el indice de las filas
      */
-    int idRecuadros[][];
+    int[][] idRecuadros;
 
-    int idFila1[];
-    int idFila2[];
-    int idFila3[];
-    int idFila4[];
-    int idFila5[];
-    int idFila6[];
+    int[] idFila1;
+    int[] idFila2;
+    int[] idFila3;
+    int[] idFila4;
+    int[] idFila5;
+    int[] idFila6;
 
     int filaActual = 0;
     int columnaActual = 0;

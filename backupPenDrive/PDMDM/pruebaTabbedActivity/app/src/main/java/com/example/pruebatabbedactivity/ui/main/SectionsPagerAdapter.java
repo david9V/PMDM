@@ -3,12 +3,14 @@ package com.example.pruebatabbedactivity.ui.main;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -22,7 +24,7 @@ import com.example.pruebatabbedactivity.R;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.drawable.ping};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3};
     private final Context mContext;
 
     Drawable myDrawable;
@@ -40,23 +42,24 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return PlaceholderFragment.newInstance(position + 1);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @SuppressLint("UseCompatLoadingForDrawables")
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
         if (position < 2) {
             title = mContext.getResources().getString(TAB_TITLES[position]);
-            SpannableStringBuilder sb = new SpannableStringBuilder("   " + title); // space added before text for convenience
+            SpannableStringBuilder sb = new SpannableStringBuilder("   " + title);
             return sb;
         } else {
-            myDrawable = mContext.getResources().getDrawable(R.drawable.ping);
+            myDrawable = mContext.getResources().getDrawable(R.drawable.ic_baseline_4g_mobiledata_24);
             title = mContext.getResources().getString(TAB_TITLES[position]);
 
-            SpannableStringBuilder sb = new SpannableStringBuilder("   " + title); // space added before text for convenience
+            SpannableStringBuilder sb = new SpannableStringBuilder(title);
             try {
                 myDrawable.setBounds(0, 0, myDrawable.getIntrinsicWidth(), myDrawable.getIntrinsicHeight());
-                ImageSpan span = new ImageSpan(myDrawable, ImageSpan.ALIGN_BASELINE);
-                sb.setSpan(span, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                ImageSpan   span = new ImageSpan(myDrawable, ImageSpan.ALIGN_CENTER);
+                sb.setSpan(span, 0, 1, Spanned.SPAN_INTERMEDIATE);
                 return sb;
             } catch (Exception e) {
                 return null;
@@ -67,7 +70,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show x total pages.
         return 3;
     }
 }
