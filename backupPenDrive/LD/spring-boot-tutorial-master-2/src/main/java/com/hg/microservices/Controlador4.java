@@ -7,13 +7,12 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.sql.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,14 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hg.microservices.models.Course;
 import com.hg.microservices.models.Teacher;
-import com.hg.microservices.models.dto.TeacherDto;
 
 @Controller
 public class Controlador4 {
@@ -43,20 +39,30 @@ public class Controlador4 {
             throws ServletException, IOException {
         String uri2 = "/WEB-INF/vistas/index.jsp";
         List<Teacher> l = obtenerDTO_list(request, response);
-        Iterator<Teacher> it = l.listIterator();
         response.setContentType("text/html;charset=UTF-8");
+        
+        /*
         PrintWriter out = response.getWriter();
         out.println("<html><head><title>Listado de profesores</title></head><body>");
-        out.println("<p>Nombre</p>");
-        while (it.hasNext()) {
-            out.println("<h2>" + ((Teacher) it.next()).getEmail() + "</h2><br>");
+        
+        while (it.hasNext()){
+                Teacher t=(Teacher)it.next();
+                out.println("<h2>"+t.getName()+":"+t.getEmail()+"</h2><br>");
         }
-
+        
+                
         out.println("</body></html>");
-        /*
-         * RequestDispatcher dispatcher = request.getRequestDispatcher(uri2); if
-         * (dispatcher != null){ dispatcher.forward(request, response); }
-         */
+        
+        */
+        
+        //request.setAttribute("lp", l);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(uri2);
+        System.out.println("hola");
+        if (dispatcher != null){
+        	dispatcher.forward(request, response);
+        }
+        
+        
     }
 
     protected List<Teacher> obtenerDTO_list(HttpServletRequest request, HttpServletResponse response)
@@ -69,6 +75,7 @@ public class Controlador4 {
         try {
             URL url = new URL(url1);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
 
@@ -80,7 +87,6 @@ public class Controlador4 {
             
             		
             String output;
-            List<TeacherDto> list = new ArrayList();
 
             // tratar la lista de objetos JSON
             while ((output = br.readLine()) != null) {
@@ -116,10 +122,7 @@ public class Controlador4 {
                     }
                     
                     teacher.setCourses(courseList);
-                    TeacherDto teacherDto = new TeacherDto(teacher.getId(), teacher.getName(), teacher.getGender(), teacher.getEmail(), teacher.getDegree(), teacher.getSalary(),
-                    		teacher.getCourses());
-                    list.add(teacherDto);
-                    
+                    l.add(teacher);
                     //System.out.println(teacher);
                     //System.out.println(object.get("id"));
                     //System.out.println(object.get("name"));
@@ -127,7 +130,7 @@ public class Controlador4 {
                 }
 
             }
-            System.out.println(list);
+            System.out.println(l);
             conn.disconnect();
 
         } catch (MalformedURLException e) {
