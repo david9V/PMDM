@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.example.mislugaresjava.app-mergeDebugResources-29:/layout/vista_lugar.xml",
+        "source": "com.example.mislugaresjava.app-main-32:/layout/vista_lugar.xml"
+    },
+    {
+        "merged": "com.example.mislugaresjava.app-mergeDebugResources-29:/layout/content_main.xml",
+        "source": "com.example.mislugaresjava.app-main-32:/layout/content_main.xml"
+    },
+    {
+        "merged": "com.example.mislugaresjava.app-mergeDebugResources-29:/layout/acercade.xml",
+        "source": "com.example.mislugaresjava.app-main-32:/layout/acercade.xml"
+    },
+    {
+        "merged": "com.example.mislugaresjava.app-mergeDebugResources-29:/layout/edicion_lugar.xml",
+        "source": "com.example.mislugaresjava.app-main-32:/layout/edicion_lugar.xml"
+    },
+    {
+        "merged": "com.example.mislugaresjava.app-mergeDebugResources-29:/layout/activity_main.xml",
+        "source": "com.example.mislugaresjava.app-main-32:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.mislugaresjava.app-mergeDebugResources-29:/layout/activity_main_prueba.xml",
+        "source": "com.example.mislugaresjava.app-main-32:/layout/activity_main_prueba.xml"
+    }
+]

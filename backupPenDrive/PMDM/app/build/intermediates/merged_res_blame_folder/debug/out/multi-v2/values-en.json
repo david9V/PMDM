@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.mislugaresjava.app-mergeDebugResources-28:/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "E:\\Mis Cosas\\Proyecto1TPMDM\\backupPenDrive\\PMDM\\app\\src\\main\\res\\values-en\\strings.xml",
+                    "from": {
+                        "startLines": "5,3,4,6,2",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "219,107,162,270,55",
+                        "endColumns": "50,54,56,45,51",
+                        "endOffsets": "265,157,214,311,102"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,106,161,218,264",
+                        "endColumns": "50,54,56,45,51",
+                        "endOffsets": "101,156,213,259,311"
+                    }
+                }
+            ]
+        }
+    ]
+}
