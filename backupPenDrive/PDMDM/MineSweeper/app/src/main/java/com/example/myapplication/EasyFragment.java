@@ -29,6 +29,7 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
     int[] idFila6;
     int[] idFila7;
     int[] idFila8;
+    boolean puedeJugar;
 
     private FragmentSecondBinding binding;
 
@@ -47,6 +48,7 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
         //      .navigate(R.id.action_SecondFragment_to_FirstFragment));
         //CODIGO NUEVO AQUÍ NO ENO ONCREATEVIEW
 
+        puedeJugar = true;
         implementarListeners();
         rellenarIds();
         rellenarConMinas();
@@ -243,59 +245,58 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         int id = v.getId();
 
-        switch (id) {
-            case R.id.f1b1:{
-                if (comprobarSiHayMina(R.id.f1b1)){
-                    minaExplotada(0,0);
+        if (puedeJugar){
+            switch (id) {
+                case R.id.f1b1:{
+                    if (comprobarSiHayMina(R.id.f1b1)){
+                        minaExplotada(0,0);
+                    }
+                    break;
                 }
-                break;
-            }
-            case R.id.f1b2:{
-                if (comprobarSiHayMina(R.id.f1b2)){
-                    minaExplotada(0,1);
+                case R.id.f1b2:{
+                    if (comprobarSiHayMina(R.id.f1b2)){
+                        minaExplotada(0,1);
+                    }
+                    break;
                 }
-                break;
-            }
-            case R.id.f1b3:{
-                if (comprobarSiHayMina(R.id.f1b3)){
-                    minaExplotada(0,2);
+                case R.id.f1b3:{
+                    if (comprobarSiHayMina(R.id.f1b3)){
+                        minaExplotada(0,2);
+                    }
+                    break;
                 }
-                break;
-            }
-            case R.id.f1b4:{
-                if (comprobarSiHayMina(R.id.f1b4)){
-                    minaExplotada(0,3);
+                case R.id.f1b4:{
+                    if (comprobarSiHayMina(R.id.f1b4)){
+                        minaExplotada(0,3);
+                    }
+                    break;
                 }
-                break;
-            }
-            case R.id.f1b5:{
-                if (comprobarSiHayMina(R.id.f1b5)){
-                    minaExplotada(0,4);
+                case R.id.f1b5:{
+                    if (comprobarSiHayMina(R.id.f1b5)){
+                        minaExplotada(0,4);
+                    }
+                    break;
                 }
-                break;
-            }
-            case R.id.f1b6:{
-                if (comprobarSiHayMina(R.id.f1b6)){
-                    minaExplotada(0,5);
+                case R.id.f1b6:{
+                    if (comprobarSiHayMina(R.id.f1b6)){
+                        minaExplotada(0,5);
+                    }
+                    break;
                 }
-                break;
-            }
-            case R.id.f1b7:{
-                if (comprobarSiHayMina(R.id.f1b7)){
-                    minaExplotada(0,6);
+                case R.id.f1b7:{
+                    if (comprobarSiHayMina(R.id.f1b7)){
+                        minaExplotada(0,6);
+                    }
+                    break;
                 }
-                break;
-            }
-            case R.id.f1b8:{
-                if (comprobarSiHayMina(R.id.f1b8)){
-                    minaExplotada(0,7);
+                case R.id.f1b8:{
+                    if (comprobarSiHayMina(R.id.f1b8)){
+                        minaExplotada(0,7);
+                    }
+                    break;
                 }
-                break;
-            }
 
-
-
-
+            }
         }
     }
 
@@ -305,8 +306,9 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
 
     public void minaExplotada(int y, int x){
         ImageButton imageButton = requireView().findViewById(idRecuadros[y][x]);
-        imageButton.setBackgroundResource(R.drawable.mine);
-        imageButton.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageButton.setBackgroundResource(R.drawable.redbomb);
+        imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        puedeJugar = false;
     }
 
 
