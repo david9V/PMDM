@@ -887,9 +887,17 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
         }
         //Toast.makeText(getContext(),"pos x" + x + "pos y" + y,Toast.LENGTH_SHORT).show();
         //CHECKEAR CUANTAS MINAS HAY ALREDEDOR
+        limpiarEspacioAutomatico(x, y);
 
+    }
+
+    public void limpiarEspacioAutomatico(int x, int y){
         int minasCercanas = 0;
-        if (x > 0 && x < 7 && y > 0 && y < 7){
+        int xX = x;
+        int yY = y;
+        String pos = "";
+        if (x > 0 && x < 7 && y > 0 && y < 7){ // centro
+            pos = "centro";
             x++;
             if (minas.contains(idRecuadros[y][x])){
                 minasCercanas++;
@@ -923,8 +931,168 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
                 minasCercanas++;
             }
         }
+        else if(x < 1 && y < 1){ // esquina superior izda
+            pos = "arribaizquierda";
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+        }
+        else if (x > 6 & y < 1){// esquina superior dcha
+            pos = "arribaderecha";
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+        }
+        else if (x < 1 && y > 6){ // esquina inferior izda
+            pos = "abajoizquierda";
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+        }
+        else if (x > 6 && y > 6){// esquina inferior dcha
+            pos = "abajoderecha";
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+        }
+        else if (x == 0){ // borde izdo
+            pos = "izquierda";
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y--;y--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+        }
+        else if (x == 7){ // borde dcho
+            pos = "derecha";
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y--;y--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+        }
+        else if (y == 0){ //borde superior
+            pos = "arriba";
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+        }
+        else if (y == 7){ // borde inferior
+            pos = "abajo";
+            x--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y--;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            x++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+            y++;
+            if (minas.contains(idRecuadros[y][x])){
+                minasCercanas++;
+            }
+        }
 
-        if (minasCercanas == 1){
+        y = yY;
+        x = xX;
+
+        ImageButton imageButton = requireView().findViewById(idRecuadros[y][x]);
+        if (minasCercanas == 0){
+            imageButton.setBackgroundResource(R.drawable.empty);
+            imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        }
+        else if (minasCercanas == 1){
             imageButton.setBackgroundResource(R.drawable.mine1);
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
@@ -952,10 +1120,43 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
             imageButton.setBackgroundResource(R.drawable.mine7);
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else if (minasCercanas == 8){
+        else {
             imageButton.setBackgroundResource(R.drawable.mine8);
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
 
+        if (minasCercanas == 0){
+            switch (pos) {
+                case "centro":
+                    limpiarEspacioAutomatico(x + 1, y);
+                    limpiarEspacioAutomatico(x - 1, y);
+                    break;
+                case "arribaderecha":
+
+                    break;
+                case "arribaizquierda":
+
+                    break;
+                case "abajoderecha":
+
+                    break;
+                case "abajoizquierda":
+
+                    break;
+                case "derecha":
+
+                    break;
+                case "izquierda":
+
+                    break;
+                case "arriba":
+
+                    break;
+                case "abajo":
+
+                    break;
+            }
+        }
     }
+
 }
