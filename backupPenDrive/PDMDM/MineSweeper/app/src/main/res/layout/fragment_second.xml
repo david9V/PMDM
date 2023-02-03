@@ -6,7 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".EasyFragment">
 
+    <ImageButton
+        android:id="@+id/cara"
+        android:layout_width="71dp"
+        android:layout_height="68dp"
+        android:background="@drawable/cara1"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
     <TableLayout
+        android:id="@+id/tableLayout3"
         android:layout_width="409dp"
         android:layout_height="409dp"
         android:measureWithLargestChild="true"
@@ -386,4 +399,5 @@
                 android:layout_height="50dp" />
         </TableRow>
     </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,13 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +23,9 @@ import com.example.myapplication.databinding.FragmentSecondBinding;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
-public class EasyFragment extends Fragment implements View.OnClickListener {
+public class EasyFragment extends Fragment implements View.OnClickListener,View.OnLongClickListener {
 
     Integer[][] idRecuadros;
     List<List<Integer>> idComoLista;
@@ -33,7 +39,12 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
     Integer[] idFila7;
     Integer[] idFila8;
     boolean puedeJugar;
+    boolean ganar;
     boolean primerMovimiento;
+    Condicion condicion;
+    int p = 0;
+    int nCasillasParaGanar = 0;
+    ImageView cara;
 
     private FragmentSecondBinding binding;
 
@@ -52,10 +63,13 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
         //      .navigate(R.id.action_SecondFragment_to_FirstFragment));
         //CODIGO NUEVO AQUÍ NO ENO ONCREATEVIEW
 
+        condicion = new Condicion();
         puedeJugar = true;
+        ganar = false;
         primerMovimiento = true;
         implementarListeners();
         rellenarIds();
+
     }
 
     @Override
@@ -241,6 +255,80 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
         f8b6.setOnClickListener(this);
         f8b7.setOnClickListener(this);
         f8b8.setOnClickListener(this);
+
+        f1b1.setOnLongClickListener(this);
+        f1b2.setOnLongClickListener(this);
+        f1b3.setOnLongClickListener(this);
+        f1b4.setOnLongClickListener(this);
+        f1b5.setOnLongClickListener(this);
+        f1b6.setOnLongClickListener(this);
+        f1b7.setOnLongClickListener(this);
+        f1b8.setOnLongClickListener(this);
+
+        f2b1.setOnLongClickListener(this);
+        f2b2.setOnLongClickListener(this);
+        f2b3.setOnLongClickListener(this);
+        f2b4.setOnLongClickListener(this);
+        f2b5.setOnLongClickListener(this);
+        f2b6.setOnLongClickListener(this);
+        f2b7.setOnLongClickListener(this);
+        f2b8.setOnLongClickListener(this);
+
+        f3b1.setOnLongClickListener(this);
+        f3b2.setOnLongClickListener(this);
+        f3b3.setOnLongClickListener(this);
+        f3b4.setOnLongClickListener(this);
+        f3b5.setOnLongClickListener(this);
+        f3b6.setOnLongClickListener(this);
+        f3b7.setOnLongClickListener(this);
+        f3b8.setOnLongClickListener(this);
+
+        f4b1.setOnLongClickListener(this);
+        f4b2.setOnLongClickListener(this);
+        f4b3.setOnLongClickListener(this);
+        f4b4.setOnLongClickListener(this);
+        f4b5.setOnLongClickListener(this);
+        f4b6.setOnLongClickListener(this);
+        f4b7.setOnLongClickListener(this);
+        f4b8.setOnLongClickListener(this);
+
+        f5b1.setOnLongClickListener(this);
+        f5b2.setOnLongClickListener(this);
+        f5b3.setOnLongClickListener(this);
+        f5b4.setOnLongClickListener(this);
+        f5b5.setOnLongClickListener(this);
+        f5b6.setOnLongClickListener(this);
+        f5b7.setOnLongClickListener(this);
+        f5b8.setOnLongClickListener(this);
+
+        f6b1.setOnLongClickListener(this);
+        f6b2.setOnLongClickListener(this);
+        f6b3.setOnLongClickListener(this);
+        f6b4.setOnLongClickListener(this);
+        f6b5.setOnLongClickListener(this);
+        f6b6.setOnLongClickListener(this);
+        f6b7.setOnLongClickListener(this);
+        f6b8.setOnLongClickListener(this);
+
+        f7b1.setOnLongClickListener(this);
+        f7b2.setOnLongClickListener(this);
+        f7b3.setOnLongClickListener(this);
+        f7b4.setOnLongClickListener(this);
+        f7b5.setOnLongClickListener(this);
+        f7b6.setOnLongClickListener(this);
+        f7b7.setOnLongClickListener(this);
+        f7b8.setOnLongClickListener(this);
+
+        f8b1.setOnLongClickListener(this);
+        f8b2.setOnLongClickListener(this);
+        f8b3.setOnLongClickListener(this);
+        f8b4.setOnLongClickListener(this);
+        f8b5.setOnLongClickListener(this);
+        f8b6.setOnLongClickListener(this);
+        f8b7.setOnLongClickListener(this);
+        f8b8.setOnLongClickListener(this);
+
+        cara = requireView().findViewById(R.id.cara);
     }
 
     public void rellenarConMinas() {
@@ -262,585 +350,13 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
             primerMovimiento = false;
         }
         else if (puedeJugar){
-            switch (id) {
-                case R.id.f1b1:{
-                    if (comprobarSiHayMina(R.id.f1b1)){
-                        minaExplotada(R.id.f1b1);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f1b1);
-                    }
-                    break;
-                }
-                case R.id.f1b2:{
-                    if (comprobarSiHayMina(R.id.f1b2)){
-                        minaExplotada(R.id.f1b2);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f1b2);
-                    }
-                    break;
-                }
-                case R.id.f1b3:{
-                    if (comprobarSiHayMina(R.id.f1b3)){
-                        minaExplotada(R.id.f1b3);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f1b3);
-                    }
-                    break;
-                }
-                case R.id.f1b4:{
-                    if (comprobarSiHayMina(R.id.f1b4)){
-                        minaExplotada(R.id.f1b4);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f1b4);
-                    }
-                    break;
-                }
-                case R.id.f1b5:{
-                    if (comprobarSiHayMina(R.id.f1b5)){
-                        minaExplotada(R.id.f1b5);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f1b5);
-                    }
-                    break;
-                }
-                case R.id.f1b6:{
-                    if (comprobarSiHayMina(R.id.f1b6)){
-                        minaExplotada(R.id.f1b6);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f1b6);
-                    }
-                    break;
-                }
-                case R.id.f1b7:{
-                    if (comprobarSiHayMina(R.id.f1b7)){
-                        minaExplotada(R.id.f1b7);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f1b7);
-                    }
-                    break;
-                }
-                case R.id.f1b8:{
-                    if (comprobarSiHayMina(R.id.f1b8)){
-                        minaExplotada(R.id.f1b8);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f1b8);
-                    }
-                    break;
-                }
-                case R.id.f2b1:{
-                    if (comprobarSiHayMina(R.id.f2b1)){
-                        minaExplotada(R.id.f2b1);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f2b1);
-                    }
-                    break;
-                }
-                case R.id.f2b2:{
-                    if (comprobarSiHayMina(R.id.f2b2)){
-                        minaExplotada(R.id.f2b2);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f2b2);
-                    }
-                    break;
-                }
-                case R.id.f2b3:{
-                    if (comprobarSiHayMina(R.id.f2b3)){
-                        minaExplotada(R.id.f2b3);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f2b3);
-                    }
-                    break;
-                }
-                case R.id.f2b4:{
-                    if (comprobarSiHayMina(R.id.f2b4)){
-                        minaExplotada(R.id.f2b4);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f2b4);
-                    }
-                    break;
-                }
-                case R.id.f2b5:{
-                    if (comprobarSiHayMina(R.id.f2b5)){
-                        minaExplotada(R.id.f2b5);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f2b5);
-                    }
-                    break;
-                }
-                case R.id.f2b6:{
-                    if (comprobarSiHayMina(R.id.f2b6)){
-                        minaExplotada(R.id.f2b6);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f2b6);
-                    }
-                    break;
-                }
-                case R.id.f2b7:{
-                    if (comprobarSiHayMina(R.id.f2b7)){
-                        minaExplotada(R.id.f2b7);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f2b7);
-                    }
-                    break;
-                }
-                case R.id.f2b8:{
-                    if (comprobarSiHayMina(R.id.f2b8)){
-                        minaExplotada(R.id.f2b8);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f2b8);
-                    }
-                    break;
-                }
-                case R.id.f3b1:{
-                    if (comprobarSiHayMina(R.id.f3b1)){
-                        minaExplotada(R.id.f3b1);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f3b1);
-                    }
-                    break;
-                }
-                case R.id.f3b2:{
-                    if (comprobarSiHayMina(R.id.f3b2)){
-                        minaExplotada(R.id.f3b2);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f3b2);
-                    }
-                    break;
-                }
-                case R.id.f3b3:{
-                    if (comprobarSiHayMina(R.id.f3b3)){
-                        minaExplotada(R.id.f3b3);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f3b3);
-                    }
-                    break;
-                }
-                case R.id.f3b4:{
-                    if (comprobarSiHayMina(R.id.f3b4)){
-                        minaExplotada(R.id.f3b4);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f3b4);
-                    }
-                    break;
-                }
-                case R.id.f3b5:{
-                    if (comprobarSiHayMina(R.id.f3b5)){
-                        minaExplotada(R.id.f3b5);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f3b5);
-                    }
-                    break;
-                }
-                case R.id.f3b6:{
-                    if (comprobarSiHayMina(R.id.f3b6)){
-                        minaExplotada(R.id.f3b6);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f3b6);
-                    }
-                    break;
-                }
-                case R.id.f3b7:{
-                    if (comprobarSiHayMina(R.id.f3b7)){
-                        minaExplotada(R.id.f3b7);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f3b7);
-                    }
-                    break;
-                }
-                case R.id.f3b8:{
-                    if (comprobarSiHayMina(R.id.f3b8)){
-                        minaExplotada(R.id.f3b8);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f3b8);
-                    }
-                    break;
-                }
-                case R.id.f4b1:{
-                    if (comprobarSiHayMina(R.id.f4b1)){
-                        minaExplotada(R.id.f4b1);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f4b1);
-                    }
-                    break;
-                }
-                case R.id.f4b2:{
-                    if (comprobarSiHayMina(R.id.f4b2)){
-                        minaExplotada(R.id.f4b2);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f4b2);
-                    }
-                    break;
-                }
-                case R.id.f4b3:{
-                    if (comprobarSiHayMina(R.id.f4b3)){
-                        minaExplotada(R.id.f4b3);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f4b3);
-                    }
-                    break;
-                }
-                case R.id.f4b4:{
-                    if (comprobarSiHayMina(R.id.f4b4)){
-                        minaExplotada(R.id.f4b4);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f4b4);
-                    }
-                    break;
-                }
-                case R.id.f4b5:{
-                    if (comprobarSiHayMina(R.id.f4b5)){
-                        minaExplotada(R.id.f4b5);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f4b5);
-                    }
-                    break;
-                }
-                case R.id.f4b6:{
-                    if (comprobarSiHayMina(R.id.f4b6)){
-                        minaExplotada(R.id.f4b6);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f4b6);
-                    }
-                    break;
-                }
-                case R.id.f4b7:{
-                    if (comprobarSiHayMina(R.id.f4b7)){
-                        minaExplotada(R.id.f4b7);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f4b7);
-                    }
-                    break;
-                }
-                case R.id.f4b8:{
-                    if (comprobarSiHayMina(R.id.f4b8)){
-                        minaExplotada(R.id.f4b8);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f4b8);
-                    }
-                    break;
-                }
-                case R.id.f5b1:{
-                    if (comprobarSiHayMina(R.id.f5b1)){
-                        minaExplotada(R.id.f5b1);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f5b1);
-                    }
-                    break;
-                }
-                case R.id.f5b2:{
-                    if (comprobarSiHayMina(R.id.f5b2)){
-                        minaExplotada(R.id.f5b2);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f5b2);
-                    }
-                    break;
-                }
-                case R.id.f5b3:{
-                    if (comprobarSiHayMina(R.id.f5b3)){
-                        minaExplotada(R.id.f5b3);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f5b3);
-                    }
-                    break;
-                }
-                case R.id.f5b4:{
-                    if (comprobarSiHayMina(R.id.f5b4)){
-                        minaExplotada(R.id.f5b4);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f5b4);
-                    }
-                    break;
-                }
-                case R.id.f5b5:{
-                    if (comprobarSiHayMina(R.id.f5b5)){
-                        minaExplotada(R.id.f5b5);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f5b5);
-                    }
-                    break;
-                }
-                case R.id.f5b6:{
-                    if (comprobarSiHayMina(R.id.f5b6)){
-                        minaExplotada(R.id.f5b6);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f5b6);
-                    }
-                    break;
-                }
-                case R.id.f5b7:{
-                    if (comprobarSiHayMina(R.id.f5b7)){
-                        minaExplotada(R.id.f5b7);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f5b7);
-                    }
-                    break;
-                }
-                case R.id.f5b8:{
-                    if (comprobarSiHayMina(R.id.f5b8)){
-                        minaExplotada(R.id.f5b8);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f5b8);
-                    }
-                    break;
-                }
-                case R.id.f6b1:{
-                    if (comprobarSiHayMina(R.id.f6b1)){
-                        minaExplotada(R.id.f6b1);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f6b1);
-                    }
-                    break;
-                }
-                case R.id.f6b2:{
-                    if (comprobarSiHayMina(R.id.f6b2)){
-                        minaExplotada(R.id.f6b2);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f6b2);
-                    }
-                    break;
-                }
-                case R.id.f6b3:{
-                    if (comprobarSiHayMina(R.id.f6b3)){
-                        minaExplotada(R.id.f6b3);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f6b3);
-                    }
-                    break;
-                }
-                case R.id.f6b4:{
-                    if (comprobarSiHayMina(R.id.f6b4)){
-                        minaExplotada(R.id.f6b4);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f6b4);
-                    }
-                    break;
-                }
-                case R.id.f6b5:{
-                    if (comprobarSiHayMina(R.id.f6b5)){
-                        minaExplotada(R.id.f6b5);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f6b5);
-                    }
-                    break;
-                }
-                case R.id.f6b6:{
-                    if (comprobarSiHayMina(R.id.f6b6)){
-                        minaExplotada(R.id.f6b6);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f6b6);
-                    }
-                    break;
-                }
-                case R.id.f6b7:{
-                    if (comprobarSiHayMina(R.id.f6b7)){
-                        minaExplotada(R.id.f6b7);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f6b7);
-                    }
-                    break;
-                }
-                case R.id.f6b8:{
-                    if (comprobarSiHayMina(R.id.f6b8)){
-                        minaExplotada(R.id.f6b8);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f6b8);
-                    }
-                    break;
-                }
-                case R.id.f7b1:{
-                    if (comprobarSiHayMina(R.id.f7b1)){
-                        minaExplotada(R.id.f7b1);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f7b1);
-                    }
-                    break;
-                }
-                case R.id.f7b2:{
-                    if (comprobarSiHayMina(R.id.f7b2)){
-                        minaExplotada(R.id.f7b2);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f7b2);
-                    }
-                    break;
-                }
-                case R.id.f7b3:{
-                    if (comprobarSiHayMina(R.id.f7b3)){
-                        minaExplotada(R.id.f7b3);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f7b3);
-                    }
-                    break;
-                }
-                case R.id.f7b4:{
-                    if (comprobarSiHayMina(R.id.f7b4)){
-                        minaExplotada(R.id.f7b4);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f7b4);
-                    }
-                    break;
-                }
-                case R.id.f7b5:{
-                    if (comprobarSiHayMina(R.id.f7b5)){
-                        minaExplotada(R.id.f7b5);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f7b5);
-                    }
-                    break;
-                }
-                case R.id.f7b6:{
-                    if (comprobarSiHayMina(R.id.f7b6)){
-                        minaExplotada(R.id.f7b6);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f7b6);
-                    }
-                    break;
-                }
-                case R.id.f7b7:{
-                    if (comprobarSiHayMina(R.id.f7b7)){
-                        minaExplotada(R.id.f7b7);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f7b7);
-                    }
-                    break;
-                }
-                case R.id.f7b8:{
-                    if (comprobarSiHayMina(R.id.f7b8)){
-                        minaExplotada(R.id.f7b8);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f7b8);
-                    }
-                    break;
-                }
-                case R.id.f8b1:{
-                    if (comprobarSiHayMina(R.id.f8b1)){
-                        minaExplotada(R.id.f8b1);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f8b1);
-                    }
-                    break;
-                }
-                case R.id.f8b2:{
-                    if (comprobarSiHayMina(R.id.f8b2)){
-                        minaExplotada(R.id.f8b2);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f8b2);
-                    }
-                    break;
-                }
-                case R.id.f8b3:{
-                    if (comprobarSiHayMina(R.id.f8b3)){
-                        minaExplotada(R.id.f8b3);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f8b3);
-                    }
-                    break;
-                }
-                case R.id.f8b4:{
-                    if (comprobarSiHayMina(R.id.f8b4)){
-                        minaExplotada(R.id.f8b4);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f8b4);
-                    }
-                    break;
-                }
-                case R.id.f8b5:{
-                    if (comprobarSiHayMina(R.id.f8b5)){
-                        minaExplotada(R.id.f8b5);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f8b5);
-                    }
-                    break;
-                }
-                case R.id.f8b6:{
-                    if (comprobarSiHayMina(R.id.f8b6)){
-                        minaExplotada(R.id.f8b6);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f8b6);
-                    }
-                    break;
-                }
-                case R.id.f8b7:{
-                    if (comprobarSiHayMina(R.id.f8b7)){
-                        minaExplotada(R.id.f8b7);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f8b7);
-                    }
-                    break;
-                }
-                case R.id.f8b8:{
-                    if (comprobarSiHayMina(R.id.f8b8)){
-                        minaExplotada(R.id.f8b8);
-                    }
-                    else{
-                        limpiarEspacio(R.id.f8b8);
-                    }
-                    break;
-                }
-
+            if (comprobarSiHayMina(id)){
+                minaExplotada(id);
             }
+            else{
+                limpiarEspacio(id);
+            }
+
         }
     }
 
@@ -862,9 +378,25 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
             imageButton.setBackgroundResource(R.drawable.bomb);
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
+
+        cara.setBackgroundResource(R.drawable.caralose);
     }
 
     public void limpiarEspacio(int id){
+        if (!ganar){
+            cara.setBackgroundResource(R.drawable.cara2);
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (!ganar)
+                        cara.setBackgroundResource(R.drawable.cara1);
+                }
+            }, 300);
+        }
+
+
         ImageButton imageButton = requireView().findViewById(id);
         imageButton.setBackgroundResource(R.drawable.empty);
         imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -888,7 +420,28 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
         //Toast.makeText(getContext(),"pos x" + x + "pos y" + y,Toast.LENGTH_SHORT).show();
         //CHECKEAR CUANTAS MINAS HAY ALREDEDOR
         limpiarEspacioAutomatico(x, y);
+        p=0;
+        if (nCasillasParaGanar == 56){
+            puedeJugar = false;
+            ganar = true;
+        }
 
+        if (ganar)
+            ganar();
+    }
+
+    public void ganar(){
+        cara.setBackgroundResource(R.drawable.carawin);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+        builder.setTitle("¡Has ganado!");
+        builder.setMessage("¡Felicidades!");
+        builder.setPositiveButton("Aceptar",
+                (dialog, which) -> {
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     public void limpiarEspacioAutomatico(int x, int y){
@@ -1088,75 +641,265 @@ public class EasyFragment extends Fragment implements View.OnClickListener {
         x = xX;
 
         ImageButton imageButton = requireView().findViewById(idRecuadros[y][x]);
-        if (minasCercanas == 0){
+        if (minasCercanas == 0 && imageButton.isEnabled()){
             imageButton.setBackgroundResource(R.drawable.empty);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else if (minasCercanas == 1){
+        else if (minasCercanas == 1 && imageButton.isEnabled()){
             imageButton.setBackgroundResource(R.drawable.mine1);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else if (minasCercanas == 2){
+        else if (minasCercanas == 2 && imageButton.isEnabled()){
             imageButton.setBackgroundResource(R.drawable.mine2);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else if (minasCercanas == 3){
+        else if (minasCercanas == 3 && imageButton.isEnabled()){
             imageButton.setBackgroundResource(R.drawable.mine3);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else if (minasCercanas == 4){
+        else if (minasCercanas == 4 && imageButton.isEnabled()){
             imageButton.setBackgroundResource(R.drawable.mine4);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else if (minasCercanas == 5){
+        else if (minasCercanas == 5 && imageButton.isEnabled()){
             imageButton.setBackgroundResource(R.drawable.mine5);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else if (minasCercanas == 6){
+        else if (minasCercanas == 6 && imageButton.isEnabled()){
             imageButton.setBackgroundResource(R.drawable.mine6);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else if (minasCercanas == 7){
+        else if (minasCercanas == 7 && imageButton.isEnabled()){
             imageButton.setBackgroundResource(R.drawable.mine7);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        else {
+        else if (imageButton.isEnabled()) {
             imageButton.setBackgroundResource(R.drawable.mine8);
+            imageButton.setEnabled(false);
+            nCasillasParaGanar++;
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-
-        if (minasCercanas == 0){
+        System.out.println(nCasillasParaGanar);
+        p++;
+        if (minasCercanas == 0 && p < 30){
             switch (pos) {
                 case "centro":
-                    limpiarEspacioAutomatico(x + 1, y);
-                    limpiarEspacioAutomatico(x - 1, y);
+                    if (!condicion.isArribaDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y - 1);
+                        condicion.setArribaDerecha(true);
+                    }
+                    if (!condicion.isDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y);
+                        condicion.setDerecha(true);
+                    }
+                    if (!condicion.isArriba()){
+                        limpiarEspacioAutomatico(x, y - 1);
+                        condicion.setArriba(true);
+                    }
+                    if (!condicion.isIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y);
+                        condicion.setIzquierda(true);
+                    }
+                    if (!condicion.isAbajo()){
+                        limpiarEspacioAutomatico(x, y + 1);
+                        condicion.setAbajo(true);
+                    }
+                    if (!condicion.isArribaIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y - 1);
+                        condicion.setArribaIzquierda(true);
+                    }
+                    if (!condicion.isAbajoDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y + 1);
+                        condicion.setAbajoDerecha(true);
+                    }
+                    if (!condicion.isAbajoIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y + 1);
+                        condicion.setAbajoIzquierda(true);
+                    }
                     break;
                 case "arribaderecha":
-
+                    if (!condicion.isAbajo()){
+                        limpiarEspacioAutomatico(x, y + 1);
+                        condicion.setAbajo(true);
+                    }
+                    if (!condicion.isIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y);
+                        condicion.setIzquierda(true);
+                    }
+                    if (!condicion.isAbajoIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y + 1);
+                        condicion.setAbajoIzquierda(true);
+                    }
                     break;
                 case "arribaizquierda":
-
+                    if (!condicion.isAbajo()){
+                        limpiarEspacioAutomatico(x, y + 1);
+                        condicion.setAbajo(true);
+                    }
+                    if (!condicion.isDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y);
+                        condicion.setDerecha(true);
+                    }
+                    if (!condicion.isAbajoDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y + 1);
+                        condicion.setAbajoDerecha(true);
+                    }
                     break;
                 case "abajoderecha":
-
+                    if (!condicion.isArriba()){
+                        limpiarEspacioAutomatico(x, y - 1);
+                        condicion.setArriba(true);
+                    }
+                    if (!condicion.isIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y);
+                        condicion.setIzquierda(true);
+                    }
+                    if (!condicion.isArribaIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y - 1);
+                        condicion.setArribaIzquierda(true);
+                    }
                     break;
                 case "abajoizquierda":
-
+                    if (!condicion.isArriba()){
+                        limpiarEspacioAutomatico(x, y - 1);
+                        condicion.setArriba(true);
+                    }
+                    if (!condicion.isDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y);
+                        condicion.setDerecha(true);
+                    }
+                    if (!condicion.isArribaDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y - 1);
+                        condicion.setArribaDerecha(true);
+                    }
                     break;
                 case "derecha":
-
+                    if (!condicion.isArriba()){
+                        limpiarEspacioAutomatico(x, y - 1);
+                        condicion.setArriba(true);
+                    }
+                    if (!condicion.isIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y);
+                        condicion.setIzquierda(true);
+                    }
+                    if (!condicion.isAbajo()){
+                        limpiarEspacioAutomatico(x, y + 1);
+                        condicion.setAbajo(true);
+                    }
+                    if (!condicion.isAbajoIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y + 1);
+                        condicion.setAbajoIzquierda(true);
+                    }
+                    if (!condicion.isArribaIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y - 1);
+                        condicion.setArribaIzquierda(true);
+                    }
                     break;
                 case "izquierda":
-
+                    if (!condicion.isArriba()){
+                        limpiarEspacioAutomatico(x, y - 1);
+                        condicion.setArriba(true);
+                    }
+                    if (!condicion.isDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y);
+                        condicion.setDerecha(true);
+                    }
+                    if (!condicion.isAbajo()){
+                        limpiarEspacioAutomatico(x, y + 1);
+                        condicion.setAbajo(true);
+                    }
+                    if (!condicion.isArribaDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y - 1);
+                        condicion.setArribaDerecha(true);
+                    }
+                    if (!condicion.isAbajoDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y + 1);
+                        condicion.setAbajoDerecha(true);
+                    }
                     break;
                 case "arriba":
-
+                    if (!condicion.isDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y);
+                        condicion.setDerecha(true);
+                    }
+                    if (!condicion.isAbajo()){
+                        limpiarEspacioAutomatico(x, y + 1);
+                        condicion.setAbajo(true);
+                    }
+                    if (!condicion.isIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y);
+                        condicion.setIzquierda(true);
+                    }
+                    if (!condicion.isAbajoIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y + 1);
+                        condicion.setAbajoIzquierda(true);
+                    }
+                    if (!condicion.isAbajoDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y + 1);
+                        condicion.setAbajoDerecha(true);
+                    }
                     break;
                 case "abajo":
-
+                    if (!condicion.isDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y);
+                        condicion.setDerecha(true);
+                    }
+                    if (!condicion.isIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y);
+                        condicion.setIzquierda(true);
+                    }
+                    if (!condicion.isArribaDerecha()){
+                        limpiarEspacioAutomatico(x + 1, y - 1);
+                        condicion.setArribaDerecha(true);
+                    }
+                    if (!condicion.isArriba()){
+                        limpiarEspacioAutomatico(x, y - 1);
+                        condicion.setArriba(true);
+                    }
+                    if (!condicion.isArribaIzquierda()){
+                        limpiarEspacioAutomatico(x - 1, y - 1);
+                        condicion.setArribaIzquierda(true);
+                    }
                     break;
             }
         }
+        condicion.reset();
+    }
+
+    public boolean noTieneFondo(int id) {
+        ImageButton imageButton = requireView().findViewById(id);
+        return imageButton.isEnabled();
+    }
+
+    public void ponerBandera(int id) {
+        ImageButton imageButton = requireView().findViewById(id);
+        imageButton.setBackgroundResource(R.drawable.flag2);
+        imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onLongClick(View v) {
+        int id = v.getId();
+        if (noTieneFondo(id))
+            ponerBandera(id);
+        return true;
     }
 
 }
