@@ -4249,3 +4249,3104 @@ java.io.IOException: Stream closed
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 13:41:06.537
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2023-02-03 13:59:27.115 -----------------------------------------------
+eclipse.buildId=4.25.0.I20220831-1800
+java.version=17.0.4.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-02-03 13:59:30.731
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2023-02-03 13:59:32.016
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-02-03 13:59:32.016
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-02-03 13:59:32.016
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 13:59:35.273
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 13:59:35.285
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 13:59:35.446
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 13:59:35.449
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:00:18.544
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:00:18.957
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:00:40.488
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:00:45.505
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:00:45.507
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:01:20.577
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:01:20.579
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:01:44.866
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "eventos");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				
+				break;
+			}
+			case 3:{
+				
+				break;
+			}
+			case 4:{
+				
+				break;
+			}
+			case 5:{
+				
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc != 5);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		System.out.println("Introduzca el nombre");
+		String nombre = br.readLine();
+		System.out.println("Introduzca la fecha");
+		String fecha = br.readLine();
+		System.out.println("Introduzca la ciudad");
+		String ciudad = br.readLine();
+		System.out.println("Introduzca el precio");
+		int precio = Integer.valueOf(br.readLine());
+		dao.insertarDocumento(new Document()
+				.append("_id", id)
+				.append("nombre", nombre)
+				.append("fecha", fecha)
+				.append("ciudad", ciudad)
+				.append("precio", precio));
+	}
+	
+	static void eliminarDocumento()
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Borrar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2590 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:01:44.866
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2590 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:01:44.866
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2590 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:01:46.838
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:01:46.839
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:02:35.862
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:02:35.863
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:03:13.335
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:03:13.337
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:03:31.417
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:03:31.419
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:03:48.017
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:03:48.019
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:03:50.960
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:03:50.961
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:04:02.632
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:04:02.636
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:04:09.715
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:04:09.716
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:04:58.102
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "eventos");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				
+				break;
+			}
+			case 4:{
+				
+				break;
+			}
+			case 5:{
+				
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc != 5);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		System.out.println("Introduzca el nombre");
+		String nombre = br.readLine();
+		System.out.println("Introduzca la fecha");
+		String fecha = br.readLine();
+		System.out.println("Introduzca la ciudad");
+		String ciudad = br.readLine();
+		System.out.println("Introduzca el precio");
+		int precio = Integer.valueOf(br.readLine());
+		dao.insertarDocumento(new Document()
+				.append("_id", id)
+				.append("nombre", nombre)
+				.append("fecha", fecha)
+				.append("ciudad", ciudad)
+				.append("precio", precio));
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		dao.eliminarDocumento(id);
+	}
+	
+	static void eliminarCollecion(U)
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Borrar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:04:58.102
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:04:58.102
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:04:59.080
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "eventos");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				
+				break;
+			}
+			case 4:{
+				
+				break;
+			}
+			case 5:{
+				
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc != 5);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		System.out.println("Introduzca el nombre");
+		String nombre = br.readLine();
+		System.out.println("Introduzca la fecha");
+		String fecha = br.readLine();
+		System.out.println("Introduzca la ciudad");
+		String ciudad = br.readLine();
+		System.out.println("Introduzca el precio");
+		int precio = Integer.valueOf(br.readLine());
+		dao.insertarDocumento(new Document()
+				.append("_id", id)
+				.append("nombre", nombre)
+				.append("fecha", fecha)
+				.append("ciudad", ciudad)
+				.append("precio", precio));
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		dao.eliminarDocumento(id);
+	}
+	
+	static void eliminarCollecion(
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Borrar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:04:59.080
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:04:59.080
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:05:00.847
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "eventos");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				
+				break;
+			}
+			case 4:{
+				
+				break;
+			}
+			case 5:{
+				
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc != 5);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		System.out.println("Introduzca el nombre");
+		String nombre = br.readLine();
+		System.out.println("Introduzca la fecha");
+		String fecha = br.readLine();
+		System.out.println("Introduzca la ciudad");
+		String ciudad = br.readLine();
+		System.out.println("Introduzca el precio");
+		int precio = Integer.valueOf(br.readLine());
+		dao.insertarDocumento(new Document()
+				.append("_id", id)
+				.append("nombre", nombre)
+				.append("fecha", fecha)
+				.append("ciudad", ciudad)
+				.append("precio", precio));
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		dao.eliminarDocumento(id);
+	}
+	
+	static void eliminarCollecion() thrwos
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Borrar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2783 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:05:00.847
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2783 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:05:00.847
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2783 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:05:02.775
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "eventos");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				
+				break;
+			}
+			case 4:{
+				
+				break;
+			}
+			case 5:{
+				
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc != 5);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		System.out.println("Introduzca el nombre");
+		String nombre = br.readLine();
+		System.out.println("Introduzca la fecha");
+		String fecha = br.readLine();
+		System.out.println("Introduzca la ciudad");
+		String ciudad = br.readLine();
+		System.out.println("Introduzca el precio");
+		int precio = Integer.valueOf(br.readLine());
+		dao.insertarDocumento(new Document()
+				.append("_id", id)
+				.append("nombre", nombre)
+				.append("fecha", fecha)
+				.append("ciudad", ciudad)
+				.append("precio", precio));
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		dao.eliminarDocumento(id);
+	}
+	
+	static void eliminarCollecion(
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Borrar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:05:02.775
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:05:02.776
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2782 and length is -34.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:05:03.799
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "eventos");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				
+				break;
+			}
+			case 4:{
+				
+				break;
+			}
+			case 5:{
+				
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc != 5);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		System.out.println("Introduzca el nombre");
+		String nombre = br.readLine();
+		System.out.println("Introduzca la fecha");
+		String fecha = br.readLine();
+		System.out.println("Introduzca la ciudad");
+		String ciudad = br.readLine();
+		System.out.println("Introduzca el precio");
+		int precio = Integer.valueOf(br.readLine());
+		dao.insertarDocumento(new Document()
+				.append("_id", id)
+				.append("nombre", nombre)
+				.append("fecha", fecha)
+				.append("ciudad", ciudad)
+				.append("precio", precio));
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		dao.eliminarDocumento(id);
+	}
+	
+	static void eliminarCollecion()
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Borrar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2783 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:05:03.800
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2783 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:05:03.800
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2783 and length is -35.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:05:29.010
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:05:29.013
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:06:00.390
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:06:00.393
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:06:05.055
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:06:05.059
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:06:17.990
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:06:17.991
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:06:53.827
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:06:53.830
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:06:54.970
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:07:27.018
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:07:39.147
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:07:39.149
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:07:50.727
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "suma_reduce");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				eliminarCollecion();
+				break;
+			}
+			case 4:{
+				
+				break;
+			}
+			case 5:{
+				
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc != 5);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		System.out.println("Introduzca el nombre");
+		String nombre = br.readLine();
+		System.out.println("Introduzca la fecha");
+		String fecha = br.readLine();
+		System.out.println("Introduzca la ciudad");
+		String ciudad = br.readLine();
+		System.out.println("Introduzca el precio");
+		int precio = Integer.valueOf(br.readLine());
+		dao.insertarDocumento(new Document()
+				.append("_id", id)
+				.append("nombre", nombre)
+				.append("fecha", fecha)
+				.append("ciudad", ciudad)
+				.append("precio", precio));
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		dao.eliminarDocumento(id);
+	}
+	
+	static void eliminarCollecion() {
+		dao.eliminarCollecion();
+	}
+	
+	static void eliminarTodosLosDocumentos()
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Eliminar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2883 and length is -44.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:07:50.728
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2883 and length is -44.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:07:50.728
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2883 and length is -44.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:08:00.909
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:08:00.911
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:08:09.595
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:08:09.596
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:08:34.362
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:08:34.363
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:10:06.082
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:10:06.083
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:10:17.458
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:10:17.459
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:10:18.773
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:10:52.468
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:11:31.789
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "prueba");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				eliminarCollecion();
+				break;
+			}
+			case 4:{
+				eliminarTodosLosDocumentos();
+				break;
+			}
+			case 5:{
+				
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc != 5);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		System.out.println("Introduzca el nombre");
+		String nombre = br.readLine();
+		System.out.println("Introduzca la fecha");
+		String fecha = br.readLine();
+		System.out.println("Introduzca la ciudad");
+		String ciudad = br.readLine();
+		System.out.println("Introduzca el precio");
+		int precio = Integer.valueOf(br.readLine());
+		dao.insertarDocumento(new Document()
+				.append("_id", id)
+				.append("nombre", nombre)
+				.append("fecha", fecha)
+				.append("ciudad", ciudad)
+				.append("precio", precio));
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		dao.eliminarDocumento(id);
+	}
+	
+	static void eliminarCollecion() {
+		dao.eliminarCollecion();
+	}
+	
+	static void eliminarTodosLosDocumentos() {
+		dao.eliminarTodosDocumentosDeCollecion();
+	}
+	
+	static void consultarDocumento()
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Eliminar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2992 and length is -36.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:11:31.790
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2992 and length is -36.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:11:31.790
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2992 and length is -36.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:11:48.392
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:11:48.396
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:14:21.178
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:14:21.179
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:14:30.197
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:14:30.200
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:14:36.927
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:14:36.930
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:15:40.764
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:15:40.765
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:16:19.540
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:16:19.541
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:16:41.336
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:16:41.339
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:05.616
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:05.617
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:20.788
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:20.788
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:33.080
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:33.081
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:47.008
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:47.009
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:52.488
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:18:52.489
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:19:34.061
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:19:34.062
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:20:15.183
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:20:15.185
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:20:28.683
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:20:28.684
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:21:13.279
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:21:13.281
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:21:25.031
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:22:36.211
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:22:36.212
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:22:38.317
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:22:38.318
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:24:21.451
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:24:21.452
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:24:43.114
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:24:43.115
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:25:45.755
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:25:45.755
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:25:48.816
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:26:22.764
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:26:40.036
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:27:41.585
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:27:41.586
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:28:01.192
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:28:01.193
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:28:44.276
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:28:44.277
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:28:52.652
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:28:52.653
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:29:18.299
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:29:18.300
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:29:27.241
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:29:27.243
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:30:16.261
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:30:16.262
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:30:19.914
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:30:19.915
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:30:22.250
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.debug.core 4 125 2023-02-03 14:30:33.674
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:32:05.083
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "prueba");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				eliminarCollecion();
+				break;
+			}
+			case 4:{
+				eliminarTodosLosDocumentos();
+				break;
+			}
+			case 5:{
+				consultarDocumento();
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc < 10);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		if (dao.consultarDocumento(id) == null) {
+			System.out.println("Introduzca el nombre");
+			String nombre = br.readLine();
+			System.out.println("Introduzca la fecha");
+			String fecha = br.readLine();
+			System.out.println("Introduzca la ciudad");
+			String ciudad = br.readLine();
+			System.out.println("Introduzca el precio");
+			int precio = Integer.valueOf(br.readLine());
+			dao.insertarDocumento(new Document()
+					.append("_id", id)
+					.append("nombre", nombre)
+					.append("fecha", fecha)
+					.append("ciudad", ciudad)
+					.append("precio", precio));
+		}
+		else
+			System.out.println("Ya existe un documento con esa id");
+		
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		if (dao.consultarDocumento(id) != null) {
+			System.out.println("¿Está seguro de que desea borrar el siguiente documento? (S/N)");
+			System.out.println(dao.consultarDocumento(id).toJson());
+			String o = br.readLine();
+			if (o.equals("S")) {
+				dao.eliminarDocumento(id);
+				System.out.println("Documento borrado");
+			}
+			else {
+				System.out.println("Operación de borrado cancelada");
+			}
+		}
+		else {
+			System.out.println("Error de borrado. No se ha encontrado un documento con esa id");
+		}
+		
+	}
+	
+	static void eliminarCollecion() {
+		dao.eliminarCollecion();
+	}
+	
+	static void eliminarTodosLosDocumentos() {
+		dao.eliminarTodosDocumentosDeCollecion();
+	}
+	
+	static void consultarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		try {
+			System.out.println(dao.consultarDocumento(id).toJson());			
+		} catch(NullPointerException e) {
+			System.out.println("Documento no encontrado");
+		}
+	}
+	
+	static void consultarCollecionAscendente()
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Eliminar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 3926 and length is -46.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:32:05.084
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 3926 and length is -46.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:32:05.084
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 3926 and length is -46.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-02-03 14:32:13.771
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package david.david;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.bson.Document;
+
+public class Main {
+
+	static MongoDAO dao = new MongoDAO("eventos", "prueba");
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		int opc;
+		do {
+			opciones();
+			opc = Integer.valueOf(br.readLine());
+			switch (opc) {
+			case 1:{
+				insertarDocumento();
+				break;
+			}
+			case 2:{
+				eliminarDocumento();
+				break;
+			}
+			case 3:{
+				eliminarCollecion();
+				break;
+			}
+			case 4:{
+				eliminarTodosLosDocumentos();
+				break;
+			}
+			case 5:{
+				consultarDocumento();
+				break;
+			}
+			case 6:{
+				
+				break;
+			}
+			case 7:{
+				
+				break;
+			}
+			case 8:{
+				
+				break;
+			}
+			case 9:{
+				
+				break;
+			}
+			}
+		} while(opc < 10);
+		
+		/*
+		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
+
+		for (int i = 0; i < consulta.size(); i++) {
+			System.out.println(consulta.get(i).toString());
+		}
+		
+		for (int i = 0; i < consulta.size(); i++) {
+			Document amig = consulta.get(i);
+			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
+					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
+		}
+		
+		MongoCollection<Document> coll = db.getCollection("catalog");
+		Document catalog = new Document("journal", "Oracle Magazine")
+				.append("publisher", "Oracle Publishing")
+				.append("edition", "November December 2013")
+				.append("title", "Engineering as a Service")
+				.append("author", "David A. Kelly");
+		
+		coll.insertOne(catalog);
+		Document dbObj = coll.find().first();
+		System.out.println(dbObj);
+		Set<String> set = catalog.keySet();
+		Iterator<String> iter = set.iterator();
+		
+		while (iter.hasNext()) {
+			Object obj = iter.next();
+			System.out.println(obj);
+			System.out.println(dbObj.get(obj.toString()));
+			
+		}
+		*/
+
+	}
+	
+	static void insertarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		if (dao.consultarDocumento(id) == null) {
+			System.out.println("Introduzca el nombre");
+			String nombre = br.readLine();
+			System.out.println("Introduzca la fecha");
+			String fecha = br.readLine();
+			System.out.println("Introduzca la ciudad");
+			String ciudad = br.readLine();
+			System.out.println("Introduzca el precio");
+			int precio = Integer.valueOf(br.readLine());
+			dao.insertarDocumento(new Document()
+					.append("_id", id)
+					.append("nombre", nombre)
+					.append("fecha", fecha)
+					.append("ciudad", ciudad)
+					.append("precio", precio));
+		}
+		else
+			System.out.println("Ya existe un documento con esa id");
+		
+	}
+	
+	static void eliminarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento");
+		String id = br.readLine();
+		if (dao.consultarDocumento(id) != null) {
+			System.out.println("¿Está seguro de que desea borrar el siguiente documento? (S/N)");
+			System.out.println(dao.consultarDocumento(id).toJson());
+			String o = br.readLine();
+			if (o.equals("S")) {
+				dao.eliminarDocumento(id);
+				System.out.println("Documento borrado");
+			}
+			else {
+				System.out.println("Operación de borrado cancelada");
+			}
+		}
+		else {
+			System.out.println("Error de borrado. No se ha encontrado un documento con esa id");
+		}
+		
+	}
+	
+	static void eliminarCollecion() {
+		dao.eliminarCollecion();
+	}
+	
+	static void eliminarTodosLosDocumentos() {
+		dao.eliminarTodosDocumentosDeCollecion();
+	}
+	
+	static void consultarDocumento() throws IOException {
+		System.out.println("Introduzca la id");
+		String id = br.readLine();
+		try {
+			System.out.println(dao.consultarDocumento(id).toJson());			
+		} catch(NullPointerException e) {
+			System.out.println("Documento no encontrado");
+		}
+	}
+	
+	static void consultarCollecionAscendente() {
+		
+	}
+	
+	static void cosultarCollectionDescendente()
+	
+	static void opciones() {
+		System.out.println("");
+		System.out.println("1- Insertar documento");
+		System.out.println("2- Eliminar documento de la colección");
+		System.out.println("3- Eliminar colección");
+		System.out.println("4- Eliminar todos los documentos de la colección");
+		System.out.println("5- Consultar un documento");
+		System.out.println("6- Consultar usando agregaciones");
+		System.out.println("7- Consultar colección de forma ordenada ascendente");
+		System.out.println("8- Consultar colección de forma ordenada descendente");
+		System.out.println("9- Actualizar un documento");
+		System.out.println("");
+		System.out.println("10- Salir");
+		System.out.println("");
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 3981 and length is -47.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-02-03 14:32:13.771
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 3981 and length is -47.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-02-03 14:32:13.771
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 3981 and length is -47.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:14.916
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:14.917
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:30.125
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:30.126
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:35.724
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:35.725
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:44.170
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:44.171
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:58.094
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:32:58.095
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:33:30.239
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:33:30.240
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:34:34.333
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:34:34.333
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:35:43.423
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:35:43.424
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:36:02.069
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:36:02.071
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:36:10.620
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:36:10.622
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:36:27.805
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-02-03 14:36:27.806
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
