@@ -40,7 +40,19 @@ public class Main {
 				break;
 			}
 			case 6:{
-				
+				opcionesAgregados();
+				int opcAgr = Integer.valueOf(br.readLine());
+				switch (opcAgr) {
+				case 1:{
+					agregado1();
+					break;
+				}
+				case 2:{
+					agregado2();
+					break;
+				}
+				default:
+				}
 				break;
 			}
 			case 7:{
@@ -52,45 +64,28 @@ public class Main {
 				break;
 			}
 			case 9:{
-				
+				opcionesUpdate();
+				int opcUpd = Integer.valueOf(br.readLine());
+				switch (opcUpd) {
+				case 1:{
+					actualizarDocumento();
+					break;
+				}
+				case 2:{
+					actualizarDocumentos();
+					break;
+				}
+				case 3:{
+					reemplazarDocumento();
+					break;
+				}
+				default:
+				}
 				break;
 			}
+			default:
 			}
 		} while(opc < 10);
-		
-		/*
-		List<Document> consulta = collecion.find().into(new ArrayList<Document>());
-
-		for (int i = 0; i < consulta.size(); i++) {
-			System.out.println(consulta.get(i).toString());
-		}
-		
-		for (int i = 0; i < consulta.size(); i++) {
-			Document amig = consulta.get(i);
-			System.out.println(" - " + amig.getString("nombre") + " - " + amig.get("telefono") + " - "
-					+ amig.getString("curso") + " - " + amig.getDouble("nota"));
-		}
-		
-		MongoCollection<Document> coll = db.getCollection("catalog");
-		Document catalog = new Document("journal", "Oracle Magazine")
-				.append("publisher", "Oracle Publishing")
-				.append("edition", "November December 2013")
-				.append("title", "Engineering as a Service")
-				.append("author", "David A. Kelly");
-		
-		coll.insertOne(catalog);
-		Document dbObj = coll.find().first();
-		System.out.println(dbObj);
-		Set<String> set = catalog.keySet();
-		Iterator<String> iter = set.iterator();
-		
-		while (iter.hasNext()) {
-			Object obj = iter.next();
-			System.out.println(obj);
-			System.out.println(dbObj.get(obj.toString()));
-			
-		}
-		*/
 
 	}
 	
@@ -158,11 +153,86 @@ public class Main {
 	}
 	
 	static void consultarColleccionAscendente() {
-		System.out.println(dao.consultarCollecionOrdenadaAscendente());
+		for (Document d : dao.consultarCollecionOrdenadaAscendente()){
+			System.out.println(d);
+		}	
 	}
 	
 	static void consultarColleccionDescendente() {
-		System.out.println(dao.consultarCollecionOrdenadaDescendente());
+		for (Document d : dao.consultarCollecionOrdenadaDescendente()) {
+			System.out.println(d);
+		}
+		
+	}
+	
+	static void agregado1() {
+		for (Document d : dao.agregado1()) {
+			System.out.println(d);
+		}
+	}
+	
+	static void agregado2() {
+		for (Document d : dao.agregado2()) {
+			System.out.println(d);
+		}
+	}
+	
+	static void actualizarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento a modificar");
+		String id = br.readLine();
+		if (dao.consultarDocumento(id) == null) {
+			System.out.println("No se ha encontrado un documento con esa id");
+		}
+		else {
+			System.out.println("Introduzca el nombre");
+			String nombre = br.readLine();
+			System.out.println("Introduzca la fecha");
+			String fecha = br.readLine();
+			System.out.println("Introduzca la ciudad");
+			String ciudad = br.readLine();
+			System.out.println("Introduzca el precio");
+			int precio = Integer.valueOf(br.readLine());
+			dao.actualizarDocumento(id, nombre, fecha, ciudad, precio);
+			
+		}
+	}
+	
+	static void actualizarDocumentos() throws IOException {
+		System.out.println("Introduzca la id del primer documento a modificar");
+		String id1 = br.readLine();
+		System.out.println("Introduzca la id del segundo documento a modificar");
+		String id2 = br.readLine();
+		if (dao.consultarDocumento(id1) == null || dao.consultarDocumento(id1) == null) {
+			System.out.println("No se ha encontrado un documento con esa id");
+		}
+		else {
+			System.out.println("Introduzca el nombre");
+			String nombre = br.readLine();
+			System.out.println("Introduzca la fecha");
+			String fecha = br.readLine();
+			System.out.println("Introduzca la ciudad");
+			String ciudad = br.readLine();
+			System.out.println("Introduzca el precio");
+			int precio = Integer.valueOf(br.readLine());
+			dao.actualizarDocumentos(id1, id2, nombre, fecha, ciudad, precio);
+			
+		}
+	}
+	
+	static void reemplazarDocumento() throws IOException {
+		System.out.println("Introduzca la id del documento a modificar");
+		String id = br.readLine();
+		
+		if (dao.consultarDocumento(id) == null) {
+			System.out.println("No se ha encontrado un documento con esa id");
+		}
+		else {
+			System.out.println("Introduzca el nuevo campo que va a tener el documento");
+			String nuevo = br.readLine();
+			System.out.println("Introduzca el valor del campo");
+			String valor = br.readLine();
+			dao.reemplazarDocumento(id, nuevo, valor);
+		}
 	}
 	
 	static void opciones() {
@@ -178,6 +248,21 @@ public class Main {
 		System.out.println("9- Actualizar un documento");
 		System.out.println("");
 		System.out.println("10- Salir");
+		System.out.println("");
+	}
+	
+	static void opcionesAgregados() {
+		System.out.println("");
+		System.out.println("1- Agregado 1-> Contar todos los documentos cuyo nombre sea boda");
+		System.out.println("2- Agregado 2-> Mostrar los documentos sin la id con los atributos nombre, ciudad y precio");
+		System.out.println("");
+	}
+	
+	static void opcionesUpdate() {
+		System.out.println("");
+		System.out.println("1- Actualizar un documento");
+		System.out.println("2- Actualizar muchos documentos");
+		System.out.println("3- Reemplazar un documento");
 		System.out.println("");
 	}
 
