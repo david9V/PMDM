@@ -69,7 +69,12 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency>    
+		
+		<dependency>
+  			<groupId>org.thymeleaf</groupId>
+  			<artifactId>thymeleaf</artifactId>
+		</dependency>
         
     </dependencies>
 

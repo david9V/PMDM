@@ -39,7 +39,7 @@ public class Controlador4 {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String uri2 = "/WEB-INF/vistas/index.jsp";
+        String uri2 = "/WEB-INF/vistas/mostrarListadoTeacher.jsp";
         List<Teacher> l = TeacherDto.obtenerDTO_list(request, response);
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("lp", l);
