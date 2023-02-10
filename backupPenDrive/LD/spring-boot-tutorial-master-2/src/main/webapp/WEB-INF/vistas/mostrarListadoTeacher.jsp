@@ -24,11 +24,7 @@
 		out.println("<b> Nombre: </b>" + t.getName().substring(1, t.getName().length() - 1));
 		out.println("<b> Salario: </b>" + t.getSalary() + "€");
 		out.println("<b> Cursos impartidos: </b>");
-		if (t.getCourses().size() > 0 )
-			out.println(t.getCourses());
-		else
-			out.println("No imparte ningún curso");
-		
+		out.println(t.getCourses());
 		out.println("<br>");
 		i++;
 

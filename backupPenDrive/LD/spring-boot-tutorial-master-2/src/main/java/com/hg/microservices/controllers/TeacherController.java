@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,7 +29,7 @@ public class TeacherController {
 	private PersonService personService;
 	
 	@PostMapping("/profesor")
-	public Teacher createTeacher(@Validated @RequestBody Teacher teacher) {
+	public Teacher createTeacher(@Validated @ModelAttribute	 Teacher teacher) {
 		return teacherService.saveTeacher(teacher);
 	}
 	

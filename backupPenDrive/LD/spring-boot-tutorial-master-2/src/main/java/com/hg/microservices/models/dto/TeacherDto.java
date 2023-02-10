@@ -78,7 +78,11 @@ public class TeacherDto {
                     	courseList.add(c);                    	
                     }
                     
-                    teacher.setCourses(courseList);
+                    try{
+                    	teacher.setCourses(courseList);
+                    } catch (Exception e) {
+                    	
+                    }
                     l.add(teacher);
                     //System.out.println(teacher);
                     //System.out.println(object.get("id"));
