@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.List,com.hg.microservices.models.Teacher, java.util.Iterator" %>
+	import="java.util.List,com.hg.microservices.models.*, java.util.Iterator" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -22,9 +22,16 @@
 		Teacher t = (Teacher) it.next();
 		out.println("<h2> Profesor " + i + " :  </h2>");
 		out.println("<b> Nombre: </b>" + t.getName().substring(1, t.getName().length() - 1));
+		out.println("<b> Grado: </b>" + t.getDegree().substring(1, t.getDegree().length() - 1));
+		out.println("<b> Género: </b>" + t.getGender().substring(1, t.getGender().length() - 1));
 		out.println("<b> Salario: </b>" + t.getSalary() + "€");
 		out.println("<b> Cursos impartidos: </b>");
-		out.println(t.getCourses());
+		if (t.getCourses().size() > 0){
+			out.println(t.getCourses());
+		}
+		else{
+			out.println("No imparte ningún curso  <br>");	
+		}
 		out.println("<br>");
 		i++;
 

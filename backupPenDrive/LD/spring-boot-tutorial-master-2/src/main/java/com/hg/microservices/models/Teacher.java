@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @OnDelete(action = OnDeleteAction.CASCADE)
 @PrimaryKeyJoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_teacher_person"))
 public class Teacher extends Person implements Serializable {
-
+	
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "degree", nullable = false)

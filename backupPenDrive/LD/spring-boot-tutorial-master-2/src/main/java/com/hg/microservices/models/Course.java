@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Table(name = "\"Courses\"", schema = "public")
 
 public class Course implements Serializable {
-
+	
 	private static final long serialVersionUID = 1L;
 	
 	//KEY = 1, 2, 3, ...
@@ -124,10 +124,10 @@ public class Course implements Serializable {
 	public void setEnrolled_students(List<Student> enrolled_students) {
 		this.enrolled_students = enrolled_students;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Course [name=" + name + ", start_date=" + start_date + ", ending_date=" + ending_date + "]";
+		return name.substring(1, name.length() - 1);
 	}
 	
 	

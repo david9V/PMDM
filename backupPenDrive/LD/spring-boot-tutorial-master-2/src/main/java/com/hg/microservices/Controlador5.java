@@ -18,7 +18,7 @@ public class Controlador5 {
 	@GetMapping("/darAltaProfesor")
 	protected void doGet2(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String uri2 = "/WEB-INF/vistas/registroProfesor2.jsp";
+		String uri2 = "/WEB-INF/vistas/registroProfesor.jsp";
         response.setContentType("text/html;charset=UTF-8");
 		RequestDispatcher dispatcher = request.getRequestDispatcher(uri2);
 		request.setAttribute("profesor", new Teacher());

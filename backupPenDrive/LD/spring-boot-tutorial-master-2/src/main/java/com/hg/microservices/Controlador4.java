@@ -26,7 +26,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hg.microservices.models.Course;
 import com.hg.microservices.models.Teacher;
-import com.hg.microservices.models.dto.TeacherDto;
+import com.hg.microservices.util.JsonVOConverter;
 
 @Controller
 public class Controlador4 {
@@ -40,7 +40,7 @@ public class Controlador4 {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String uri2 = "/WEB-INF/vistas/mostrarListadoTeacher.jsp";
-        List<Teacher> l = TeacherDto.obtenerDTO_list(request, response);
+        List<Teacher> l = JsonVOConverter.obtenerTeacherList(request, response);
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("lp", l);
         RequestDispatcher dispatcher = request.getRequestDispatcher(uri2);
