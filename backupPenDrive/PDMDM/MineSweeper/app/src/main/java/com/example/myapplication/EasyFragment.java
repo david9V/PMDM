@@ -2,21 +2,28 @@ package com.example.myapplication;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TableLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myapplication.databinding.FragmentSecondBinding;
 
@@ -41,10 +48,11 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
     boolean puedeJugar;
     boolean ganar;
     boolean primerMovimiento;
-    Condicion condicion;
     int p = 0;
     int nCasillasParaGanar = 0;
-    ImageView cara;
+    ImageButton cara;
+    static MediaPlayer music;
+    TableLayout tableLayout;
 
     private FragmentSecondBinding binding;
 
@@ -63,17 +71,17 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
         //      .navigate(R.id.action_SecondFragment_to_FirstFragment));
         //CODIGO NUEVO AQUÍ NO ENO ONCREATEVIEW
 
-        condicion = new Condicion();
         puedeJugar = true;
         ganar = false;
         primerMovimiento = true;
         implementarListeners();
         rellenarIds();
-
+        playMusic(getContext(), R.raw.crash_bandicoot_1_theme);
     }
 
     @Override
     public void onDestroyView() {
+        music.stop();
         super.onDestroyView();
         binding = null;
     }
@@ -88,6 +96,8 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
         idFila6 = new Integer[]{R.id.f6b1, R.id.f6b2, R.id.f6b3, R.id.f6b4, R.id.f6b5, R.id.f6b6, R.id.f6b7, R.id.f6b8};
         idFila7 = new Integer[]{R.id.f7b1, R.id.f7b2, R.id.f7b3, R.id.f7b4, R.id.f7b5, R.id.f7b6, R.id.f7b7, R.id.f7b8};
         idFila8 = new Integer[]{R.id.f8b1, R.id.f8b2, R.id.f8b3, R.id.f8b4, R.id.f8b5, R.id.f8b6, R.id.f8b7, R.id.f8b8};
+
+
 
         idRecuadros[0] = idFila1;
         idRecuadros[1] = idFila2;
@@ -107,6 +117,12 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
         idComoLista.add(Arrays.asList(idFila6));
         idComoLista.add(Arrays.asList(idFila7));
         idComoLista.add(Arrays.asList(idFila8));
+
+        for (int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
+                ImageButton imageButton = requireView().findViewById(idRecuadros[i][j]);
+                imageButton.setBackgroundResource(R.drawable.empty2);            }
+        }
     }
 
     public void implementarListeners() {
@@ -329,15 +345,16 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
         f8b8.setOnLongClickListener(this);
 
         cara = requireView().findViewById(R.id.cara);
+        cara.setOnClickListener(this);
     }
 
-    public void rellenarConMinas() {
+    public void rellenarConMinas(int x, int y) {
         minas = new ArrayList<>();
-        while (minas.size() < 8) {
+        while (minas.size() < 10) {
             int nHor = (int) (Math.random() * 8);
             int nVert = (int) (Math.random() * 8);
             int aux = idRecuadros[nHor][nVert];
-            if (!minas.contains(aux)) minas.add(aux);
+            if (!minas.contains(aux) && nVert != y && nHor != x) minas.add(aux);
         }
     }
 
@@ -345,19 +362,29 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (primerMovimiento){
-            limpiarEspacio(id);
-            primerMovimiento = false;
-        }
-        else if (puedeJugar){
-            if (comprobarSiHayMina(id)){
-                minaExplotada(id);
-            }
-            else{
-                limpiarEspacio(id);
-            }
+        String d = "";
+        if ((v.getContentDescription() != null))
+            d = v.getContentDescription().toString();
 
+        if (!d.equals("cara")){
+            if (primerMovimiento){
+                limpiarEspacio(id);
+                primerMovimiento = false;
+            }
+            else if (puedeJugar){
+                if (comprobarSiHayMina(id)){
+                    minaExplotada(id);
+                }
+                else{
+                    limpiarEspacio(id);
+                }
+
+            }
         }
+
+
+
+
     }
 
     public boolean comprobarSiHayMina(int id){
@@ -380,6 +407,10 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
         }
 
         cara.setBackgroundResource(R.drawable.caralose);
+
+        tableLayout = getView().findViewById(R.id.tableLayout);
+        final Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.shake2);
+        tableLayout.startAnimation(animation);
     }
 
     public void limpiarEspacio(int id){
@@ -401,13 +432,9 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
         imageButton.setBackgroundResource(R.drawable.empty);
         imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-        if (primerMovimiento){
-            rellenarConMinas();
-        }
         int k = 0;
         int y = 0;
         int x = 0;
-
         for (List<Integer> fila : idComoLista){
             if (fila.contains(id)){
                 y = k;
@@ -417,11 +444,17 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
                 k++;
 
         }
+
+        if (primerMovimiento){
+
+            rellenarConMinas(x, y);
+        }
+
         //Toast.makeText(getContext(),"pos x" + x + "pos y" + y,Toast.LENGTH_SHORT).show();
         //CHECKEAR CUANTAS MINAS HAY ALREDEDOR
         limpiarEspacioAutomatico(x, y);
         p=0;
-        if (nCasillasParaGanar == 56){
+        if (nCasillasParaGanar == 54){
             puedeJugar = false;
             ganar = true;
         }
@@ -432,6 +465,13 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
 
     public void ganar(){
         cara.setBackgroundResource(R.drawable.carawin);
+
+        ImageButton imageButton;
+        for (int i = 0; i < minas.size(); i++){
+            imageButton = requireView().findViewById(minas.get(i));
+            imageButton.setBackgroundResource(R.drawable.bomb);
+            imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setCancelable(true);
@@ -445,6 +485,7 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
     }
 
     public void limpiarEspacioAutomatico(int x, int y){
+        Condicion condicion = new Condicion();
         int minasCercanas = 0;
         int xX = x;
         int yY = y;
@@ -697,189 +738,228 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
         }
         System.out.println(nCasillasParaGanar);
         p++;
-        if (minasCercanas == 0 && p < 30){
+        if (minasCercanas == 0 /*&& p < 100*/){
             switch (pos) {
                 case "centro":
                     if (!condicion.isArribaDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y - 1);
                         condicion.setArribaDerecha(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y - 1);
                     }
                     if (!condicion.isDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y);
                         condicion.setDerecha(true);
+                        if (noTieneFondo(idRecuadros[y][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y);
                     }
                     if (!condicion.isArriba()){
-                        limpiarEspacioAutomatico(x, y - 1);
                         condicion.setArriba(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x]))
+                            limpiarEspacioAutomatico(x, y - 1);
                     }
                     if (!condicion.isIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y);
                         condicion.setIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y);
                     }
                     if (!condicion.isAbajo()){
-                        limpiarEspacioAutomatico(x, y + 1);
                         condicion.setAbajo(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x]))
+                            limpiarEspacioAutomatico(x, y + 1);
                     }
                     if (!condicion.isArribaIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y - 1);
                         condicion.setArribaIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y - 1);
                     }
                     if (!condicion.isAbajoDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y + 1);
                         condicion.setAbajoDerecha(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y + 1);
                     }
                     if (!condicion.isAbajoIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y + 1);
                         condicion.setAbajoIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y + 1);
                     }
                     break;
                 case "arribaderecha":
                     if (!condicion.isAbajo()){
-                        limpiarEspacioAutomatico(x, y + 1);
                         condicion.setAbajo(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x]))
+                            limpiarEspacioAutomatico(x, y + 1);
                     }
                     if (!condicion.isIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y);
                         condicion.setIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y);
                     }
                     if (!condicion.isAbajoIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y + 1);
                         condicion.setAbajoIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y + 1);
                     }
                     break;
                 case "arribaizquierda":
                     if (!condicion.isAbajo()){
-                        limpiarEspacioAutomatico(x, y + 1);
                         condicion.setAbajo(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x]))
+                            limpiarEspacioAutomatico(x, y + 1);
                     }
                     if (!condicion.isDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y);
                         condicion.setDerecha(true);
+                        if (noTieneFondo(idRecuadros[y][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y);
                     }
                     if (!condicion.isAbajoDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y + 1);
                         condicion.setAbajoDerecha(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y + 1);
                     }
                     break;
                 case "abajoderecha":
                     if (!condicion.isArriba()){
-                        limpiarEspacioAutomatico(x, y - 1);
                         condicion.setArriba(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x]))
+                            limpiarEspacioAutomatico(x, y - 1);
                     }
                     if (!condicion.isIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y);
                         condicion.setIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y);
                     }
                     if (!condicion.isArribaIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y - 1);
                         condicion.setArribaIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y - 1);
                     }
                     break;
                 case "abajoizquierda":
                     if (!condicion.isArriba()){
-                        limpiarEspacioAutomatico(x, y - 1);
                         condicion.setArriba(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x]))
+                            limpiarEspacioAutomatico(x, y - 1);
                     }
                     if (!condicion.isDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y);
                         condicion.setDerecha(true);
+                        if (noTieneFondo(idRecuadros[y][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y);
                     }
                     if (!condicion.isArribaDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y - 1);
                         condicion.setArribaDerecha(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y - 1);
                     }
                     break;
                 case "derecha":
                     if (!condicion.isArriba()){
-                        limpiarEspacioAutomatico(x, y - 1);
                         condicion.setArriba(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x]))
+                            limpiarEspacioAutomatico(x, y - 1);
                     }
                     if (!condicion.isIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y);
                         condicion.setIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y);
                     }
                     if (!condicion.isAbajo()){
-                        limpiarEspacioAutomatico(x, y + 1);
                         condicion.setAbajo(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x]))
+                            limpiarEspacioAutomatico(x, y + 1);
                     }
                     if (!condicion.isAbajoIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y + 1);
                         condicion.setAbajoIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y + 1);
                     }
                     if (!condicion.isArribaIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y - 1);
                         condicion.setArribaIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y - 1);
                     }
                     break;
                 case "izquierda":
                     if (!condicion.isArriba()){
-                        limpiarEspacioAutomatico(x, y - 1);
                         condicion.setArriba(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x]))
+                            limpiarEspacioAutomatico(x, y - 1);
                     }
                     if (!condicion.isDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y);
                         condicion.setDerecha(true);
+                        if (noTieneFondo(idRecuadros[y][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y);
                     }
                     if (!condicion.isAbajo()){
-                        limpiarEspacioAutomatico(x, y + 1);
                         condicion.setAbajo(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x]))
+                            limpiarEspacioAutomatico(x, y + 1);
                     }
                     if (!condicion.isArribaDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y - 1);
                         condicion.setArribaDerecha(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y - 1);
                     }
                     if (!condicion.isAbajoDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y + 1);
                         condicion.setAbajoDerecha(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y + 1);
                     }
                     break;
                 case "arriba":
                     if (!condicion.isDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y);
                         condicion.setDerecha(true);
+                        if (noTieneFondo(idRecuadros[y][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y);
                     }
                     if (!condicion.isAbajo()){
-                        limpiarEspacioAutomatico(x, y + 1);
                         condicion.setAbajo(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x]))
+                            limpiarEspacioAutomatico(x, y + 1);
                     }
                     if (!condicion.isIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y);
                         condicion.setIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y);
                     }
                     if (!condicion.isAbajoIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y + 1);
                         condicion.setAbajoIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y + 1);
                     }
                     if (!condicion.isAbajoDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y + 1);
                         condicion.setAbajoDerecha(true);
+                        if (noTieneFondo(idRecuadros[y + 1][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y + 1);
                     }
                     break;
                 case "abajo":
                     if (!condicion.isDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y);
                         condicion.setDerecha(true);
+                        if (noTieneFondo(idRecuadros[y][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y);
                     }
                     if (!condicion.isIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y);
                         condicion.setIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y);
                     }
                     if (!condicion.isArribaDerecha()){
-                        limpiarEspacioAutomatico(x + 1, y - 1);
                         condicion.setArribaDerecha(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x + 1]))
+                            limpiarEspacioAutomatico(x + 1, y - 1);
                     }
                     if (!condicion.isArriba()){
-                        limpiarEspacioAutomatico(x, y - 1);
                         condicion.setArriba(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x]))
+                            limpiarEspacioAutomatico(x, y - 1);
                     }
                     if (!condicion.isArribaIzquierda()){
-                        limpiarEspacioAutomatico(x - 1, y - 1);
                         condicion.setArribaIzquierda(true);
+                        if (noTieneFondo(idRecuadros[y - 1][x - 1]))
+                            limpiarEspacioAutomatico(x - 1, y - 1);
                     }
                     break;
             }
         }
-        condicion.reset();
     }
 
     public boolean noTieneFondo(int id) {
@@ -897,9 +977,24 @@ public class EasyFragment extends Fragment implements View.OnClickListener,View.
     @Override
     public boolean onLongClick(View v) {
         int id = v.getId();
-        if (noTieneFondo(id))
+        ImageButton imageButton = requireView().findViewById(id);
+        if (noTieneFondo(id) && !imageButton.isActivated())
             ponerBandera(id);
         return true;
     }
+
+    public static void playMusic(final Context context, int rawMusic) {
+        music = MediaPlayer.create(context, rawMusic);
+        music.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                if (music != null) {
+                    music.release();
+                }
+            }
+        });
+        music.start();
+    }
+
 
 }
