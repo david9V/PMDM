@@ -21,6 +21,7 @@
 	while (it.hasNext()){
 		Teacher t = (Teacher) it.next();
 		out.println("<h2> Profesor " + i + " :  </h2>");
+		out.println("<b> ID: </b>" + t.getId());
 		out.println("<b> Nombre: </b>" + t.getName().substring(1, t.getName().length() - 1));
 		out.println("<b> Grado: </b>" + t.getDegree().substring(1, t.getDegree().length() - 1));
 		out.println("<b> Género: </b>" + t.getGender().substring(1, t.getGender().length() - 1));

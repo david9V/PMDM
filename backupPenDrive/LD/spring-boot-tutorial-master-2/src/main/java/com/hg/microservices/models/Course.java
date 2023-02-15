@@ -127,7 +127,11 @@ public class Course implements Serializable {
 	
 	@Override
 	public String toString() {
-		return name.substring(1, name.length() - 1);
+		if (this.name == null) {
+			return null;
+		}
+		else
+			return name.substring(1, name.length() - 1);
 	}
 	
 	
