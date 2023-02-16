@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class PersonListDto {
 
 	@Id
-	int id;
+	String id;
 	String firstName;
 	String lastName;
 	String street;

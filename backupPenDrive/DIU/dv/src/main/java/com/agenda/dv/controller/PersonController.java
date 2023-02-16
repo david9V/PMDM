@@ -30,13 +30,13 @@ public class PersonController {
 
 	private final DtoConverter dtoConverter;
 
-	@PostMapping("/Persons")
+	@PostMapping("/person")
 	public ResponseEntity<?> createPerson(@RequestBody PersonCreateDto PersonDto) {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(personServiceImpl.savePerson(dtoConverter.convertToEntity(PersonDto)));
 	}
 
-	@GetMapping("/Persons")
+	@GetMapping("/person")
 	public ResponseEntity<?> listAllPersons() {
 		List<Person> result = personServiceImpl.listAllPersons();
 		if (result.isEmpty()) {
@@ -47,7 +47,7 @@ public class PersonController {
 		}
 	}
 
-	@GetMapping("/Persons/id/{id}")
+	@GetMapping("/person/id/{id}")
 	public ResponseEntity<?> listById(@PathVariable String id) {
 		Optional<Person> opt = personServiceImpl.findById(id);
 		try {
@@ -59,7 +59,7 @@ public class PersonController {
 
 	}
 
-	@PutMapping("/Persons/{id}")
+	@PutMapping("/person/{id}")
 	public ResponseEntity<?> updatePerson(@RequestBody PersonCreateDto PersonDto, @PathVariable String id) {
 		Optional<Person> opt = personServiceImpl.findById(id);
 		try {
@@ -76,12 +76,12 @@ public class PersonController {
 		}
 	}
 
-	@DeleteMapping("Persons/{id}")
+	@DeleteMapping("/person/{id}")
 	public void deletePersonById(@PathVariable String id) {
 		personServiceImpl.deletePerson(id);
 	}
 
-	@DeleteMapping("Persons")
+	@DeleteMapping("/person")
 	public void deleteAll() {
 		personServiceImpl.deleteAll();
 	}

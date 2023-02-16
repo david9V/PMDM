@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TutorialDataService from "../services/tutorial.service";
+import PersonDataService from "../services/person.service";
 
 export default class AddTutorial extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ export default class AddTutorial extends Component {
   }
 
   addTutorial() {
-      TutorialDataService.create(
+      PersonDataService.create(
         this.state.currentTutorial
       )
         .then(response => {

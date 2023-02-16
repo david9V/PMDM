@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TutorialDataService from "../services/tutorial.service";
+import PersonDataService from "../services/person.service";
 
 export default class Tutorial extends Component {
   constructor(props) {
@@ -51,7 +51,7 @@ export default class Tutorial extends Component {
   }
 
   getTutorial(id) {
-    TutorialDataService.get(id)
+    PersonDataService.get(id)
       .then(response => {
         this.setState({
           currentTutorial: response.data
@@ -71,7 +71,7 @@ export default class Tutorial extends Component {
       published: status
     };
 
-    TutorialDataService.update(this.state.currentTutorial.id, data)
+    PersonDataService.update(this.state.currentTutorial.id, data)
       .then(response => {
         this.setState(prevState => ({
           currentTutorial: {
@@ -87,7 +87,7 @@ export default class Tutorial extends Component {
   }
 
   updateTutorial() {
-    TutorialDataService.update(
+    PersonDataService.update(
       this.state.currentTutorial.id,
       this.state.currentTutorial
     )
@@ -103,7 +103,7 @@ export default class Tutorial extends Component {
   }
 
   deleteTutorial() {    
-    TutorialDataService.delete(this.state.currentTutorial.id)
+    PersonDataService.delete(this.state.currentTutorial.id)
       .then(response => {
         console.log(response.data);
         this.props.history.push('/tutorials')

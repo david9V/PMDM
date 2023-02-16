@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class PersonCreateDto {
 
 	@Id
-	int id;
+	String id;
 	String firstName;
 	String lastName;
 	String street;
