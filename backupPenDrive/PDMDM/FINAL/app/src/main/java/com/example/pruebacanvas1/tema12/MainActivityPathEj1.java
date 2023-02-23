@@ -1,4 +1,4 @@
-package com.example.pruebacanvas1;
+package com.example.pruebacanvas1.tema12;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 

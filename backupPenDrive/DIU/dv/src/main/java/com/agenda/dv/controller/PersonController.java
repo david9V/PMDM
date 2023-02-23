@@ -59,6 +59,17 @@ public class PersonController {
 
 	}
 
+	@GetMapping("/person/name/{firstName}")
+	public ResponseEntity<?> listByFirstName(@PathVariable String firstName) {
+		List<Person> result = personServiceImpl.listByName(firstName);
+		if (result.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		} else {
+			List<PersonListDto> dtoList = result.stream().map(dtoConverter::convertToDto).collect(Collectors.toList());
+			return ResponseEntity.ok(dtoList);
+		}
+	}
+
 	@PutMapping("/person/{id}")
 	public ResponseEntity<?> updatePerson(@RequestBody PersonCreateDto PersonDto, @PathVariable String id) {
 		Optional<Person> opt = personServiceImpl.findById(id);

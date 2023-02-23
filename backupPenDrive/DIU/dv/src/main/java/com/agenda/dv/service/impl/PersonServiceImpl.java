@@ -30,6 +30,10 @@ public class PersonServiceImpl implements PersonService {
 		return personRepository.findById(id);
 	}
 
+	public List<Person> listByName(String firstName) {
+		return personRepository.findByFirstNameContaining(firstName);
+	}
+
 	@Override
 	public void deletePerson(String id) {
 		personRepository.deleteById(id);

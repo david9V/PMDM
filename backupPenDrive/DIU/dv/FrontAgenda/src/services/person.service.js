@@ -5,8 +5,8 @@ class PersonDataService {
     return http.get("/person");
   }
 
-  get(id) {
-    return http.get(`/person/id/${id}`);
+  get(firstName) {
+    return http.get(`/person/name/${firstName}`);
   }
 
   create(data) {

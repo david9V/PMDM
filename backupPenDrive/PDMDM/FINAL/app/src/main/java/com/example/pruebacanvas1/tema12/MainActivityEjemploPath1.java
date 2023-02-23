@@ -1,4 +1,4 @@
-package com.example.pruebacanvas1;
+package com.example.pruebacanvas1.tema12;
 
 import androidx.appcompat.app.AppCompatActivity;
 
