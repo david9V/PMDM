@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PruebaCANVAS1</string>
+    <string name="info1">Pulse en las imágenes para ver una breve descripción</string>
+    <string name="img1">No puede hacer tanta caloooor</string>
+    <string name="img2">Me corro aaaaaaa</string>
+    <string name="img3">Viejoven</string>
+    <string name="img4">Perro_resando.jpg</string>
 </resources>
