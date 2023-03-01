@@ -9,6 +9,10 @@ class PersonDataService {
     return http.get(`/person/name/${firstName}`);
   }
 
+  getById(id) {
+    return http.get(`/person/id/${id}`);
+  }
+
   create(data) {
     return http.post("/person", data);
   }

@@ -1,23 +1,14 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Switch, Route,Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
 import PersonList from "./components/persons-list.component";
-import PersonSearch from "./components/person-search-component";
-
+import PersonAdd from "./components/person-add-component";
+import PersonEdit from "./components/person-edit-component";
+import UserProvider from "./providers/UserProvider";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      persons: []
-    };
-  }
-
-  callbackFunction = (childData) => {      
-    this.setState({persons: childData})
-  }
   
   render() {
     return (
@@ -29,17 +20,22 @@ class App extends Component {
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/add"} className="nav-link">
-                Add
+                Añadir
               </Link>
-            </li>
-            <li className="nav-item">
-              <PersonSearch parentCallback={this.callbackFunction}></PersonSearch>
             </li>
           </div>
         </nav>
 
         <div className="container mt-3">
-         <PersonList personList={this.state.persons}></PersonList>
+        <Switch>
+            <Route exact path={"/"}  component={PersonList}/>
+            <Route exact path="/add" component={PersonAdd} />
+            <Route path="/persons/:id" component={PersonEdit} />
+        </Switch>
+
+        <UserProvider>
+        </UserProvider>
+
         </div>
       </div>
       
