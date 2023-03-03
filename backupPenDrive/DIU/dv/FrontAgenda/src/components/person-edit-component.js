@@ -12,8 +12,7 @@ export default class PersonEdit extends Component {
     this.onChangeBirthday = this.onChangeBirthday.bind(this);
     this.getPerson = this.getPerson.bind(this);
     this.updatePerson = this.updatePerson.bind(this);
-    this.deletePerson = this.deletePerson.bind(this);
-
+    
     this.state = {
       currentPerson: {
         id: null,
@@ -140,17 +139,6 @@ export default class PersonEdit extends Component {
       });
   }
 
-  deletePerson() {    
-    PersonDataService.delete(this.state.currentPerson.id)
-      .then(response => {
-        console.log(response.data);
-        this.props.history.push('/persons')
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
-
   render() {
     const { currentPerson } = this.state;
 
@@ -228,6 +216,7 @@ export default class PersonEdit extends Component {
             >
               Actualizar
             </button>
+            
             <p>{this.state.message}</p>
           </div>
         

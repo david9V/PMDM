@@ -11,6 +11,8 @@ export default class PersonList extends Component {
     this.onChangeSearchFirstName = this.onChangeSearchFirstName.bind(this);
     this.retrievePersons = this.retrievePersons.bind(this);
     this.searchFirstName = this.searchFirstName.bind(this);
+    this.deletePerson = this.deletePerson.bind(this);
+
     //Hacemos el bind de los métodos porque al usar estos métodos en gestores de eventos los componentes basados
     //en clases pierden el ámbito.
     this.state = {
@@ -26,6 +28,11 @@ export default class PersonList extends Component {
   
   componentDidMount() {
     this.retrievePersons();
+  }
+
+  sendData(){
+    this.props.parentCallback(this.state.persons.length);
+    //preventDefault();  
   }
 
   onChangeSearchFirstName(e) {
@@ -80,8 +87,21 @@ export default class PersonList extends Component {
     });
   }
 
+
+
   removeAllPersons() {
     PersonDataService.deleteAll()
+      .then(response => {
+        console.log(response.data);
+        this.refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  deletePerson() {    
+    PersonDataService.delete(this.state.currentPerson.id)
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -97,6 +117,7 @@ export default class PersonList extends Component {
     return (
       
       <div className="list row">
+       
         <div className="col-md-10">
           <div className="input-group mb-3">
             <input
@@ -116,10 +137,15 @@ export default class PersonList extends Component {
               </button>
             </div>
           </div>
+          <div className="progress mt-2 mb-2">
+            <div className="progress-bar progress-bar-striped bg-info" role="progressbar" style={{width: this.state.persons.length * 2 + "%"}} aria-valuemin="0" aria-valuemax="50">{this.state.persons.length * 2 + "%"} </div>
+          </div> 
         </div>
+
+        
         
         <div className="col-md-6">
-          <h4>Lista de personas</h4>
+          <h4>Lista de personas ({this.state.persons.length})</h4>
 
           <ul className="list-group">
             {/*El operador && lógico. Los dos elementos tienen que ser true, en este caso no vacio, para que se ejecute la sentencia */}
@@ -147,7 +173,10 @@ export default class PersonList extends Component {
           >
             Remove All
           </button>
+
+          
         </div>
+
         <div className="col-md-6">
           {/*Renderizado condicional. Si current person el null se dibuja lo de abajo. Si no,*/}
           {/*se dibuja "Please click on a person..." ver más abajo.*/}
@@ -204,10 +233,21 @@ export default class PersonList extends Component {
                 //Como hemos incluido en el switch esta ruta, /persons/+id se renderizará el componente
                 // persons cuando se pulse el enlace.
                 to={"/persons/" + currentPerson.id}
-                className="badge badge-warning"
+                className="badge badge-warning mr-1"
               >
                 Editar
               </Link>
+
+              <Link
+                //Como hemos incluido en el switch esta ruta, /persons/+id se renderizará el componente
+                // persons cuando se pulse el enlace.
+                className="badge badge-danger"
+                to={"/"}
+                onClick={this.deletePerson}
+              >
+                Eliminar
+              </Link>
+              
             </div>
           ) : (
             
@@ -217,6 +257,7 @@ export default class PersonList extends Component {
             </div>
           )}
         </div>
+
       </div>
     );
   }

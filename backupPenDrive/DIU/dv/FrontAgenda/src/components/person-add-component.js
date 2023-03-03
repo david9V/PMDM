@@ -11,6 +11,7 @@ export default class PersonAdd extends Component {
     this.onChangeCity = this.onChangeCity.bind(this);
     this.onChangeBirthday = this.onChangeBirthday.bind(this);
     this.addPerson = this.addPerson.bind(this);
+    this.check = this.check.bind(this);
     
     this.state = {
       currentPerson: {
@@ -119,6 +120,10 @@ export default class PersonAdd extends Component {
     
   }
 
+  check(){
+    
+  }
+
   render() {
     const { currentPerson } = this.state;
 
@@ -152,6 +157,7 @@ export default class PersonAdd extends Component {
                 <label htmlFor="calle" name="calle">Calle</label>
                 <input
                   type="text"
+                  required
                   className="form-control"
                   id="calle"
                   value={currentPerson.street}
@@ -161,7 +167,7 @@ export default class PersonAdd extends Component {
               <div className="form-group">
                 <label htmlFor="cp" name="cp">Código postal</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   id="cp"
                   value={currentPerson.postalCode}
@@ -195,7 +201,7 @@ export default class PersonAdd extends Component {
             <button
               type="submit"
               className="badge badge-success"
-              onClick={this.addPerson}
+              onClick={this.check}
             >
               Añadir persona
             </button>

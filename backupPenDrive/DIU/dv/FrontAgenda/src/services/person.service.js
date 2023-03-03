@@ -5,6 +5,10 @@ class PersonDataService {
     return http.get("/person");
   }
 
+  getLength() {
+    return http.get("/personLength");
+  }
+
   get(firstName) {
     return http.get(`/person/name/${firstName}`);
   }

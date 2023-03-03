@@ -20,7 +20,7 @@ public class Act0_t14 extends AppCompatActivity {
 
         imageView = findViewById(R.id.i14_1);
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize=2;
+        options.inSampleSize=1;
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.calor, options);
         imageView.setImageBitmap(bitmap);
     }

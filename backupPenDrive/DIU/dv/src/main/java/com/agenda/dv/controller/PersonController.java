@@ -47,6 +47,12 @@ public class PersonController {
 		}
 	}
 
+	@GetMapping("/personLength")
+	public ResponseEntity<?> getListLength() {
+		List<Person> result = personServiceImpl.listAllPersons();
+			return ResponseEntity.ok(result.size());
+	}
+
 	@GetMapping("/person/id/{id}")
 	public ResponseEntity<?> listById(@PathVariable String id) {
 		Optional<Person> opt = personServiceImpl.findById(id);

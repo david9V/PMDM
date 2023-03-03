@@ -6,10 +6,11 @@ import "./App.css";
 import PersonList from "./components/persons-list.component";
 import PersonAdd from "./components/person-add-component";
 import PersonEdit from "./components/person-edit-component";
+import PersonDataService from "./services/person.service";
 import UserProvider from "./providers/UserProvider";
 
 class App extends Component {
-  
+ 
   render() {
     return (
       <div>
@@ -28,13 +29,12 @@ class App extends Component {
 
         <div className="container mt-3">
         <Switch>
-            <Route exact path={"/"}  component={PersonList}/>
+            <Route exact path={"/"}  component={PersonList} />
             <Route exact path="/add" component={PersonAdd} />
             <Route path="/persons/:id" component={PersonEdit} />
         </Switch>
 
-        <UserProvider>
-        </UserProvider>
+        
 
         </div>
       </div>
