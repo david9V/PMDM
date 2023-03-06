@@ -27,6 +27,7 @@ class Grafico3 extends View {
     float[] x = {50 * s, 50 * s};
     float[] y = {50 * s, 150 * s};
     float[] radio = {40 * s, 60 * s};
+    int puntos = 0;
     Paint paint[] = new Paint[2];
     Paint p;
     int seleccion = -1;
@@ -48,6 +49,8 @@ class Grafico3 extends View {
         for (int i = 0; i < 2; i++) {
             canvas.drawCircle(x[i], y[i], radio[i], paint[i]);
         }
+        canvas.drawText("Puntos: " + puntos, 100 * s, 100 * s, p);
+
     }
 
     @Override
@@ -66,6 +69,7 @@ class Grafico3 extends View {
 //se ha seleccionado el círculo i
                     seleccion = i;
                     texto = "Seleccion: " + i;
+                    puntos++;
                     invalidate();
                 }
             }

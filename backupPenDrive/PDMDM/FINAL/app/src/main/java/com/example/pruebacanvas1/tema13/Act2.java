@@ -27,7 +27,8 @@ public class Act2 extends AppCompatActivity {
 class Grafico2 extends View {
     Paint paint;
     float s; // scaled density
-    float x,y;
+    float x;
+    float y = 10;
     Path trazo;
 
     public Grafico2(Context context) {

@@ -1613,3 +1613,4 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact xmlpull:xmlpu
 2023-03-03 13:30:56,455 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2023-03-03 13:30:56,456 [Worker-31: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2023-03-03 13:30:56,456 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/usuario/Desktop/git/pendriveGIT/backupPenDrive/EclipseWorkSpace/ProyectoExamenMongoDB/src/test/resources
+2023-03-06 12:50:01,151 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

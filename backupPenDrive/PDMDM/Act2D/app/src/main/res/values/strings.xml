@@ -13,9 +13,8 @@
 
     <string name="start">Jugar</string>
     <string name="help">Ayuda</string>
-    <string name="title">ATRAPA EL MEME</string>
-    <string name="info">El juego es sencillo, tienes que estar alerta de los memes que vayan apareciendo para hacer click sobre ellos antes de que desaparezcan,
-    a medida que vayas avanzando el juego se irá complicando >:)</string>
+    <string name="title">ATRAPA</string>
+    <string name="info">Intenta pulsar en el objeto cuando aparezca para ir sumando puntos</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

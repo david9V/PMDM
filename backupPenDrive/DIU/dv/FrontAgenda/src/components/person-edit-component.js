@@ -209,13 +209,24 @@ export default class PersonEdit extends Component {
               </div>
             </form>
 
+            {(currentPerson.firstName.length == 0) || (currentPerson.lastName.length == 0)
+            || (currentPerson.birthday.length == 0) || (currentPerson.city.length == 0)
+            || (currentPerson.postalCode.length == 0) || (currentPerson.street.length == 0)
+            ?
             <button
               type="submit"
               className="badge badge-success"
-              onClick={this.updatePerson}
-            >
-              Actualizar
+              disabled
+              onClick={this.updatePerson}>
+              Actualizar datos
             </button>
+            :
+            <button
+              type="submit"
+              className="badge badge-success"
+              onClick={this.updatePerson}>
+              Actualizar datos
+            </button>}
             
             <p>{this.state.message}</p>
           </div>
