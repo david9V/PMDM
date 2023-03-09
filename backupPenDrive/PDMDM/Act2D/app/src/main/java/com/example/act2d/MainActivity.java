@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         int xC, yC ,ymaxC, xmaxC;
         Paint paintFondo, paintParticula, paint;
         float radio = 100 * s;
-        Bitmap bitmap, hitmarker, vidas;
+        Bitmap bitmap, hitmarker, vidas, muerte;
         BitmapFactory.Options options;
         int nVidas = 5;
 
@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.assasincrab);
             vidas = BitmapFactory.decodeResource(context.getResources(), R.drawable.assasincrab, options);
             hitmarker = BitmapFactory.decodeResource(context.getResources(), R.drawable.hitmarker);
+            muerte = BitmapFactory.decodeResource(context.getResources(), R.drawable.blood);
         }
 
         @Override
@@ -154,9 +155,21 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(() -> hitmarkerF = false, 100);
 
             }
+            if (!vivo){
+                canvas.drawBitmap(muerte, x, y, null);
+                continuar = false;
+            }
             switch (nVidas){
+                case 0:{
+                    canvas.drawText("FIN DEL JUEGO" ,(float) (xmax / 3.2), 25 * s, paint);
+                    vivo = false;
+                    hitmarkerF = false;
+                    nVidas--;
+                    break;
+                }
                 case 1:
                     canvas.drawBitmap(vidas, 40, -10, null);
+                    break;
                 case 2: {
                     canvas.drawBitmap(vidas, 40, -10, null);
                     canvas.drawBitmap(vidas, 250, -10, null);
@@ -182,6 +195,11 @@ public class MainActivity extends AppCompatActivity {
                     canvas.drawBitmap(vidas, 650, -10, null);
                     canvas.drawBitmap(vidas, 850, -10, null);
                     break;
+                }
+                default:{
+                    canvas.drawText("FIN DEL JUEGO" ,(float) (xmax / 3.2), 25 * s, paint);
+                    vivo = false;
+                    hitmarkerF = false;
                 }
 
             }

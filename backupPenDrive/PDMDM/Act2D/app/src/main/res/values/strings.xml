@@ -13,8 +13,8 @@
 
     <string name="start">Jugar</string>
     <string name="help">Ayuda</string>
-    <string name="title">ATRAPA</string>
-    <string name="info">Intenta pulsar en el objeto cuando aparezca para ir sumando puntos</string>
+    <string name="title">LA VENGANZA DEL CANGREJO</string>
+    <string name="info">Pulsa en el cangrejo con navaja para hacerle daño, tiene 5 vidas. Disfruta</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
