@@ -1,5 +1,4 @@
 .list {
-  text-align: left;
   max-width: 750px;
   margin: auto;
 }
@@ -32,4 +31,89 @@
 #topheader .navbar-nav li.active > a {
   background-color: #333;
   color: #fff;
+}
+
+.navbar{
+  height: 60px;
+}
+
+.navbar .navbar-profile img {
+  height: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.list-group{
+  max-height: 300px;
+  overflow-y:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Card CSS */
+
+.perfil {
+  width: 50%;
+  margin: auto;
+  padding-left: 17%;
+}
+
+.btnSignOut{
+  margin-left: 53px;
+}
+
+.card.hovercard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(214, 224, 226, 0.2);
+}
+
+.card.hovercard .cardheader {
+  background-size: cover;
+  height: 100px;
+}
+
+.card.hovercard .avatar {
+  position: relative;
+  top: -50px;
+  margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+  width: 200px;
+  height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard .info {
+  padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 1;
+  color: #262626;
+  vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 20px;
+  color: #737373;
+  text-overflow: ellipsis;
+}
+
+.card.hovercard .bottom {
+  padding: 0 20px;
+  margin-bottom: 17px;
 }

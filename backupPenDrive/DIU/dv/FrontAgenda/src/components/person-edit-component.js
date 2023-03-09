@@ -27,6 +27,8 @@ export default class PersonEdit extends Component {
     };
   }
 
+
+
   componentDidMount() {
     this.getPerson(this.props.match.params.id);
   }
@@ -145,92 +147,100 @@ export default class PersonEdit extends Component {
     return (
       <div>
           <div className="edit-form">
-            <h4>Datos</h4>
-            <form>
+          <h4>Datos</h4>
+          <form className="needs-validation">
             <div className="form-group">
-                <label htmlFor="nombre" name="nombre">Nombre</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="nombre"
-                  value={currentPerson.firstName}
-                  onChange={this.onChangeFirstName}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="apellidos" name="apellidos">Apellidos</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="apellidos"
-                  value={currentPerson.lastName}
-                  onChange={this.onChangeLastName}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="calle" name="calle">Calle</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="calle"
-                  value={currentPerson.street}
-                  onChange={this.onChangeStreet}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="cp" name="cp">Código postal</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="cp"
-                  value={currentPerson.postalCode}
-                  onChange={this.onChangePostalCode}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="ciudad" name="ciudad">Ciudad</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="ciudad"
-                  value={currentPerson.city}
-                  onChange={this.onChangeCity}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="fechnac" name="fechnac">Fecha de nacimiento</label>
-                <input
-                  type="date"
-                  className="form-control"
-                  id="fechnac"
-                  value={currentPerson.birthday}
-                  onChange={this.onChangeBirthday}
-                />
-              </div>
-            </form>
+              <label htmlFor="nombre" name="nombre">Nombre</label>
+              <input
+                type="text"
+                className="form-control"
+                id="nombre"
+                required
+                value={currentPerson.firstName}
+                onChange={this.onChangeFirstName}
+              />
 
-            {(currentPerson.firstName.length == 0) || (currentPerson.lastName.length == 0)
-            || (currentPerson.birthday.length == 0) || (currentPerson.city.length == 0)
-            || (currentPerson.postalCode.length == 0) || (currentPerson.street.length == 0)
+            </div>
+            <div className="form-group">
+              <label htmlFor="apellidos" name="apellidos">Apellidos</label>
+              <input
+                type="text"
+                className="form-control"
+                id="apellidos"
+                required
+                value={currentPerson.lastName}
+                onChange={this.onChangeLastName}
+              />
+
+            </div>
+            <div className="form-group">
+              <label htmlFor="calle" name="calle">Calle</label>
+              <input
+                type="text"
+                required
+                className="form-control"
+                id="calle"
+                value={currentPerson.street}
+                onChange={this.onChangeStreet}
+              />
+
+            </div>
+            <div className="form-group">
+              <label htmlFor="cp" name="cp">Código postal</label>
+              <input
+                type="number"
+                className="form-control"
+                id="cp"
+                required
+                value={currentPerson.postalCode}
+                onChange={this.onChangePostalCode}
+              />
+
+            </div>
+            <div className="form-group">
+              <label htmlFor="ciudad" name="ciudad">Ciudad</label>
+              <input
+                type="text"
+                className="form-control"
+                id="ciudad"
+                required
+                value={currentPerson.city}
+                onChange={this.onChangeCity}
+              />
+
+            </div>
+            <div className="form-group">
+              <label htmlFor="fechnac" name="fechnac">Fecha de nacimiento</label>
+              <input
+                type="date"
+                className="form-control"
+                id="fechnac"
+                required
+                value={currentPerson.birthday}
+                onChange={this.onChangeBirthday}
+              />
+            
+            </div>
+
+            {(currentPerson.firstName.length === 0) || (currentPerson.lastName.length === 0)
+            || (currentPerson.birthday.length === 0) || (currentPerson.city.length === 0)
+            || (currentPerson.postalCode.length === 0) || (currentPerson.street.length === 0)
             ?
             <button
               type="submit"
-              className="badge badge-success"
-              disabled
-              onClick={this.updatePerson}>
+              className="btn btn-outline-success"
+              >
               Actualizar datos
             </button>
             :
             <button
               type="submit"
-              className="badge badge-success"
-              onClick={this.updatePerson}>
+              className="btn btn-success"
+              onClick={this.updatePerson} >
               Actualizar datos
             </button>}
-            
-            <p>{this.state.message}</p>
-          </div>
-        
+          </form>
+        </div>
       </div>
     );
   }

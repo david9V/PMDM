@@ -127,7 +127,7 @@ export default class PersonAdd extends Component {
 
         <div className="edit-form">
           <h4>Datos</h4>
-          <form>
+          <form className="needs-validation">
             <div className="form-group">
               <label htmlFor="nombre" name="nombre">Nombre</label>
               <input
@@ -138,6 +138,7 @@ export default class PersonAdd extends Component {
                 value={currentPerson.firstName}
                 onChange={this.onChangeFirstName}
               />
+
             </div>
             <div className="form-group">
               <label htmlFor="apellidos" name="apellidos">Apellidos</label>
@@ -149,6 +150,7 @@ export default class PersonAdd extends Component {
                 value={currentPerson.lastName}
                 onChange={this.onChangeLastName}
               />
+
             </div>
             <div className="form-group">
               <label htmlFor="calle" name="calle">Calle</label>
@@ -160,6 +162,7 @@ export default class PersonAdd extends Component {
                 value={currentPerson.street}
                 onChange={this.onChangeStreet}
               />
+
             </div>
             <div className="form-group">
               <label htmlFor="cp" name="cp">Código postal</label>
@@ -171,6 +174,7 @@ export default class PersonAdd extends Component {
                 value={currentPerson.postalCode}
                 onChange={this.onChangePostalCode}
               />
+
             </div>
             <div className="form-group">
               <label htmlFor="ciudad" name="ciudad">Ciudad</label>
@@ -182,6 +186,7 @@ export default class PersonAdd extends Component {
                 value={currentPerson.city}
                 onChange={this.onChangeCity}
               />
+
             </div>
             <div className="form-group">
               <label htmlFor="fechnac" name="fechnac">Fecha de nacimiento</label>
@@ -193,32 +198,27 @@ export default class PersonAdd extends Component {
                 value={currentPerson.birthday}
                 onChange={this.onChangeBirthday}
               />
+            
             </div>
-          </form>
 
-          <p><b>{this.state.message}</b></p>
-
-          {(currentPerson.firstName.length == 0) || (currentPerson.lastName.length == 0)
-            || (currentPerson.birthday.length == 0) || (currentPerson.city.length == 0)
-            || (currentPerson.postalCode.length == 0) || (currentPerson.street.length == 0)
+            {(currentPerson.firstName.length === 0) || (currentPerson.lastName.length === 0)
+            || (currentPerson.birthday.length === 0) || (currentPerson.city.length === 0)
+            || (currentPerson.postalCode.length === 0) || (currentPerson.street.length === 0)
             ?
             <button
               type="submit"
-              className="badge badge-success"
-              disabled
-              onClick={this.addPerson}>
+              className="btn btn-outline-success"
+              >
               Añadir persona
             </button>
             :
             <button
               type="submit"
-              className="badge badge-success"
+              className="btn btn-success"
               onClick={this.addPerson}>
               Añadir persona
             </button>}
-
-
-          <br></br>
+          </form>
         </div>
       </div>
     );

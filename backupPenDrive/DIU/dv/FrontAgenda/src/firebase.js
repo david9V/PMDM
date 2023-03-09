@@ -34,7 +34,6 @@ const app = initializeApp(firebaseConfig);
 
 
 /////////////////////////////////////////////////////////
-console.log(firebase);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
